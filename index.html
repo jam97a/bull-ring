@@ -3,31 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Bull Ring — FPL Tracker</title>
+  <title>Bull Ring — FPL</title>
+  <meta name="theme-color" content="#B01B2E">
+
+  <link rel="icon" type="image/svg+xml" href="assets/bull.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Libre+Franklin:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
 </head>
 <body>
-  <header class="app-header">
-    <div class="header-row">
-      <h1 id="league-name">FPL Tracker</h1>
-      <span id="season" class="season"></span>
+  <header class="masthead">
+    <div class="wordmark">
+      <img class="bull" src="assets/bull.svg" alt="" width="44" height="44">
+      <div class="wordmark-text">
+        <h1>BULL RING</h1>
+        <p class="season" id="season">2026/27</p>
+      </div>
     </div>
-    <div id="header-meta" class="header-meta"></div>
+    <p class="pot" id="pot"><!-- populated: N playing · €X a month · €Y overall --></p>
   </header>
 
-  <nav class="tabs" role="tablist">
-    <button class="tab" data-view="overall" role="tab">Overall</button>
-    <button class="tab" data-view="monthly" role="tab">Monthly</button>
-    <button class="tab" data-view="prizes" role="tab">Prizes</button>
-    <button class="tab" data-view="grid" role="tab">Grid</button>
+  <nav class="tabbar" role="tablist" aria-label="Views">
+    <button class="tab" role="tab" data-view="overall">Table</button>
+    <button class="tab" role="tab" data-view="monthly">Month</button>
+    <button class="tab" role="tab" data-view="prizes">Money</button>
+    <button class="tab" role="tab" data-view="grid">GWs</button>
+    <button class="tab tab-info" role="tab" data-view="rules" aria-label="Rules">ⓘ</button>
   </nav>
 
-  <main id="main">
-    <div id="loading" class="notice">Loading…</div>
+  <main id="main" aria-live="polite">
+    <p class="state">Loading…</p>
   </main>
 
-  <footer class="app-footer">
+  <footer class="colophon">
     <span id="last-updated"></span>
   </footer>
 

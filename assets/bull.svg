@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Bull Ring">
+  <title>Bull Ring</title>
+  <g fill="#B01B2E">
+    <!-- left horn -->
+    <path d="M33 37 C22 34 11 29 6 13 C9 27 19 32 32 31 Z"/>
+    <!-- right horn -->
+    <path d="M67 37 C78 34 89 29 94 13 C91 27 81 32 68 31 Z"/>
+    <!-- ears -->
+    <path d="M31 40 C24 40 19 44 17 49 C22 50 27 49 31 47 Z"/>
+    <path d="M69 40 C76 40 81 44 83 49 C78 50 73 49 69 47 Z"/>
+    <!-- head -->
+    <path d="M50 28 C61 28 69 32 70 41 L68 58 C67 66 63 72 57 76 L50 81 L43 76 C37 72 33 66 32 58 L30 41 C31 32 39 28 50 28 Z"/>
+  </g>
+  <!-- eyes -->
+  <g fill="#E8DCC4">
+    <path d="M38 47 C41 46 44 47 45 50 C42 51 39 50 38 47 Z"/>
+    <path d="M62 47 C59 46 56 47 55 50 C58 51 61 50 62 47 Z"/>
+  </g>
+  <!-- muzzle -->
+  <g fill="#1A1614" opacity="0.35">
+    <path d="M50 62 C55 62 59 64 59 68 C59 72 55 75 50 75 C45 75 41 72 41 68 C41 64 45 62 50 62 Z"/>
+  </g>
+  <g fill="#E8DCC4">
+    <circle cx="46" cy="68" r="1.9"/>
+    <circle cx="54" cy="68" r="1.9"/>
+  </g>
+</svg>
