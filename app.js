@@ -52,6 +52,7 @@
     return out;
   }
   function hasScores() { return (DATA.gameweeks || []).some(function (g) { return g.played_count > 0; }); }
+  function mutedLine(t) { var p = el("p", "why"); p.textContent = t; return p; }
 
   /* ---------------------------------------------------------------- Heat scale */
 
@@ -287,30 +288,25 @@
     }
   }
 
-  /* ---------------------------------------------------------------- Money (sol y sombra) */
+  /* ---------------------------------------------------------------- Money */
 
-  function moneyRow(r, band) {
-    var tr = el("tr", band);
+  function moneyRow(r) {
+    var tr = el("tr");
     var net = r.net_position;
+    var netCell = net == null
+      ? '<td class="muted">—</td>'
+      : "<td>" + (net >= 0
+          ? '<span class="net-pos">+' + money(net) + "</span>"
+          : '<span class="net-neg">−' + money(Math.abs(net)) + "</span>") + "</td>";
     tr.innerHTML =
       '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) +
       "</span>" + markerHTML(r) +
       '<span class="team">' + esc(r.entry_name) + "</span></th>" +
       '<td class="muted">' + r.periods_won + "</td>" +
-      '<td class="money">' + money(r.money_won) + "</td>" +
-      "<td>" + (net >= 0
-        ? '<span class="net-pos">+' + money(net) + "</span>"
-        : '<span class="net-neg">−' + money(Math.abs(net)) + "</span>") + "</td>";
+      '<td class="' + (r.money_won > 0 ? "money" : "muted") + '">' + money(r.money_won) + "</td>" +
+      netCell;
     return tr;
   }
-  function moneyHead() {
-    return "<thead><tr>" +
-      '<th scope="col" class="col-name">Manager</th>' +
-      '<th scope="col">Won</th><th scope="col">Money</th><th scope="col">± buy-in</th>' +
-      "</tr></thead>";
-  }
-  function bandLabel(t, cls) { return el("div", "band-label" + (cls ? " " + cls : ""), t); }
-  function mutedLine(t) { var p = el("p", "why"); p.textContent = t; return p; }
 
   function renderPrizes() {
     var main = $("#main");
@@ -319,46 +315,17 @@
     if (!rows.length) { main.appendChild(noScoresNotice()); return; }
     main.appendChild(el("h2", "view-title", "The money"));
 
-    var eligible = rows.filter(function (r) { return r.prize_eligible && r.net_position != null; });
-    var ineligible = rows.filter(function (r) { return !r.prize_eligible; });
-
-    if (eligible.length) {
-      var sol = eligible.filter(function (r) { return r.net_position >= 0; });
-      var sombra = eligible.filter(function (r) { return r.net_position < 0; });
-      var wrap = el("div", "solsombra");
-      wrap.appendChild(bandLabel("Sol · in profit", "sol"));
-      if (sol.length) {
-        var t1 = el("table"); t1.innerHTML = moneyHead();
-        var b1 = el("tbody"); sol.forEach(function (r) { b1.appendChild(moneyRow(r, "sol")); });
-        t1.appendChild(b1); wrap.appendChild(t1);
-      } else { wrap.appendChild(mutedLine("Nobody's in profit yet.")); }
-      wrap.appendChild(el("div", "breakeven"));
-      wrap.appendChild(bandLabel("Sombra · down on the year", "sombra"));
-      if (sombra.length) {
-        var t2 = el("table"); t2.innerHTML = moneyHead();
-        var b2 = el("tbody"); sombra.forEach(function (r) { b2.appendChild(moneyRow(r, "sombra")); });
-        t2.appendChild(b2); wrap.appendChild(t2);
-      } else { wrap.appendChild(mutedLine("Nobody's in shade — everyone's up.")); }
-      main.appendChild(wrap);
-    } else { main.appendChild(noScoresNotice()); }
-
-    if (ineligible.length) {
-      main.appendChild(el("h2", "view-title", "Not in the money"));
-      var t3 = el("table");
-      t3.innerHTML = '<thead><tr><th scope="col" class="col-name">Manager</th><th scope="col">Net so far</th></tr></thead>';
-      var b3 = el("tbody");
-      ineligible.forEach(function (r) {
-        var m = memberFor(r.entry_id);
-        var net = m && m.gws_played > 0 ? m.total_net : null;
-        var tr = el("tr", "sombra");
-        tr.innerHTML =
-          '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) + "</span>" +
-          markerHTML(r) + '<span class="team">' + esc(r.entry_name) + "</span></th>" +
-          "<td>" + (net != null ? net : '<span class="muted">—</span>') + "</td>";
-        b3.appendChild(tr);
-      });
-      t3.appendChild(b3); main.appendChild(t3);
-    }
+    // One table, every member, sorted by money won. The ± buy-in column shows
+    // who is up or down without splitting the table.
+    var table = el("table");
+    table.innerHTML = "<thead><tr>" +
+      '<th scope="col" class="col-name">Manager</th>' +
+      '<th scope="col">Won</th><th scope="col">Money</th><th scope="col">± buy-in</th>' +
+      "</tr></thead>";
+    var tb = el("tbody");
+    rows.forEach(function (r) { tb.appendChild(moneyRow(r)); });
+    table.appendChild(tb);
+    main.appendChild(table);
 
     var op = DATA.overall_prize;
     if (op) {
