@@ -51,7 +51,7 @@
 
   function nameFor(id) {
     var m = (DATA.members || []).find(function (x) { return x.entry_id === id; });
-    return m ? m.player_name : ("#" + id);
+    return m ? firstNameInitial(m.player_name) : ("#" + id);
   }
 
   /* ---------------------------------------------------------------- No-scores state */
@@ -88,7 +88,7 @@
       if (scores && i === 0 && played) tr.className = "leader";
       tr.innerHTML =
         '<td class="rank">' + (i + 1) + "</td>" +
-        '<th scope="row" class="col-name"><span class="name-main">' + esc(m.player_name) +
+        '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(m.player_name)) +
         "</span>" + markerHTML(m) +
         '<span class="team">' + esc(m.entry_name) + "</span></th>" +
         "<td>" + (played ? "<b>" + m.total_net + "</b>" : '<span class="muted">—</span>') + "</td>" +
@@ -120,7 +120,7 @@
       if (winners.indexOf(r.entry_id) !== -1) tr.className = "leader";
       tr.innerHTML =
         '<td class="rank">' + (i + 1) + "</td>" +
-        '<th scope="row" class="col-name"><span class="name-main">' + esc(r.player_name) +
+        '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) +
         "</span>" + markerHTML(r) +
         '<span class="team">' + esc(r.entry_name) + "</span></th>" +
         "<td><b>" + r.net + "</b></td>" +
@@ -215,7 +215,7 @@
     var tr = el("tr", band);
     var net = r.net_position;
     tr.innerHTML =
-      '<th scope="row" class="col-name"><span class="name-main">' + esc(r.player_name) +
+      '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) +
       "</span>" + markerHTML(r) +
       '<span class="team">' + esc(r.entry_name) + "</span></th>" +
       '<td class="muted">' + r.periods_won + "</td>" +
@@ -282,7 +282,7 @@
         var net = member && member.gws_played > 0 ? member.total_net : null;
         var tr = el("tr", "sombra");
         tr.innerHTML =
-          '<th scope="row" class="col-name"><span class="name-main">' + esc(r.player_name) + "</span>" +
+          '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) + "</span>" +
           markerHTML(r) + '<span class="team">' + esc(r.entry_name) + "</span></th>" +
           "<td>" + (net != null ? net : '<span class="muted">—</span>') + "</td>";
         b3.appendChild(tr);

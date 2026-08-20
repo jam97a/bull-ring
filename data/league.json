@@ -1,20 +1,20 @@
 {
-  "last_updated": "2026-08-20T13:14:48.655963+00:00",
+  "last_updated": "2026-08-20T16:03:38.474497+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
     "season": "2026/27"
   },
   "current_gw": null,
-  "n_eligible": 0,
+  "n_eligible": 10,
   "roster_locked": false,
   "prizes": {
     "currency": "EUR",
     "buy_in": 50,
     "monthly_per_player": 3,
     "monthly_periods": 9,
-    "monthly": 0,
-    "overall": 0
+    "monthly": 30,
+    "overall": 230
   },
   "gameweeks": [
     {
@@ -378,7 +378,7 @@
           "entry_name": "thefinnertakesitall",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -387,7 +387,7 @@
           "entry_name": "Yoro Wizard Harry",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -396,7 +396,7 @@
           "entry_name": "Crystal Parish",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -405,7 +405,7 @@
           "entry_name": "aint too xabi",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -414,7 +414,7 @@
           "entry_name": "Life gives u Lammens",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -423,7 +423,7 @@
           "entry_name": "Saka Spudz n Rice",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -432,7 +432,16 @@
           "entry_name": "Simo's11",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -441,7 +450,7 @@
           "entry_name": "Gabriel Magalhõss",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -450,14 +459,14 @@
           "entry_name": "Mangos Giants",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         }
       ],
       "winner": null,
       "complete": false,
       "remaining_gws": 5,
-      "prize": 0,
+      "prize": 30,
       "is_current": false
     },
     {
@@ -476,7 +485,7 @@
           "entry_name": "thefinnertakesitall",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -485,7 +494,7 @@
           "entry_name": "Yoro Wizard Harry",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -494,7 +503,7 @@
           "entry_name": "Crystal Parish",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -503,7 +512,7 @@
           "entry_name": "aint too xabi",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -512,7 +521,7 @@
           "entry_name": "Life gives u Lammens",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -521,7 +530,7 @@
           "entry_name": "Saka Spudz n Rice",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -530,7 +539,16 @@
           "entry_name": "Simo's11",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -539,7 +557,7 @@
           "entry_name": "Gabriel Magalhõss",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -548,14 +566,14 @@
           "entry_name": "Mangos Giants",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         }
       ],
       "winner": null,
       "complete": false,
       "remaining_gws": 4,
-      "prize": 0,
+      "prize": 30,
       "is_current": false
     },
     {
@@ -573,7 +591,7 @@
           "entry_name": "thefinnertakesitall",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -582,7 +600,7 @@
           "entry_name": "Yoro Wizard Harry",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -591,7 +609,7 @@
           "entry_name": "Crystal Parish",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -600,7 +618,7 @@
           "entry_name": "aint too xabi",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -609,7 +627,7 @@
           "entry_name": "Life gives u Lammens",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -618,7 +636,7 @@
           "entry_name": "Saka Spudz n Rice",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -627,7 +645,16 @@
           "entry_name": "Simo's11",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -636,7 +663,7 @@
           "entry_name": "Gabriel Magalhõss",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -645,14 +672,14 @@
           "entry_name": "Mangos Giants",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         }
       ],
       "winner": null,
       "complete": false,
       "remaining_gws": 3,
-      "prize": 0,
+      "prize": 30,
       "is_current": false
     },
     {
@@ -673,7 +700,7 @@
           "entry_name": "thefinnertakesitall",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -682,7 +709,7 @@
           "entry_name": "Yoro Wizard Harry",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -691,7 +718,7 @@
           "entry_name": "Crystal Parish",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -700,7 +727,7 @@
           "entry_name": "aint too xabi",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -709,7 +736,7 @@
           "entry_name": "Life gives u Lammens",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -718,7 +745,7 @@
           "entry_name": "Saka Spudz n Rice",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -727,7 +754,16 @@
           "entry_name": "Simo's11",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -736,7 +772,7 @@
           "entry_name": "Gabriel Magalhõss",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -745,14 +781,14 @@
           "entry_name": "Mangos Giants",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         }
       ],
       "winner": null,
       "complete": false,
       "remaining_gws": 6,
-      "prize": 0,
+      "prize": 30,
       "is_current": false
     },
     {
@@ -772,7 +808,7 @@
           "entry_name": "thefinnertakesitall",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -781,7 +817,7 @@
           "entry_name": "Yoro Wizard Harry",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -790,7 +826,7 @@
           "entry_name": "Crystal Parish",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -799,7 +835,7 @@
           "entry_name": "aint too xabi",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -808,7 +844,7 @@
           "entry_name": "Life gives u Lammens",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -817,7 +853,7 @@
           "entry_name": "Saka Spudz n Rice",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -826,7 +862,16 @@
           "entry_name": "Simo's11",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -835,7 +880,7 @@
           "entry_name": "Gabriel Magalhõss",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -844,14 +889,14 @@
           "entry_name": "Mangos Giants",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         }
       ],
       "winner": null,
       "complete": false,
       "remaining_gws": 5,
-      "prize": 0,
+      "prize": 30,
       "is_current": false
     },
     {
@@ -870,7 +915,7 @@
           "entry_name": "thefinnertakesitall",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -879,7 +924,7 @@
           "entry_name": "Yoro Wizard Harry",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -888,7 +933,7 @@
           "entry_name": "Crystal Parish",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -897,7 +942,7 @@
           "entry_name": "aint too xabi",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -906,7 +951,7 @@
           "entry_name": "Life gives u Lammens",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -915,7 +960,7 @@
           "entry_name": "Saka Spudz n Rice",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -924,7 +969,16 @@
           "entry_name": "Simo's11",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -933,7 +987,7 @@
           "entry_name": "Gabriel Magalhõss",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -942,14 +996,14 @@
           "entry_name": "Mangos Giants",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         }
       ],
       "winner": null,
       "complete": false,
       "remaining_gws": 4,
-      "prize": 0,
+      "prize": 30,
       "is_current": false
     },
     {
@@ -967,7 +1021,7 @@
           "entry_name": "thefinnertakesitall",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -976,7 +1030,7 @@
           "entry_name": "Yoro Wizard Harry",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -985,7 +1039,7 @@
           "entry_name": "Crystal Parish",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -994,7 +1048,7 @@
           "entry_name": "aint too xabi",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1003,7 +1057,7 @@
           "entry_name": "Life gives u Lammens",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1012,7 +1066,7 @@
           "entry_name": "Saka Spudz n Rice",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1021,7 +1075,16 @@
           "entry_name": "Simo's11",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1030,7 +1093,7 @@
           "entry_name": "Gabriel Magalhõss",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1039,14 +1102,14 @@
           "entry_name": "Mangos Giants",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         }
       ],
       "winner": null,
       "complete": false,
       "remaining_gws": 3,
-      "prize": 0,
+      "prize": 30,
       "is_current": false
     },
     {
@@ -1064,7 +1127,7 @@
           "entry_name": "thefinnertakesitall",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1073,7 +1136,7 @@
           "entry_name": "Yoro Wizard Harry",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1082,7 +1145,7 @@
           "entry_name": "Crystal Parish",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1091,7 +1154,7 @@
           "entry_name": "aint too xabi",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1100,7 +1163,7 @@
           "entry_name": "Life gives u Lammens",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1109,7 +1172,7 @@
           "entry_name": "Saka Spudz n Rice",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1118,7 +1181,16 @@
           "entry_name": "Simo's11",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1127,7 +1199,7 @@
           "entry_name": "Gabriel Magalhõss",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1136,14 +1208,14 @@
           "entry_name": "Mangos Giants",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         }
       ],
       "winner": null,
       "complete": false,
       "remaining_gws": 3,
-      "prize": 0,
+      "prize": 30,
       "is_current": false
     },
     {
@@ -1163,7 +1235,7 @@
           "entry_name": "thefinnertakesitall",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1172,7 +1244,7 @@
           "entry_name": "Yoro Wizard Harry",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1181,7 +1253,7 @@
           "entry_name": "Crystal Parish",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1190,7 +1262,7 @@
           "entry_name": "aint too xabi",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1199,7 +1271,7 @@
           "entry_name": "Life gives u Lammens",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1208,7 +1280,7 @@
           "entry_name": "Saka Spudz n Rice",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1217,7 +1289,16 @@
           "entry_name": "Simo's11",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1226,7 +1307,7 @@
           "entry_name": "Gabriel Magalhõss",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         },
         {
@@ -1235,14 +1316,14 @@
           "entry_name": "Mangos Giants",
           "net": 0,
           "gws_played": 0,
-          "prize_eligible": false,
+          "prize_eligible": true,
           "in_league": true
         }
       ],
       "winner": null,
       "complete": false,
       "remaining_gws": 5,
-      "prize": 0,
+      "prize": 30,
       "is_current": false
     }
   ],
@@ -1251,8 +1332,8 @@
       "entry_id": 678888,
       "player_name": "Conor Finnerty",
       "entry_name": "thefinnertakesitall",
-      "paid": false,
-      "prize_eligible": false,
+      "paid": true,
+      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1264,8 +1345,8 @@
       "entry_id": 2717535,
       "player_name": "Jack Polion",
       "entry_name": "Yoro Wizard Harry",
-      "paid": false,
-      "prize_eligible": false,
+      "paid": true,
+      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1277,8 +1358,8 @@
       "entry_id": 3839020,
       "player_name": "Jack Traynor",
       "entry_name": "Crystal Parish",
-      "paid": false,
-      "prize_eligible": false,
+      "paid": true,
+      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1290,8 +1371,8 @@
       "entry_id": 6678491,
       "player_name": "James Adamson",
       "entry_name": "aint too xabi",
-      "paid": false,
-      "prize_eligible": false,
+      "paid": true,
+      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1303,8 +1384,8 @@
       "entry_id": 3043159,
       "player_name": "Kevin Byrne",
       "entry_name": "Life gives u Lammens",
-      "paid": false,
-      "prize_eligible": false,
+      "paid": true,
+      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1316,8 +1397,8 @@
       "entry_id": 6232820,
       "player_name": "Oliver McConkey",
       "entry_name": "Saka Spudz n Rice",
-      "paid": false,
-      "prize_eligible": false,
+      "paid": true,
+      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1329,8 +1410,21 @@
       "entry_id": 5557770,
       "player_name": "Simon Bell",
       "entry_name": "Simo's11",
-      "paid": false,
-      "prize_eligible": false,
+      "paid": true,
+      "prize_eligible": true,
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 0,
+      "hits_total": 0,
+      "gws_played": 0,
+      "by_gw": {}
+    },
+    {
+      "entry_id": 6872283,
+      "player_name": "andrew mcclean",
+      "entry_name": "McClean Sheet",
+      "paid": true,
+      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1342,8 +1436,8 @@
       "entry_id": 1006440,
       "player_name": "jack hosford",
       "entry_name": "Gabriel Magalhõss",
-      "paid": false,
-      "prize_eligible": false,
+      "paid": true,
+      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1355,8 +1449,8 @@
       "entry_id": 5089901,
       "player_name": "kevin mangan",
       "entry_name": "Mangos Giants",
-      "paid": false,
-      "prize_eligible": false,
+      "paid": true,
+      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1372,10 +1466,10 @@
       "entry_name": "thefinnertakesitall",
       "periods_won": 0,
       "money_won": 0.0,
-      "net_position": null,
-      "prize_eligible": false,
+      "net_position": -50.0,
+      "prize_eligible": true,
       "in_league": true,
-      "paid": false
+      "paid": true
     },
     {
       "entry_id": 2717535,
@@ -1383,10 +1477,10 @@
       "entry_name": "Yoro Wizard Harry",
       "periods_won": 0,
       "money_won": 0.0,
-      "net_position": null,
-      "prize_eligible": false,
+      "net_position": -50.0,
+      "prize_eligible": true,
       "in_league": true,
-      "paid": false
+      "paid": true
     },
     {
       "entry_id": 3839020,
@@ -1394,10 +1488,10 @@
       "entry_name": "Crystal Parish",
       "periods_won": 0,
       "money_won": 0.0,
-      "net_position": null,
-      "prize_eligible": false,
+      "net_position": -50.0,
+      "prize_eligible": true,
       "in_league": true,
-      "paid": false
+      "paid": true
     },
     {
       "entry_id": 6678491,
@@ -1405,10 +1499,10 @@
       "entry_name": "aint too xabi",
       "periods_won": 0,
       "money_won": 0.0,
-      "net_position": null,
-      "prize_eligible": false,
+      "net_position": -50.0,
+      "prize_eligible": true,
       "in_league": true,
-      "paid": false
+      "paid": true
     },
     {
       "entry_id": 3043159,
@@ -1416,10 +1510,10 @@
       "entry_name": "Life gives u Lammens",
       "periods_won": 0,
       "money_won": 0.0,
-      "net_position": null,
-      "prize_eligible": false,
+      "net_position": -50.0,
+      "prize_eligible": true,
       "in_league": true,
-      "paid": false
+      "paid": true
     },
     {
       "entry_id": 6232820,
@@ -1427,10 +1521,10 @@
       "entry_name": "Saka Spudz n Rice",
       "periods_won": 0,
       "money_won": 0.0,
-      "net_position": null,
-      "prize_eligible": false,
+      "net_position": -50.0,
+      "prize_eligible": true,
       "in_league": true,
-      "paid": false
+      "paid": true
     },
     {
       "entry_id": 5557770,
@@ -1438,10 +1532,21 @@
       "entry_name": "Simo's11",
       "periods_won": 0,
       "money_won": 0.0,
-      "net_position": null,
-      "prize_eligible": false,
+      "net_position": -50.0,
+      "prize_eligible": true,
       "in_league": true,
-      "paid": false
+      "paid": true
+    },
+    {
+      "entry_id": 6872283,
+      "player_name": "andrew mcclean",
+      "entry_name": "McClean Sheet",
+      "periods_won": 0,
+      "money_won": 0.0,
+      "net_position": -50.0,
+      "prize_eligible": true,
+      "in_league": true,
+      "paid": true
     },
     {
       "entry_id": 1006440,
@@ -1449,10 +1554,10 @@
       "entry_name": "Gabriel Magalhõss",
       "periods_won": 0,
       "money_won": 0.0,
-      "net_position": null,
-      "prize_eligible": false,
+      "net_position": -50.0,
+      "prize_eligible": true,
       "in_league": true,
-      "paid": false
+      "paid": true
     },
     {
       "entry_id": 5089901,
@@ -1460,14 +1565,14 @@
       "entry_name": "Mangos Giants",
       "periods_won": 0,
       "money_won": 0.0,
-      "net_position": null,
-      "prize_eligible": false,
+      "net_position": -50.0,
+      "prize_eligible": true,
       "in_league": true,
-      "paid": false
+      "paid": true
     }
   ],
   "overall_prize": {
-    "amount": 0,
+    "amount": 230,
     "pending": true,
     "winner": null
   }

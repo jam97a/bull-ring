@@ -486,7 +486,10 @@ def resolve_tie(tied_ids, gws_in_period, member_gw, tiebreak_chain):
                 vals = [member_gw[m][gw]["net"] for gw in gws_in_period
                         if gw in member_gw.get(m, {})]
                 highest[m] = max(vals) if vals else None
-            best = max(v for v in highest.values() if v is not None)
+            candidates = [v for v in highest.values() if v is not None]
+            if not candidates:
+                continue  # none of the tied managers has played — can't separate
+            best = max(candidates)
             winners = [m for m in tied if highest[m] == best]
             if len(winners) == 1:
                 return winners, "highest_single_gw", {"highest_single_gw": highest}
@@ -539,10 +542,13 @@ def rank_period(period, gws, members, member_gw, eligible_ids,
         })
     standings.sort(key=lambda r: (-r["net"], r["player_name"]))
 
-    # Winner determined among eligible members only.
+    # Winner determined among eligible members only. There is no winner until
+    # at least one eligible member has actually played a gameweek in the period
+    # — before that everyone is tied at 0 and no tiebreak can (or should) apply.
     eligible_standings = [r for r in standings if r["entry_id"] in eligible_ids]
+    any_played = any(r["gws_played"] > 0 for r in eligible_standings)
     winner = None
-    if eligible_standings:
+    if eligible_standings and any_played:
         top_net = eligible_standings[0]["net"]
         tied = [r["entry_id"] for r in eligible_standings if r["net"] == top_net]
         if len(tied) == 1:
