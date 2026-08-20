@@ -56,6 +56,12 @@
     return out;
   }
 
+  function gwCount(p) { return (p.gameweeks || []).length; }
+  function gwLabel(p) {
+    var n = gwCount(p);
+    return n + " gameweek" + (n === 1 ? "" : "s");
+  }
+
   /* ---------------------------------------------------------------- Views */
 
   function renderOverall() {
@@ -168,9 +174,10 @@
           "<div><b>" + esc(p.name) + "</b></div>" +
           '<div class="amt">' + money(p.prize) + "</div>" +
           '<div class="sub">' +
+          "<b>" + gwLabel(p) + "</b> this period" +
           (p.remaining_gws > 0
-            ? p.remaining_gws + " gameweek" + (p.remaining_gws === 1 ? "" : "s") + " remaining"
-            : "final gameweek scores settling") +
+            ? " · " + p.remaining_gws + " remaining"
+            : " · final scores settling") +
           (lead ? " · leading: <b>" + esc(lead) + "</b>" : "") +
           "</div>";
         main.appendChild(banner);
@@ -193,7 +200,8 @@
         var card = el("div", "card");
         var head = el("div", "card-head");
         head.innerHTML =
-          '<span class="grow"><b>' + esc(p.name) + "</b></span>" +
+          '<span class="grow"><b>' + esc(p.name) + "</b>" +
+          '<span class="muted"> · ' + gwLabel(p) + "</span></span>" +
           '<span class="muted">' + money(p.prize) + "</span>";
         card.appendChild(head);
         main.appendChild(card);
@@ -211,6 +219,7 @@
     summary.innerHTML =
       '<span class="chevron">▸</span>' +
       '<span class="grow"><b>' + esc(p.name) + "</b>" +
+      '<span class="muted"> · ' + gwLabel(p) + "</span>" +
       (names ? " — " + esc(names) : " — no winner") +
       (isSplit ? '<span class="pill split">split</span>' : "") + "</span>" +
       '<span class="win-amt">' + amt + (isSplit ? " ea" : "") + "</span>";
