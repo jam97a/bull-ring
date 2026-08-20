@@ -1,176 +1,185 @@
 # Design & Rules — Addendum to SPEC.md
 
-This replaces the styling guidance in SPEC.md. The data layer, `fetch.py`, and the JSON contract are unchanged — this is frontend only.
+Replaces all styling guidance in SPEC.md and adds a fifth view, the rules page. The data layer, `fetch.py`, and the JSON contract are unchanged — this is frontend only.
 
 ---
 
 ## Who this is for
 
-Fourteen mates in a €50 FPL league, checking it on a phone, usually one-handed, usually to answer one of three questions: *where am I, who's winning the month, am I up or down on the year.* Every design decision serves those three. Nobody is going to sit and browse this.
+Fourteen mates in a €50 league, on a phone, one-handed, answering one of three questions: *where am I, who's winning the month, am I up or down.* Every decision below serves those three.
 
-The league is called Bull Ring, so the visual language comes from the **cartel de toros** — the printed bullfight poster. Heavy condensed type, arena sand, deep blood red, black, a thin line of gold. Bold and printed-looking, not a dashboard.
+**Reference point: a broadcast scoreboard, not a web app.** Dark ground, restrained palette, type doing the work, numbers that read at a glance from arm's length. The league is called Bull Ring, so the accent is the red of the muleta and the mark is a bull — but the execution stays sober. One flash of colour on a dark field is what makes it look expensive.
 
 ---
 
 ## Tokens
 
-Define these as CSS custom properties on `:root` and derive everything from them. No colour or size may be hardcoded elsewhere in the stylesheet.
+Define as CSS custom properties on `:root`. No colour or size may be hardcoded anywhere else in the stylesheet.
 
 ### Colour
 
 ```css
---sand:    #E8DCC4;  /* arena floor — page background */
---sand-lo: #D9C9AB;  /* recessed surfaces, table stripes */
---sangre:  #B01B2E;  /* the muleta — primary accent, headings, the bull */
---tinta:   #1A1614;  /* near-black — body text, the bull's mass */
---oro:     #C89B3C;  /* gold trim — winners, prize amounts, hairlines */
---sombra:  #8A7A5E;  /* shade side of the ring — secondary text, muted rows */
+--pitch:      #14100F;  /* page ground — warm near-black, never blue-black */
+--surface:    #1F1917;  /* raised panels, table bodies */
+--surface-hi: #2B2321;  /* row stripes, hover, sticky column */
+--oxblood:    #3D1620;  /* header band and section rules */
+--sangre:     #C41E3A;  /* the bull — identity, live states, hits */
+--oro:        #D4A94A;  /* money and winners, nothing else */
+--bone:       #F2EDE6;  /* primary text */
+--sombra:     #9A8F86;  /* secondary text, labels, muted rows */
+--line:       #332B28;  /* hairlines and table borders */
 ```
 
-Deep red on sand, black type, gold used *only* for money and winners. Gold is the scarcest colour on the page and that scarcity is what makes the prize table read instantly.
+Two rules that matter more than the values:
+
+**Gold is only ever money or a winner.** It is the scarcest colour on the page. That scarcity is what makes the prize table read instantly without a legend.
+
+**The ground is warm, not neutral.** `#14100F` has red-brown in it. A cold `#0A0A0A` with a red accent is the generic dark-mode look; the warmth is what stops this reading as a template. Never substitute pure black or a grey with blue in it.
+
+Build depth with the three surface levels — `--pitch` behind, `--surface` for panels, `--surface-hi` for stripes and the sticky column. A flat single-black page is the thing to avoid.
 
 ### Type
 
-Load from Google Fonts:
+From Google Fonts:
 
-- **Display — `Alfa Slab One`.** Poster weight. Used for the wordmark, view headings, and the single biggest number on each screen. Never below 20px, never for body copy, never more than a few words at a time.
-- **Body — `Libre Franklin`.** All prose, labels, navigation.
-- **Data — `IBM Plex Mono`.** Every number in every table. Set `font-variant-numeric: tabular-nums` so columns align — this is non-negotiable in the gameweek grid.
+- **Display — `Archivo Black`.** Wordmark, view headings, and the single largest number on each screen. Tight tracking (`-0.02em`). Never below 18px, never for body copy.
+- **Body — `Public Sans`.** Prose, labels, navigation, the rules page.
+- **Data — `IBM Plex Mono`.** Every number in every table, with `font-variant-numeric: tabular-nums`. Non-negotiable in the gameweek grid — columns must align or the grid is unreadable.
 
-Scale: 12 / 14 / 16 / 20 / 28 / 44. Nothing between. Body 16, table data 14, captions 12.
+Scale: 12 / 14 / 16 / 20 / 28 / 46. Nothing between. Body 16, table data 14, labels 12 in small caps with `letter-spacing: 0.08em`.
 
-### Other
+### Structure
 
 ```css
---radius: 2px;        /* printed, not soft */
---rule: 1px solid var(--tinta);
---rule-gold: 1px solid var(--oro);
+--radius: 4px;
+--line-thin: 1px solid var(--line);
+--gap: 16px;
 ```
 
-Sharp corners throughout. This is a poster, not a card UI.
+Restrained corners. Hairlines rather than heavy borders — on a dark ground a 1px `--line` reads as a division without adding weight.
 
 ---
 
-## Signature element: sol y sombra
+## Signature: sol y sombra
 
-Bullrings sell seats as **sol** (sun) or **sombra** (shade) depending on which side of the arena they're on. Use this as the organising device of the **prize table**, which is the page people actually care about.
+Bullrings sell seats as **sol** or **sombra** depending which side of the arena they're on. That's the organising device of the prize table, which is the view people actually open.
 
-Every member sits above or below their €50 buy-in:
+Every member is above or below their €50 buy-in:
 
-- **Sol** — in profit. Sand background, gold prize figures, tinta text.
-- **Sombra** — down on the year. `--sand-lo` background, `--sombra` text, prize figures in tinta rather than gold.
+- **Sol** — in profit. `--surface` row, prize figure in `--oro`, name in `--bone`.
+- **Sombra** — down on the year. `--pitch` row, everything in `--sombra`, prize figure in `--bone` rather than gold.
 
-Draw a single heavy horizontal rule in `--sangre` across the table exactly at the break-even line, labelled `SOL` above and `SOMBRA` below in small caps. Early in the season almost everyone is in shade and the line sits near the top; by May it will have travelled down. That movement is the story of the season and it costs nothing to show.
+A single 2px `--sangre` rule runs across the table exactly at the break-even line, with `SOL` and `SOMBRA` set in 12px small caps in the margins above and below it.
 
-This is the one bold move on the site. Everything else stays quiet.
+In August the line sits near the top and nearly everyone is in shade. By May it will have travelled down the table. That movement is the season, and it costs nothing to show.
+
+**This is the only bold move on the site.** Everything else stays quiet and disciplined. Do not add a second signature.
 
 ---
 
 ## Layout
 
-Mobile-first, single column, max content width 720px centred on desktop. Four views plus rules, switched by a persistent tab bar.
+Mobile-first, single column, content capped at 720px and centred on desktop.
 
 ```
-┌──────────────────────────────┐
-│  [bull]  BULL RING           │  ← wordmark, Alfa Slab, sangre
-│          2026/27             │
-│  ─────────────────────────   │  ← gold hairline
-│  14 playing · €42 a month    │  ← live pot line, mono
-│          · €322 overall      │
-├──────────────────────────────┤
-│ TABLE  MONTH  MONEY  GWS  ⓘ │  ← tab bar, sticky
-├──────────────────────────────┤
-│                              │
-│      (active view)           │
-│                              │
-├──────────────────────────────┤
-│  Updated 2 hours ago         │
-└──────────────────────────────┘
+┌────────────────────────────────┐
+│ ▓▓ oxblood band ▓▓▓▓▓▓▓▓▓▓▓▓▓▓ │
+│  [bull]  BULL RING             │
+│          2026/27               │
+├────────────────────────────────┤
+│  €42        €322       14      │  ← Archivo Black 46
+│  A MONTH    OVERALL    PLAYING │  ← 12px small caps, sombra
+├────────────────────────────────┤
+│ TABLE   MONTH   MONEY   GWS  ⓘ │
+├────────────────────────────────┤
+│                                │
+│         (active view)          │
+│                                │
+├────────────────────────────────┤
+│  Updated 2 hours ago           │
+└────────────────────────────────┘
 ```
 
-The tab bar sticks to the **bottom** on screens under 600px — that's where a thumb is — and to the top on desktop.
+The three-figure strip under the wordmark is the hero. Real money, scaling with how many played — the most characteristic fact about this league. Three figures, three labels, a `--line` divider between each, nothing else.
 
-The pot line under the wordmark is the hero. It's the most characteristic fact about this league: real money, and it scales with how many played. Render the two figures in Alfa Slab at 28px, the words around them small and quiet.
+Header band in `--oxblood`, full-bleed, with the bull mark at 40px and the wordmark in Archivo Black beside it. This band is the only large area of colour on the page.
 
-### Gameweek grid on a phone
+Tab bar sticks to the **bottom** under 600px, where a thumb is. Top on desktop. Active tab marked with a 2px `--sangre` underline, not a filled pill.
 
-The hard one. Sticky first column (names, truncated to first name + last initial), sticky header row (GW numbers), horizontal scroll for the rest. Cell height 36px minimum for thumb accuracy. Add a soft shadow on the right edge of the sticky column so it's obvious the table scrolls.
+### Gameweek grid
 
-Cell colouring is **relative to that gameweek's league average**, as already specced — not fixed thresholds. Above average shades toward `--sangre` at low opacity, below toward `--sombra`. A gameweek where a hit was taken shows the hit in `--sangre` at 12px: `62 −4`. Chips get a single letter in `--oro` in the cell corner: W, B, T, F.
+The hard view. Sticky first column (first name + last initial) on `--surface-hi`, sticky header row of gameweek numbers, horizontal scroll for the body. Minimum 36px cell height for thumb accuracy. A soft shadow on the right edge of the sticky column so it's obvious the table scrolls sideways.
+
+Cells colour **relative to that gameweek's league average**, as already specced — not fixed thresholds. Above average shades toward `--sangre` at low opacity; below shades toward `--pitch`. Hits show as `62 −4` with the `−4` in `--sangre` at 12px. Chips get a single `--oro` letter in the cell corner: W, B, T, F.
 
 ---
 
 ## Motion
 
-Restraint. Three things only:
+Three things only:
 
-1. Tab switches cross-fade at 150ms.
-2. The break-even rule on the prize table draws in from left to right on first paint, 400ms. It's the signature; let it announce itself once.
-3. Focus states are visible and immediate — a 2px `--sangre` outline.
+1. Tab switches cross-fade, 150ms.
+2. The break-even rule draws left to right on first paint, 400ms, ease-out. It's the signature — let it announce itself once, then never again.
+3. Row hover lifts to `--surface-hi`, 100ms.
 
-Respect `prefers-reduced-motion: reduce` and drop all of it.
+Everything else static. Respect `prefers-reduced-motion: reduce` and drop all of it.
 
 ## Quality floor
 
-Responsive from 320px up. Visible keyboard focus on every interactive element. Real `<table>` markup with `<th scope>` — people will read this with the screen zoomed. `<meta charset="utf-8">` so accented team names render correctly. Contrast: tinta on sand and sangre on sand both pass AA at body size; sombra on sand is for secondary text only, never for anything you must read.
-
----
+Responsive from 320px. Visible keyboard focus — 2px `--sangre` outline with 2px offset, never `outline: none`. Real `<table>` markup with `<th scope>`. `<meta charset="utf-8">` so accented team names render properly. `--bone` and `--sombra` on `--pitch` both pass AA; `--sangre` on `--pitch` is for large text and 2px rules only, never body copy.
 
 ## Empty and error states
 
-Write them in the interface's voice, not an apology.
+Written in the interface's voice, not an apology.
 
-- Before GW1 is scored: **"No scores yet. First gameweek deadline is Friday."** Show the roster and the pot, since those exist.
-- Fetch failed: **"Showing scores from [timestamp]. The update job hasn't run since then."** Never a blank screen and never a spinner that hangs.
-- A member with no history yet: blank cells, not zeros. Zero is a score; blank is an absence.
+- Before GW1 is scored: **"No scores yet. First gameweek deadline is Friday."** Show the roster and the money strip — those exist.
+- Fetch failed: **"Showing scores from [timestamp]. The update job hasn't run since."** Never a blank screen, never a hanging spinner.
+- Member with no history: blank cells, not zeros. Zero is a score; blank is an absence.
 
 ---
 
 ## Rules page
 
-A fifth view, reached from the ⓘ tab. Static content, no data binding except the figures marked below, which come from `data/league.json` so they never go stale.
+Fifth view, on the ⓘ tab. Static prose with `--sangre` headings in Archivo Black at 20px, body in Public Sans at 16px, generous line height. No cards, no accordions — people need to scroll it and screenshot a section to settle an argument.
 
-Set it as a single column of prose with `--sangre` headings in Alfa Slab at 20px. No cards, no accordions — people need to be able to scroll it and screenshot a bit to settle an argument.
-
-### Content
+Figures in braces bind to `data/league.json` so they never go stale.
 
 **The buy-in**
 €50 each. {N} playing, so the pot is €{N × 50}.
 
 **How the money splits**
-€3 of everyone's €50 goes to each of the nine monthly prizes. The remaining €23 goes to the overall winner.
-
-That makes each month worth **€{3 × N}** and the season worth **€{23 × N}**.
+€3 of everyone's €50 goes to each of the nine monthly prizes. The remaining €23 goes to the overall winner. That makes each month worth **€{3 × N}** and the season worth **€{23 × N}**.
 
 **The nine months**
-August and September count as one period. Then October, November, December, January, February, March, April and May.
+August and September count as one period. Then October, November, December, January, February, March, April, May.
 
-Show the period table here, generated from `config/periods.json`: period name, gameweeks, and gameweek count. State plainly underneath that periods vary in length — December is six gameweeks, March and April are three — and that every period is worth the same regardless. Someone will ask; answer it before they do.
+Render the period table from `config/periods.json`: name, gameweeks, gameweek count. Underneath, state plainly that periods vary in length — December is six gameweeks, March and April three — and that every period is worth the same regardless. Someone will ask; answer it first.
 
 **How scores are counted**
-Net points. Transfer hits come off your score. A 62 with a −4 hit counts as 58, for the month and for the season.
+Net points. Transfer hits come off. A 62 with a −4 counts as 58, for the month and for the season.
 
 **Chips**
-No restrictions. Wildcards, bench boosts, triple captains and free hits can all be played whenever you like, including to win a month.
+No restrictions. Wildcard, bench boost, triple captain and free hit can be played whenever, including to win a month.
 
 **Ties**
-Settled in this order, stopping at the first one that separates you:
+Settled in order, stopping at the first that separates you:
 1. Head-to-head — who won more gameweeks against the other in that period
 2. Highest single gameweek in the period
 3. Fewest transfers made in the period
-4. If still level, the prize is split
+4. Still level, the prize splits
 
-The site shows which rule settled any tie and the numbers behind it.
+The site shows which rule settled a tie and the numbers behind it.
 
 **Who's in**
-The roster locked at the GW1 deadline. Anyone who hadn't paid by then isn't in the prize money. If you leave the mini-league during the season your scores still count — you paid, your team still scores.
+Roster locked at the GW1 deadline. Anyone unpaid by then isn't in the prize money. Leaving the mini-league mid-season doesn't remove your scores — you paid, your team still scores.
 
 **Payment**
-All €50s to the league admin before the deadline. The site only counts you as eligible once the money's in.
+All €50s to the league admin before the deadline. You're only eligible once the money's in.
 
 ---
 
 ## Files
 
-- `assets/bull.svg` — the wordmark logo. An original mark drawn for this league; also generate 32×32 and 180×180 PNGs from it for the favicon and iOS home screen icon.
-- Set `<meta name="theme-color" content="#B01B2E">` so it looks right when saved to a phone home screen. People will add this to their home screen — make that path work properly.
+- `assets/bull.svg` — the mark, drawn for the dark ground. Original artwork for this league.
+- Generate 32×32 and 180×180 PNGs from it for favicon and iOS home screen icon.
+- `<meta name="theme-color" content="#3D1620">` so the browser chrome matches the header band when saved to a home screen. People will add this to their phone — make that path look finished.

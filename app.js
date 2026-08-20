@@ -157,7 +157,7 @@
 
     current.forEach(function (p) {
       var lead = ((p.winner && p.winner.entry_ids) || []).map(nameFor).join(" & ");
-      var hero = el("div", "hero");
+      var hero = el("div", "hero-period");
       hero.innerHTML =
         '<div class="p-name">' + esc(p.name) + "</div>" +
         '<div class="amt">' + money(p.prize) + "</div>" +
@@ -247,7 +247,7 @@
       var sombra = eligible.filter(function (r) { return r.net_position < 0; });
       var wrap = el("div", "solsombra");
 
-      wrap.appendChild(bandLabel("Sol · in profit"));
+      wrap.appendChild(bandLabel("Sol · in profit", "sol"));
       if (sol.length) {
         var t1 = el("table"); t1.innerHTML = moneyHead();
         var b1 = el("tbody"); sol.forEach(function (r) { b1.appendChild(moneyRow(r, "sol")); });
@@ -259,7 +259,7 @@
       var be = el("div", "breakeven");
       wrap.appendChild(be);
 
-      wrap.appendChild(bandLabel("Sombra · down on the year"));
+      wrap.appendChild(bandLabel("Sombra · down on the year", "sombra"));
       if (sombra.length) {
         var t2 = el("table"); t2.innerHTML = moneyHead();
         var b2 = el("tbody"); sombra.forEach(function (r) { b2.appendChild(moneyRow(r, "sombra")); });
@@ -302,7 +302,7 @@
     }
   }
 
-  function bandLabel(t) { return el("div", "band-label", t); }
+  function bandLabel(t, cls) { return el("div", "band-label" + (cls ? " " + cls : ""), t); }
   function mutedLine(t) { var p = el("p", "why"); p.textContent = t; return p; }
 
   /* ---------------------------------------------------------------- GWs (grid) */
@@ -472,11 +472,17 @@
     $("#season").textContent = (DATA.league && DATA.league.season) || "";
     var N = DATA.n_eligible || 0;
     var pz = DATA.prizes || {};
-    $("#pot").innerHTML =
-      '<span class="fig">' + N + "</span> playing" +
-      '<span class="sep">·</span><span class="fig gold">' + money(pz.monthly || 0) + "</span> a month" +
-      '<span class="sep">·</span><span class="fig gold">' + money(pz.overall || 0) + "</span> overall";
+    // Hero: three figures — monthly / overall (money, gold) and count (bone).
+    $("#hero").innerHTML =
+      figCell(money(pz.monthly || 0), "A month", "money") +
+      figCell(money(pz.overall || 0), "Overall", "money") +
+      figCell(String(N), "Playing", "count");
     $("#last-updated").textContent = relTime(DATA.last_updated);
+  }
+
+  function figCell(value, label, kind) {
+    return '<div class="fig-cell"><div class="fig ' + kind + '">' + esc(value) +
+      '</div><div class="fig-label">' + esc(label) + "</div></div>";
   }
 
   function render() {
