@@ -50,6 +50,7 @@
   --tabbar-h: 56px;
   --namecol: 132px;
   --track-caps: 0.12em;
+  --track-tab: 0.03em;   /* tighter so five tabs fit a 320px phone */
 
   /* Motion */
   --dur-fade: 150ms;
@@ -186,7 +187,8 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   border-bottom: var(--line-thin);
 }
 .tab {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   min-height: var(--tabbar-h);
   padding: 0 var(--sp-1);
   background: none;
@@ -195,12 +197,15 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   font-family: var(--font-body);
   font-size: var(--fs-14);
   font-weight: 700;
-  letter-spacing: var(--track-caps);
+  letter-spacing: var(--track-tab);
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--sombra);
   cursor: pointer;
 }
-.tab.tab-info { flex: 0 0 auto; min-width: var(--tabbar-h); font-size: var(--fs-20); }
+.tab.tab-info { font-size: var(--fs-20); }
 .tab[aria-selected="true"] { color: var(--bone); border-bottom: var(--rule-live); }
 .tab:focus-visible { outline: var(--outline); outline-offset: -2px; }
 
