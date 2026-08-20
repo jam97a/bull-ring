@@ -1,5 +1,5 @@
-/* Bull Ring — vanilla JS, no build step. Reads the local data/league.json only.
-   JSON contract unchanged from fetch.py; this is a presentation rebuild. */
+/* Bull Ring — vanilla JS, no build step. Reads local data/league.json only.
+   JSON contract unchanged; this revision makes the data itself move. */
 
 (function () {
   "use strict";
@@ -13,6 +13,7 @@
 
   var DATA = null;
   var currentView = "overall";
+  var HEAT = { ember: Infinity, gwAvg: {} };
 
   function $(s, r) { return (r || document).querySelector(s); }
   function el(tag, cls, text) {
@@ -22,12 +23,15 @@
     return e;
   }
   function esc(s) { return String(s == null ? "" : s); }
+  function reduceMotion() { return window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches; }
 
-  function money(n) {
+  function currencySymbol() {
     var cur = (DATA && DATA.prizes && DATA.prizes.currency) || "EUR";
-    var sym = { EUR: "€", GBP: "£", USD: "$" }[cur] || (cur + " ");
+    return { EUR: "€", GBP: "£", USD: "$" }[cur] || (cur + " ");
+  }
+  function money(n) {
     var v = Math.round((Number(n) || 0) * 100) / 100;
-    return sym + v;
+    return currencySymbol() + v;
   }
 
   function firstNameInitial(name) {
@@ -35,8 +39,11 @@
     if (parts.length < 2) return parts[0] || "";
     return parts[0] + " " + parts[parts.length - 1].charAt(0).toUpperCase() + ".";
   }
-
   function chipLetter(chip) { return CHIP_LETTER[chip] || chip.charAt(0).toUpperCase(); }
+
+  function memberFor(id) { return (DATA.members || []).find(function (x) { return x.entry_id === id; }); }
+  function nameFor(id) { var m = memberFor(id); return m ? firstNameInitial(m.player_name) : ("#" + id); }
+  function teamFor(id) { var m = memberFor(id); return m ? m.entry_name : ("#" + id); }
 
   function markerHTML(m) {
     var out = "";
@@ -44,22 +51,70 @@
     if (m.in_league === false) out += '<span class="mark left" title="Left the mini-league; scores still count">left</span>';
     return out;
   }
+  function hasScores() { return (DATA.gameweeks || []).some(function (g) { return g.played_count > 0; }); }
 
-  function hasScores() {
-    return (DATA.gameweeks || []).some(function (g) { return g.played_count > 0; });
+  /* ---------------------------------------------------------------- Heat scale */
+
+  function prepHeat() {
+    var nets = [];
+    (DATA.members || []).forEach(function (m) {
+      if (m.by_gw) Object.keys(m.by_gw).forEach(function (gw) { nets.push(m.by_gw[gw].net); });
+    });
+    nets.sort(function (a, b) { return a - b; });
+    HEAT.ember = nets.length ? nets[Math.floor(0.9 * (nets.length - 1))] : Infinity;
+    HEAT.gwAvg = {};
+    (DATA.gameweeks || []).forEach(function (g) { HEAT.gwAvg[g.id] = g.average_net; });
+  }
+  function heatClass(net, gwId) {
+    if (isFinite(HEAT.ember) && net >= HEAT.ember) return "heat-ember";
+    var avg = HEAT.gwAvg[gwId];
+    if (avg == null) return "heat-0";
+    var d = net - avg;
+    if (d > 18) return "heat-hot3";
+    if (d > 10) return "heat-hot2";
+    if (d > 3) return "heat-hot1";
+    if (d < -18) return "heat-ice3";
+    if (d < -10) return "heat-ice2";
+    if (d < -3) return "heat-ice1";
+    return "heat-0";
   }
 
-  function nameFor(id) {
-    var m = (DATA.members || []).find(function (x) { return x.entry_id === id; });
-    return m ? firstNameInitial(m.player_name) : ("#" + id);
+  function formStrip(m) {
+    var played = Object.keys(m.by_gw || {}).map(Number).sort(function (a, b) { return a - b; });
+    var last5 = played.slice(-5);
+    var pad = 5 - last5.length;
+    var html = '<span class="form" aria-hidden="true">';
+    for (var i = 0; i < pad; i++) html += '<span class="sq blank"></span>';
+    last5.forEach(function (gw) { html += '<span class="sq ' + heatClass(m.by_gw[gw].net, gw) + '"></span>'; });
+    return html + "</span>";
   }
 
-  /* ---------------------------------------------------------------- No-scores state */
+  function movementMap(members) {
+    var finished = (DATA.gameweeks || []).filter(function (g) { return g.finished; }).map(function (g) { return g.id; });
+    if (!finished.length) return null;
+    var latest = Math.max.apply(null, finished);
+    var cur = members.slice().sort(function (a, b) { return b.total_net - a.total_net; });
+    var prior = members.map(function (m) {
+      var last = (m.by_gw && m.by_gw[latest]) ? m.by_gw[latest].net : 0;
+      return { id: m.entry_id, p: m.total_net - last };
+    }).sort(function (a, b) { return b.p - a.p; });
+    var curRank = {}, priRank = {};
+    cur.forEach(function (m, i) { curRank[m.entry_id] = i + 1; });
+    prior.forEach(function (m, i) { priRank[m.id] = i + 1; });
+    var out = {};
+    members.forEach(function (m) { out[m.entry_id] = priRank[m.entry_id] - curRank[m.entry_id]; });
+    return out;
+  }
+  function moveSpan(delta) {
+    if (delta == null) return "";
+    if (delta > 0) return '<span class="move up" title="Up ' + delta + '">▲' + delta + "</span>";
+    if (delta < 0) return '<span class="move down" title="Down ' + (-delta) + '">▼' + (-delta) + "</span>";
+    return '<span class="move flat" title="No change">–</span>';
+  }
 
   function noScoresNotice() {
     var d = el("p", "state");
-    d.innerHTML = '<span class="lead">No scores yet.</span>' +
-      "First gameweek deadline is Friday.";
+    d.innerHTML = '<span class="lead">No scores yet.</span>First gameweek deadline is Friday.';
     return d;
   }
 
@@ -70,16 +125,18 @@
     main.innerHTML = "";
     var members = DATA.members || [];
     if (!members.length) { main.appendChild(noScoresNotice()); return; }
-
     var scores = hasScores();
     if (!scores) main.appendChild(noScoresNotice());
 
+    main.appendChild(el("h2", "view-title", "Top of the shop"));
+
+    var move = scores ? movementMap(members) : null;
     var table = el("table");
     table.innerHTML =
       "<thead><tr>" +
       '<th scope="col" class="rank">#</th>' +
       '<th scope="col" class="col-name">Manager</th>' +
-      '<th scope="col">Net</th><th scope="col">Hits</th><th scope="col">GW</th>' +
+      '<th scope="col">Form</th><th scope="col">Net</th><th scope="col">Hits</th>' +
       "</tr></thead>";
     var tb = el("tbody");
     members.forEach(function (m, i) {
@@ -89,11 +146,11 @@
       tr.innerHTML =
         '<td class="rank">' + (i + 1) + "</td>" +
         '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(m.player_name)) +
-        "</span>" + markerHTML(m) +
+        "</span>" + (move ? " " + moveSpan(move[m.entry_id]) : "") + markerHTML(m) +
         '<span class="team">' + esc(m.entry_name) + "</span></th>" +
+        "<td>" + (played ? formStrip(m) : '<span class="muted">—</span>') + "</td>" +
         "<td>" + (played ? "<b>" + m.total_net + "</b>" : '<span class="muted">—</span>') + "</td>" +
-        "<td>" + (played ? (m.hits_total ? '<span class="hit">−' + m.hits_total + "</span>" : "0") : '<span class="muted">—</span>') + "</td>" +
-        '<td class="muted">' + (played ? m.gws_played : "—") + "</td>";
+        "<td>" + (played ? (m.hits_total ? '<span class="hit">−' + m.hits_total + "</span>" : "0") : '<span class="muted">—</span>') + "</td>";
       tb.appendChild(tr);
     });
     table.appendChild(tb);
@@ -105,6 +162,17 @@
   function gwLabel(p) {
     var n = (p.gameweeks || []).length;
     return n + " gameweek" + (n === 1 ? "" : "s");
+  }
+  function tiebreakText(w) {
+    if (!w || w.resolved_by === "net_points") return "";
+    var names = (w.entry_ids || []).map(nameFor).join(" & ");
+    switch (w.resolved_by) {
+      case "head_to_head": return "Tied on net points — settled on head-to-head gameweek wins.";
+      case "highest_single_gw": return "Tied — settled on the highest single gameweek.";
+      case "fewest_transfers": return "Tied — settled on fewest transfers.";
+      case "split": return "Level after every tiebreak — prize split between " + names + ".";
+      default: return "Settled by " + w.resolved_by + ".";
+    }
   }
 
   function periodTable(p) {
@@ -131,18 +199,41 @@
     return table;
   }
 
-  function tiebreakWhy(w) {
-    if (!w || w.resolved_by === "net_points") return "";
-    var names = (w.entry_ids || []).map(nameFor).join(" & ");
-    var txt;
-    switch (w.resolved_by) {
-      case "head_to_head": txt = "Tied on net points — settled on <b>head-to-head gameweek wins</b>."; break;
-      case "highest_single_gw": txt = "Tied — settled on the <b>highest single gameweek</b>."; break;
-      case "fewest_transfers": txt = "Tied — settled on <b>fewest transfers</b>."; break;
-      case "split": txt = "Level after every tiebreak — prize <b>split</b> between " + esc(names) + "."; break;
-      default: txt = "Settled by " + esc(w.resolved_by) + ".";
-    }
-    var d = el("p", "why"); d.innerHTML = txt; return d.outerHTML;
+  function liveCard(p) {
+    var leadRow = (p.standings || [])[0];
+    var card = el("div", "wcard live");
+    var remain = p.remaining_gws;
+    var badge = "LIVE — " + (remain > 0 ? remain + " GAMEWEEK" + (remain === 1 ? "" : "S") + " LEFT" : "FINAL SCORES SETTLING");
+    card.innerHTML =
+      '<div class="bull-gold" aria-hidden="true"></div>' +
+      '<div class="wc-body">' +
+      '<div class="wc-period">' + esc(p.name) + ' · <span class="live-badge">' + esc(badge) + "</span></div>" +
+      '<div class="wc-team">' + esc(leadRow ? leadRow.entry_name : "—") + "</div>" +
+      '<div class="wc-line">Leading on <span class="net">' + (leadRow ? leadRow.net : 0) +
+      "</span> net · <span class=\"wc-amt\">" + money(p.prize) + "</span> up for grabs</div>" +
+      "</div>";
+    return card;
+  }
+
+  function winnerCard(p) {
+    var w = p.winner;
+    var ids = (w && w.entry_ids) || [];
+    var card = el("div", "wcard");
+    var teams = ids.map(teamFor).join(" & ");
+    var netRow = (p.standings || []).find(function (r) { return ids.indexOf(r.entry_id) !== -1; });
+    var net = netRow ? netRow.net : 0;
+    var split = ids.length > 1;
+    var why = tiebreakText(w);
+    card.innerHTML =
+      '<div class="bull-gold" aria-hidden="true"></div>' +
+      '<div class="wc-body">' +
+      '<div class="wc-period">' + esc(p.name) + " · " + esc(gwLabel(p)) + "</div>" +
+      '<div class="wc-team">' + esc(teams || "No winner") + "</div>" +
+      '<div class="wc-line"><span class="net">' + net + '</span> net · <span class="wc-amt">' +
+      (w ? money(w.amount_each) : money(0)) + (split ? " each" : "") + "</span></div>" +
+      (why ? '<div class="wc-why">' + esc(why) + "</div>" : "") +
+      "</div>";
+    return card;
   }
 
   function renderMonthly() {
@@ -151,44 +242,32 @@
     var periods = DATA.periods || [];
     if (!periods.length || !hasScores()) { main.appendChild(noScoresNotice()); return; }
 
+    main.appendChild(el("h2", "view-title", "This month"));
+
     var current = periods.filter(function (p) { return p.is_current; });
     var done = periods.filter(function (p) { return p.complete; });
     var upcoming = periods.filter(function (p) { return !p.is_current && !p.complete; });
 
     current.forEach(function (p) {
-      var lead = ((p.winner && p.winner.entry_ids) || []).map(nameFor).join(" & ");
-      var hero = el("div", "hero-period");
-      hero.innerHTML =
-        '<div class="p-name">' + esc(p.name) + "</div>" +
-        '<div class="amt">' + money(p.prize) + "</div>" +
-        '<div class="sub"><b>' + gwLabel(p) + "</b> this period" +
-        (p.remaining_gws > 0 ? " · " + p.remaining_gws + " to play" : " · final scores settling") +
-        (lead ? " · leading " + esc(lead) : "") + "</div>";
-      main.appendChild(hero);
-      main.appendChild(periodTable(p));
+      main.appendChild(liveCard(p));
+      var det = el("details", "period");
+      det.innerHTML = "<summary>Full standings</summary>";
+      var body = el("div", "p-body");
+      body.appendChild(periodTable(p));
+      det.appendChild(body);
+      main.appendChild(det);
     });
 
     if (done.length) {
       main.appendChild(el("h2", "view-title", "Settled"));
       done.slice().reverse().forEach(function (p) {
-        var winners = (p.winner && p.winner.entry_ids) || [];
-        var names = winners.map(nameFor).join(" & ");
-        var split = winners.length > 1;
-        var d = el("details", "period");
-        var sum = el("summary");
-        sum.innerHTML =
-          '<span class="grow"><span class="p-name">' + esc(p.name) + "</span> " +
-          '<span class="p-meta">· ' + gwLabel(p) + "</span><br>" +
-          '<span class="p-meta">' + (names ? esc(names) : "no winner") +
-          (split ? " · split" : "") + "</span></span>" +
-          '<span class="win-amt">' + (p.winner ? money(p.winner.amount_each) : money(0)) +
-          (split ? " ea" : "") + "</span>";
-        d.appendChild(sum);
+        main.appendChild(winnerCard(p));
+        var det = el("details", "period");
+        det.innerHTML = "<summary>Full table</summary>";
         var body = el("div", "p-body");
-        body.innerHTML = tiebreakWhy(p.winner);
         body.appendChild(periodTable(p));
-        d.appendChild(body);
-        main.appendChild(d);
+        det.appendChild(body);
+        main.appendChild(det);
       });
     }
 
@@ -196,13 +275,12 @@
       main.appendChild(el("h2", "view-title", "To come"));
       upcoming.forEach(function (p) {
         var d = el("div", "period");
-        var sum = el("div"); sum.className = "";
-        var row = el("div"); row.style.padding = "var(--sp-3)";
+        var row = el("div");
+        row.style.padding = "var(--sp-3)";
         row.style.display = "flex";
         row.innerHTML =
-          '<span class="grow"><span class="p-name">' + esc(p.name) + "</span> " +
-          '<span class="p-meta">· ' + gwLabel(p) + "</span></span>" +
-          '<span class="p-meta">' + money(p.prize) + "</span>";
+          '<span style="flex:1"><b>' + esc(p.name) + "</b> <span class=\"muted\">· " + esc(gwLabel(p)) + "</span></span>" +
+          '<span class="muted">' + money(p.prize) + "</span>";
         d.appendChild(row);
         main.appendChild(d);
       });
@@ -225,61 +303,53 @@
         : '<span class="net-neg">−' + money(Math.abs(net)) + "</span>") + "</td>";
     return tr;
   }
-
   function moneyHead() {
     return "<thead><tr>" +
       '<th scope="col" class="col-name">Manager</th>' +
       '<th scope="col">Won</th><th scope="col">Money</th><th scope="col">± buy-in</th>' +
       "</tr></thead>";
   }
+  function bandLabel(t, cls) { return el("div", "band-label" + (cls ? " " + cls : ""), t); }
+  function mutedLine(t) { var p = el("p", "why"); p.textContent = t; return p; }
 
   function renderPrizes() {
     var main = $("#main");
     main.innerHTML = "";
     var rows = DATA.prize_table || [];
+    if (!rows.length) { main.appendChild(noScoresNotice()); return; }
+    main.appendChild(el("h2", "view-title", "The money"));
+
     var eligible = rows.filter(function (r) { return r.prize_eligible && r.net_position != null; });
     var ineligible = rows.filter(function (r) { return !r.prize_eligible; });
-
-    if (!rows.length) { main.appendChild(noScoresNotice()); return; }
 
     if (eligible.length) {
       var sol = eligible.filter(function (r) { return r.net_position >= 0; });
       var sombra = eligible.filter(function (r) { return r.net_position < 0; });
       var wrap = el("div", "solsombra");
-
       wrap.appendChild(bandLabel("Sol · in profit", "sol"));
       if (sol.length) {
         var t1 = el("table"); t1.innerHTML = moneyHead();
         var b1 = el("tbody"); sol.forEach(function (r) { b1.appendChild(moneyRow(r, "sol")); });
         t1.appendChild(b1); wrap.appendChild(t1);
-      } else {
-        wrap.appendChild(mutedLine("Nobody's in profit yet."));
-      }
-
-      var be = el("div", "breakeven");
-      wrap.appendChild(be);
-
+      } else { wrap.appendChild(mutedLine("Nobody's in profit yet.")); }
+      wrap.appendChild(el("div", "breakeven"));
       wrap.appendChild(bandLabel("Sombra · down on the year", "sombra"));
       if (sombra.length) {
         var t2 = el("table"); t2.innerHTML = moneyHead();
         var b2 = el("tbody"); sombra.forEach(function (r) { b2.appendChild(moneyRow(r, "sombra")); });
         t2.appendChild(b2); wrap.appendChild(t2);
-      } else {
-        wrap.appendChild(mutedLine("Nobody's in shade — everyone's up."));
-      }
+      } else { wrap.appendChild(mutedLine("Nobody's in shade — everyone's up.")); }
       main.appendChild(wrap);
-    } else {
-      main.appendChild(noScoresNotice());
-    }
+    } else { main.appendChild(noScoresNotice()); }
 
     if (ineligible.length) {
       main.appendChild(el("h2", "view-title", "Not in the money"));
-      var t3 = el("table"); t3.innerHTML =
-        '<thead><tr><th scope="col" class="col-name">Manager</th><th scope="col">Net so far</th></tr></thead>';
+      var t3 = el("table");
+      t3.innerHTML = '<thead><tr><th scope="col" class="col-name">Manager</th><th scope="col">Net so far</th></tr></thead>';
       var b3 = el("tbody");
       ineligible.forEach(function (r) {
-        var member = (DATA.members || []).find(function (x) { return x.entry_id === r.entry_id; });
-        var net = member && member.gws_played > 0 ? member.total_net : null;
+        var m = memberFor(r.entry_id);
+        var net = m && m.gws_played > 0 ? m.total_net : null;
         var tr = el("tr", "sombra");
         tr.innerHTML =
           '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) + "</span>" +
@@ -302,20 +372,7 @@
     }
   }
 
-  function bandLabel(t, cls) { return el("div", "band-label" + (cls ? " " + cls : ""), t); }
-  function mutedLine(t) { var p = el("p", "why"); p.textContent = t; return p; }
-
   /* ---------------------------------------------------------------- GWs (grid) */
-
-  function cellStep(net, avg) {
-    if (avg == null) return "";
-    var d = net - avg;
-    var mag = Math.abs(d);
-    var lvl = mag > 16 ? 3 : mag > 7 ? 2 : 1;
-    if (d > 2) return "up" + lvl;
-    if (d < -2) return "dn" + lvl;
-    return "";
-  }
 
   function renderGrid() {
     var main = $("#main");
@@ -324,16 +381,14 @@
     var gws = (DATA.gameweeks || []).filter(function (g) { return g.played_count > 0; });
     if (!members.length || !gws.length) { main.appendChild(noScoresNotice()); return; }
 
+    main.appendChild(el("h2", "view-title", "Every gameweek"));
+
     var legend = el("div", "legend");
     legend.innerHTML =
-      '<span><i class="sw up"></i>above GW average</span>' +
-      '<span><i class="sw dn"></i>below GW average</span>' +
-      '<span><span class="hit">−4</span> hit taken</span>' +
+      '<span class="ramp"><i class="sw heat-ice3"></i><i class="sw heat-0"></i><i class="sw heat-hot3"></i><i class="sw heat-ember"></i> cold · average · good · huge</span>' +
+      '<span><span class="hit">−4</span> hit</span>' +
       '<span><span class="g">W B T F</span> chips</span>';
     main.appendChild(legend);
-
-    var avg = {};
-    gws.forEach(function (g) { avg[g.id] = g.average_net; });
 
     var scroll = el("div", "grid-scroll");
     var table = el("table", "grid");
@@ -358,9 +413,8 @@
       gws.forEach(function (g) {
         var c = m.by_gw ? m.by_gw[g.id] : null;
         var td = el("td", "cell");
-        if (!c) { td.className = "cell blank"; td.textContent = ""; tr.appendChild(td); return; }
-        var step = cellStep(c.net, avg[g.id]);
-        if (step) td.classList.add(step);
+        if (!c) { td.className = "cell blank"; td.title = "Didn't play"; td.textContent = ""; tr.appendChild(td); return; }
+        td.classList.add(heatClass(c.net, g.id));
         var html = String(c.net);
         if (c.hit) html += ' <span class="h">−' + c.hit + "</span>";
         if (c.chip) html += '<sup class="chip" title="' + esc(CHIP_NAME[c.chip] || c.chip) + '">' + esc(chipLetter(c.chip)) + "</sup>";
@@ -383,7 +437,6 @@
     if (!g.length) return "—";
     return g.length > 1 ? "GW" + g[0] + "–GW" + g[g.length - 1] : "GW" + g[0];
   }
-
   function renderRules() {
     var main = $("#main");
     main.innerHTML = "";
@@ -393,19 +446,15 @@
     var per = pz.monthly_per_player != null ? pz.monthly_per_player : 3;
     var periods = pz.monthly_periods != null ? pz.monthly_periods : 9;
     var overallPer = buyIn - per * periods;
-    var pot = buyIn * N;
 
     var wrap = el("div", "rules");
     wrap.innerHTML =
       "<h2>The buy-in</h2>" +
-      "<p>" + money(buyIn) + " each. <b class='num-figure'>" + N + "</b> playing, so the pot is <b class='num-figure'>" + money(pot) + "</b>.</p>" +
-
+      "<p>" + money(buyIn) + " each. <b>" + N + "</b> playing, so the pot is <b>" + money(buyIn * N) + "</b>.</p>" +
       "<h2>How the money splits</h2>" +
-      "<p>" + money(per) + " of everyone's " + money(buyIn) + " goes to each of the nine monthly prizes. The remaining " + money(overallPer) + " goes to the overall winner.</p>" +
-      "<p>That makes each month worth <b class='num-figure'>" + money(pz.monthly != null ? pz.monthly : per * N) + "</b> and the season worth <b class='num-figure'>" + money(pz.overall != null ? pz.overall : overallPer * N) + "</b>.</p>" +
-
+      "<p>" + money(per) + " of everyone's " + money(buyIn) + " goes to each of the nine monthly prizes. The remaining " + money(overallPer) + " goes to the overall winner. Each month is worth <b>" + money(pz.monthly != null ? pz.monthly : per * N) + "</b>, the season <b>" + money(pz.overall != null ? pz.overall : overallPer * N) + "</b>.</p>" +
       "<h2>The nine months</h2>" +
-      "<p>August and September count as one period. Then October, November, December, January, February, March, April and May.</p>";
+      "<p>August and September count as one period. Then October, November, December, January, February, March, April, May.</p>";
 
     var table = el("table");
     table.innerHTML = '<thead><tr><th scope="col" class="col-name">Period</th><th scope="col">Gameweeks</th><th scope="col">Count</th></tr></thead>';
@@ -414,8 +463,7 @@
       var tr = el("tr");
       tr.innerHTML =
         '<th scope="row" class="col-name">' + esc(p.name) + "</th>" +
-        "<td>" + gwRange(p) + "</td>" +
-        "<td>" + (p.gameweeks || []).length + "</td>";
+        "<td>" + gwRange(p) + "</td><td>" + (p.gameweeks || []).length + "</td>";
       tb.appendChild(tr);
     });
     table.appendChild(tb);
@@ -423,37 +471,28 @@
 
     var rest = el("div");
     rest.innerHTML =
-      "<p>Periods vary in length — December is six gameweeks, March and April are three — and every period is worth the same regardless.</p>" +
-
+      "<p>Periods vary in length — December is six gameweeks, March and April three — and every period pays the same regardless.</p>" +
       "<h2>How scores are counted</h2>" +
-      "<p>Net points. Transfer hits come off your score. A 62 with a −4 hit counts as 58, for the month and for the season.</p>" +
-
+      "<p>Net points. Transfer hits come off. A 62 with a −4 counts as 58, for the month and the season.</p>" +
       "<h2>Chips</h2>" +
-      "<p>No restrictions. Wildcards, bench boosts, triple captains and free hits can all be played whenever you like, including to win a month.</p>" +
-
+      "<p>No restrictions. Wildcard, bench boost, triple captain and free hit can be played whenever, including to win a month.</p>" +
       "<h2>Ties</h2>" +
-      "<p>Settled in this order, stopping at the first one that separates you:</p>" +
+      "<p>Settled in order, stopping at the first that separates you:</p>" +
       "<ol><li>Head-to-head — who won more gameweeks against the other in that period</li>" +
-      "<li>Highest single gameweek in the period</li>" +
-      "<li>Fewest transfers made in the period</li>" +
-      "<li>If still level, the prize is split</li></ol>" +
-      "<p>The site shows which rule settled any tie and the numbers behind it.</p>" +
-
+      "<li>Highest single gameweek in the period</li><li>Fewest transfers made in the period</li>" +
+      "<li>Still level, the prize splits</li></ol>" +
+      "<p>The site shows which rule settled a tie and the numbers behind it.</p>" +
       "<h2>Who's in</h2>" +
-      "<p>The roster locked at the GW1 deadline. Anyone who hadn't paid by then isn't in the prize money. If you leave the mini-league during the season your scores still count — you paid, your team still scores.</p>" +
-
+      "<p>Roster locked at the GW1 deadline. Unpaid by then means no prize money. Leaving the mini-league mid-season doesn't remove your scores — you paid, your team still scores.</p>" +
       "<h2>Payment</h2>" +
-      "<p>All " + money(buyIn) + "s to the league admin before the deadline. The site only counts you as eligible once the money's in.</p>";
+      "<p>All " + money(buyIn) + "s to the league admin before the deadline. Eligible once the money's in.</p>";
     wrap.appendChild(rest);
     main.appendChild(wrap);
   }
 
   /* ---------------------------------------------------------------- Chrome */
 
-  var RENDER = {
-    overall: renderOverall, monthly: renderMonthly, prizes: renderPrizes,
-    grid: renderGrid, rules: renderRules,
-  };
+  var RENDER = { overall: renderOverall, monthly: renderMonthly, prizes: renderPrizes, grid: renderGrid, rules: renderRules };
 
   function relTime(iso) {
     if (!iso) return "No update yet";
@@ -468,34 +507,53 @@
     return "Updated " + days + " day" + (days === 1 ? "" : "s") + " ago";
   }
 
+  function figCell(prefix, target, kind, label) {
+    return '<div class="fig-cell"><div class="fig ' + kind + '" data-target="' + target +
+      '" data-prefix="' + prefix + '">' + prefix + '0</div><div class="fig-label">' + esc(label) + "</div></div>";
+  }
   function renderHeader() {
     $("#season").textContent = (DATA.league && DATA.league.season) || "";
     var N = DATA.n_eligible || 0;
     var pz = DATA.prizes || {};
-    // Hero: three figures — monthly / overall (money, gold) and count (bone).
+    var sym = currencySymbol();
     $("#hero").innerHTML =
-      figCell(money(pz.monthly || 0), "A month", "money") +
-      figCell(money(pz.overall || 0), "Overall", "money") +
-      figCell(String(N), "Playing", "count");
+      figCell(sym, Math.round(pz.monthly || 0), "money", "A month") +
+      figCell(sym, Math.round(pz.overall || 0), "money", "Overall") +
+      figCell("", N, "count", "Playing");
     $("#last-updated").textContent = relTime(DATA.last_updated);
+    animateCounts();
   }
-
-  function figCell(value, label, kind) {
-    return '<div class="fig-cell"><div class="fig ' + kind + '">' + esc(value) +
-      '</div><div class="fig-label">' + esc(label) + "</div></div>";
+  function animateCounts() {
+    var figs = document.querySelectorAll("#hero .fig[data-target]");
+    var already = false;
+    try { already = sessionStorage.getItem("br_counted") === "1"; } catch (e) {}
+    Array.prototype.forEach.call(figs, function (f, i) {
+      var target = +f.getAttribute("data-target");
+      var pfx = f.getAttribute("data-prefix") || "";
+      if (already || reduceMotion()) { f.textContent = pfx + target; return; }
+      var start = null, dur = 900, delay = i * 80;
+      function step(ts) {
+        if (start == null) start = ts;
+        var t = Math.min(1, (ts - start) / dur);
+        var e = 1 - Math.pow(1 - t, 3);
+        f.textContent = pfx + Math.round(target * e);
+        if (t < 1) requestAnimationFrame(step); else f.textContent = pfx + target;
+      }
+      setTimeout(function () { requestAnimationFrame(step); }, delay);
+    });
+    try { sessionStorage.setItem("br_counted", "1"); } catch (e) {}
   }
 
   function render() {
     var main = $("#main");
     (RENDER[currentView] || renderOverall)();
     main.classList.remove("fade");
-    void main.offsetWidth;   /* restart the fade */
+    void main.offsetWidth;
     main.classList.add("fade");
     Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (t) {
       t.setAttribute("aria-selected", t.dataset.view === currentView ? "true" : "false");
     });
   }
-
   function wireTabs() {
     Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (t) {
       t.addEventListener("click", function () {
@@ -507,26 +565,15 @@
     var hash = (location.hash || "").replace("#", "");
     if (VIEWS.indexOf(hash) !== -1) currentView = hash;
   }
-
   function fail(msg) {
-    $("#main").innerHTML =
-      '<p class="state error"><span class="lead">Can\'t load the scores.</span>' + esc(msg) + "</p>";
+    $("#main").innerHTML = '<p class="state error"><span class="lead">Can\'t load the scores.</span>' + esc(msg) + "</p>";
   }
-
   function boot() {
     wireTabs();
     fetch("data/league.json", { cache: "no-store" })
-      .then(function (r) {
-        if (!r.ok) throw new Error("The update job hasn't produced a data file yet.");
-        return r.json();
-      })
-      .then(function (data) {
-        DATA = data;
-        renderHeader();
-        render();
-      })
+      .then(function (r) { if (!r.ok) throw new Error("The update job hasn't produced a data file yet."); return r.json(); })
+      .then(function (data) { DATA = data; prepHeat(); renderHeader(); render(); })
       .catch(function (e) { fail(e.message); });
   }
-
   document.addEventListener("DOMContentLoaded", boot);
 })();

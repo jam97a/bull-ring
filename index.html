@@ -12,11 +12,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,100..900&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="bg-bull" aria-hidden="true"></div>
+
   <header class="masthead">
     <div class="band">
       <img class="bull" src="assets/bull.svg" alt="" width="40" height="40">
@@ -25,7 +27,7 @@
         <p class="season" id="season">2026/27</p>
       </div>
     </div>
-    <div class="hero" id="hero"><!-- three money figures --></div>
+    <div class="hero" id="hero"><!-- three money figures, count up --></div>
   </header>
 
   <nav class="tabbar" role="tablist" aria-label="Views">
@@ -44,6 +46,7 @@
     <span id="last-updated"></span>
   </footer>
 
+  <div class="grain" aria-hidden="true"></div>
   <script src="app.js"></script>
 </body>
 </html>
