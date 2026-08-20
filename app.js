@@ -483,9 +483,11 @@
     var N = DATA.n_eligible || 0;
     var pz = DATA.prizes || {};
     var sym = currencySymbol();
+    var pot = (pz.buy_in != null ? pz.buy_in : 50) * N;
     $("#hero").innerHTML =
-      figCell(sym, Math.round(pz.monthly || 0), "money", "A month") +
-      figCell(sym, Math.round(pz.overall || 0), "money", "Overall") +
+      figCell(sym, Math.round(pz.monthly || 0), "money", "Monthly prize") +
+      figCell(sym, Math.round(pz.overall || 0), "money", "Overall prize") +
+      figCell(sym, Math.round(pot), "money", "Pot") +
       figCell("", N, "count", "Playing");
     $("#last-updated").textContent = relTime(DATA.last_updated);
     animateCounts();
