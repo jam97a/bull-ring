@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bull Ring — FPL Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-row">
+      <h1 id="league-name">FPL Tracker</h1>
+      <span id="season" class="season"></span>
+    </div>
+    <div id="header-meta" class="header-meta"></div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab" data-view="overall" role="tab">Overall</button>
+    <button class="tab" data-view="monthly" role="tab">Monthly</button>
+    <button class="tab" data-view="prizes" role="tab">Prizes</button>
+    <button class="tab" data-view="grid" role="tab">Grid</button>
+  </nav>
+
+  <main id="main">
+    <div id="loading" class="notice">Loading…</div>
+  </main>
+
+  <footer class="app-footer">
+    <span id="last-updated"></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

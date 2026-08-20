@@ -1,0 +1,47 @@
+name: Update league data
+
+# Fetches from the FPL API server-side (no CORS restriction) and commits the
+# recomputed data/league.json back to the repo. Runs on a public repo so
+# Actions minutes are unlimited; no secrets are involved.
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch: {}       # manual trigger from the Actions tab
+
+permissions:
+  contents: write             # needed to commit the updated JSON
+
+concurrency:
+  group: update-league
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch and compute
+        # fetch.py uses the Python standard library only — nothing to install.
+        # It exits non-zero on any API/validation failure, which fails the run
+        # and leaves the previously committed data/league.json untouched.
+        run: python scripts/fetch.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ config/members.json config/periods.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update league data ($(date -u +'%Y-%m-%dT%H:%MZ'))"
+            git push
+          fi

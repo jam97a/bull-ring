@@ -1,0 +1,20 @@
+{
+  "last_updated": null,
+  "league": { "id": 1472020, "name": "Bull Ring 26/27", "season": "2026/27" },
+  "current_gw": null,
+  "n_eligible": 0,
+  "roster_locked": false,
+  "prizes": {
+    "currency": "EUR",
+    "buy_in": 50,
+    "monthly_per_player": 3,
+    "monthly_periods": 9,
+    "monthly": 0,
+    "overall": 0
+  },
+  "gameweeks": [],
+  "periods": [],
+  "members": [],
+  "prize_table": [],
+  "overall_prize": { "amount": 0, "pending": true, "winner": null }
+}

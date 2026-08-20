@@ -1,0 +1,174 @@
+/* FPL Mini-League Tracker — mobile-first, dependency-free.
+   Designed to be read on a phone standing in a pub. */
+
+:root {
+  --bg: #0f1115;
+  --surface: #171a21;
+  --surface-2: #1f2430;
+  --line: #2a3140;
+  --text: #e8ebf0;
+  --muted: #97a0b0;
+  --accent: #37d67a;
+  --accent-dim: #1d7a45;
+  --gold: #f5c451;
+  --bad: #e5556e;
+  --good: #37d67a;
+  --neutral: #3a4152;
+  --pill: #262c38;
+  --radius: 10px;
+  --tap: 44px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.app-header {
+  padding: 14px 16px 10px;
+  padding-top: max(14px, env(safe-area-inset-top));
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.header-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+h1 { font-size: 19px; margin: 0; letter-spacing: 0.2px; }
+.season { color: var(--muted); font-size: 13px; }
+.header-meta { margin-top: 6px; color: var(--muted); font-size: 12px; display: flex; gap: 12px; flex-wrap: wrap; }
+.header-meta b { color: var(--text); font-weight: 600; }
+
+.tabs {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 19;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.tab {
+  flex: 1;
+  min-height: var(--tap);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+
+main { padding: 12px; padding-bottom: 40px; }
+
+.notice { color: var(--muted); text-align: center; padding: 40px 16px; }
+.notice.error { color: var(--bad); }
+
+.section-title { font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin: 18px 4px 8px; }
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  min-height: var(--tap);
+  cursor: pointer;
+}
+.card-head .grow { flex: 1; }
+.card-head .win-amt { color: var(--gold); font-weight: 700; }
+.chevron { color: var(--muted); transition: transform .15s; }
+.card[open] .chevron { transform: rotate(90deg); }
+.card-body { border-top: 1px solid var(--line); }
+
+/* Tables */
+.tbl { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.tbl th, .tbl td { padding: 9px 10px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.tbl th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600; }
+.tbl td.name, .tbl th.name { text-align: left; white-space: normal; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl .rank { color: var(--muted); width: 26px; text-align: center; }
+.leader td { background: rgba(55, 214, 122, 0.08); }
+.leader .name b { color: var(--accent); }
+.name .team { display: block; color: var(--muted); font-size: 12px; }
+.pos { color: var(--good); }
+.neg { color: var(--bad); }
+.muted { color: var(--muted); }
+
+/* Markers / pills */
+.pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--pill);
+  color: var(--muted);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.pill.left { background: #3a2330; color: #f0a0b5; }
+.pill.inelig { background: #33302040; color: var(--gold); }
+.pill.prov { background: #2a2f3a; color: #9fb4d8; }
+.pill.split { background: #2b2438; color: #c9a6f0; }
+
+/* Prize banner */
+.prize-banner {
+  background: linear-gradient(135deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+.prize-banner .amt { font-size: 26px; font-weight: 800; color: var(--gold); }
+.prize-banner .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.why { color: var(--muted); font-size: 12px; padding: 8px 14px 12px; }
+.why b { color: var(--text); }
+
+/* Gameweek grid */
+.grid-wrap { overflow: auto; border: 1px solid var(--line); border-radius: var(--radius); -webkit-overflow-scrolling: touch; max-height: 78vh; }
+table.grid { border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; }
+table.grid th, table.grid td { padding: 7px 8px; text-align: center; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); white-space: nowrap; font-size: 13px; }
+table.grid thead th {
+  position: sticky; top: 0; z-index: 3;
+  background: var(--surface-2); color: var(--muted); font-size: 11px;
+}
+table.grid tbody th.rowname {
+  position: sticky; left: 0; z-index: 2;
+  background: var(--surface); text-align: left; min-width: 116px; max-width: 140px;
+  overflow: hidden; text-overflow: ellipsis;
+}
+table.grid thead th.corner { position: sticky; left: 0; top: 0; z-index: 4; background: var(--surface-2); text-align: left; }
+table.grid .rowname small { display: block; color: var(--muted); font-size: 11px; }
+.cell-good { background: rgba(55, 214, 122, 0.18); }
+.cell-bad { background: rgba(229, 85, 110, 0.16); }
+.cell-avg { background: transparent; }
+.cell-blank { color: var(--muted); }
+.cell .hit { color: var(--bad); font-size: 11px; }
+.chip {
+  display: inline-block; font-size: 10px; margin-left: 3px; vertical-align: top;
+}
+.legend { display: flex; gap: 14px; flex-wrap: wrap; color: var(--muted); font-size: 12px; margin: 10px 4px; }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+.app-footer { padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); color: var(--muted); font-size: 12px; text-align: center; }
+
+@media (min-width: 700px) {
+  main { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 22px; }
+}
