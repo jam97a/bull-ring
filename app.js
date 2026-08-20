@@ -80,16 +80,6 @@
     return "heat-0";
   }
 
-  function formStrip(m) {
-    var played = Object.keys(m.by_gw || {}).map(Number).sort(function (a, b) { return a - b; });
-    var last5 = played.slice(-5);
-    var pad = 5 - last5.length;
-    var html = '<span class="form" aria-hidden="true">';
-    for (var i = 0; i < pad; i++) html += '<span class="sq blank"></span>';
-    last5.forEach(function (gw) { html += '<span class="sq ' + heatClass(m.by_gw[gw].net, gw) + '"></span>'; });
-    return html + "</span>";
-  }
-
   function movementMap(members) {
     var finished = (DATA.gameweeks || []).filter(function (g) { return g.finished; }).map(function (g) { return g.id; });
     if (!finished.length) return null;
@@ -137,7 +127,7 @@
       "<thead><tr>" +
       '<th scope="col" class="rank">#</th>' +
       '<th scope="col" class="col-name">Manager</th>' +
-      '<th scope="col">Form</th><th scope="col">Net</th><th scope="col">Hits</th>' +
+      '<th scope="col">Net</th><th scope="col">Hits</th>' +
       "</tr></thead>";
     var tb = el("tbody");
     members.forEach(function (m, i) {
@@ -149,7 +139,6 @@
         '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(m.player_name)) +
         "</span>" + (move ? " " + moveSpan(move[m.entry_id]) : "") + markerHTML(m) +
         '<span class="team">' + esc(m.entry_name) + "</span></th>" +
-        "<td>" + (played ? formStrip(m) : '<span class="muted">—</span>') + "</td>" +
         "<td>" + (played ? "<b>" + m.total_net + "</b>" : '<span class="muted">—</span>') + "</td>" +
         "<td>" + (played ? (m.hits_total ? '<span class="hit">−' + m.hits_total + "</span>" : "0") : '<span class="muted">—</span>') + "</td>";
       tb.appendChild(tr);

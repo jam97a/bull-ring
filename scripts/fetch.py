@@ -406,6 +406,38 @@ def load_and_sync_members(current_members, current_gw):
 # Computation
 # --------------------------------------------------------------------------- #
 
+def check_net_identity(entry_id, name, current):
+    """
+    Guard against FPL silently changing what `points` means.
+
+    We assume per-gameweek `points` is GROSS (before transfer hits) and that the
+    cumulative `total_points` is already net of hits, so across every played
+    gameweek:
+
+        sum(points) - sum(event_transfers_cost) == total_points(final gameweek)
+
+    If that identity breaks, `points` is probably already net and the whole app
+    would double-deduct every hit. Fail loudly with the member and both figures
+    rather than publish wrong scores. No-ops until a member has played a
+    gameweek (empty `current` before GW1).
+    """
+    if not current:
+        return
+    final = max(current, key=lambda r: r.get("event") or 0)
+    final_total = final.get("total_points")
+    if final_total is None:
+        return
+    gross = sum((r.get("points") or 0) for r in current)
+    cost = sum((r.get("event_transfers_cost") or 0) for r in current)
+    computed = gross - cost
+    if computed != final_total:
+        die("net-points self-check FAILED for %s (entry %s): "
+            "sum(points) - sum(event_transfers_cost) = %d - %d = %d, but the "
+            "final gameweek total_points = %d. FPL's `points` field may already "
+            "be net of hits — do not trust these scores until this is resolved."
+            % (name, entry_id, gross, cost, computed, final_total))
+
+
 def build_member_gw(current):
     """Turn a raw history 'current' array into {gw: {...net, transfers, ...}}."""
     by_gw = {}
@@ -612,6 +644,7 @@ def main():
     for m in members:
         eid = m["entry_id"]
         current, chips = fetch_history(eid)
+        check_net_identity(eid, m.get("player_name", ""), current)
         member_gw[eid] = build_member_gw(current)
         chip_by_gw = {}
         for c in chips:
