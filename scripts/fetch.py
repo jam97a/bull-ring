@@ -156,12 +156,65 @@ def fetch_bootstrap():
     return events
 
 
-def fetch_standings(league_id):
-    """Fetch all pages of the classic-league standings."""
-    log("Fetching league standings ...")
-    results = []
-    page = 1
+def _normalize_standings_row(row):
+    """standings.results shape: has a ready-made player_name."""
+    require("entry" in row, "standings row missing 'entry'")
+    return {
+        "entry_id": row["entry"],
+        "player_name": row.get("player_name", ""),
+        "entry_name": row.get("entry_name", ""),
+    }
+
+
+def _normalize_new_entry_row(row):
+    """
+    new_entries.results has a DIFFERENT shape to standings.results: no
+    player_name field, only player_first_name / player_last_name. Build the
+    display name from those rather than assuming the standings shape.
+    """
+    require("entry" in row, "new_entries row missing 'entry'")
+    first = (row.get("player_first_name") or "").strip()
+    last = (row.get("player_last_name") or "").strip()
+    return {
+        "entry_id": row["entry"],
+        "player_name": (first + " " + last).strip(),
+        "entry_name": row.get("entry_name", ""),
+    }
+
+
+def fetch_members(league_id):
+    """
+    Return the current membership as the UNION of standings.results and
+    new_entries.results, deduped on entry ID.
+
+    A manager who has joined but whose first gameweek has not yet been scored
+    sits in new_entries, not standings — that is true pre-season and for every
+    mid-season joiner until the next gameweek settles. Reading standings alone
+    would miss them (and, when standings is empty, would wrongly flag everyone
+    as departed). The two arrays paginate independently: standings via
+    page_standings, new_entries via page_new_entries.
+    """
+    log("Fetching league standings + new entries ...")
+    members = {}   # entry_id -> normalized row
+    order = []     # preserve first-seen order for stable output
     league_name = None
+
+    def add(row, prefer):
+        eid = row["entry_id"]
+        if eid not in members:
+            members[eid] = row
+            order.append(eid)
+        else:
+            existing = members[eid]
+            # standings names win once available; otherwise fill any blanks.
+            if prefer or not existing.get("player_name"):
+                if row.get("player_name"):
+                    existing["player_name"] = row["player_name"]
+            if not existing.get("entry_name") and row.get("entry_name"):
+                existing["entry_name"] = row["entry_name"]
+
+    # --- standings pages (page_standings) ---
+    page = 1
     while True:
         url = "%s/leagues-classic/%s/standings/?page_standings=%d" % (
             BASE_URL, league_id, page)
@@ -174,18 +227,36 @@ def fetch_standings(league_id):
         if league_name is None:
             league_name = (data.get("league") or {}).get("name")
         for row in standings["results"]:
-            require("entry" in row, "standings row missing 'entry'")
-            results.append({
-                "entry_id": row["entry"],
-                "player_name": row.get("player_name", ""),
-                "entry_name": row.get("entry_name", ""),
-            })
+            add(_normalize_standings_row(row), prefer=True)
         if not standings.get("has_next"):
             break
         page += 1
         time.sleep(REQUEST_SLEEP)
-    log("  found %d member(s) in standings" % len(results))
-    return results, league_name
+
+    std_count = len(order)
+
+    # --- new_entries pages (page_new_entries) — paginated independently ---
+    page = 1
+    while True:
+        url = "%s/leagues-classic/%s/standings/?page_new_entries=%d" % (
+            BASE_URL, league_id, page)
+        data = http_get_json(url)
+        require(isinstance(data, dict) and isinstance(data.get("new_entries"), dict),
+                "response missing 'new_entries' object")
+        new_entries = data["new_entries"]
+        require(isinstance(new_entries.get("results"), list),
+                "new_entries.results is not a list")
+        for row in new_entries["results"]:
+            add(_normalize_new_entry_row(row), prefer=False)
+        if not new_entries.get("has_next"):
+            break
+        page += 1
+        time.sleep(REQUEST_SLEEP)
+
+    result = [members[eid] for eid in order]
+    log("  found %d member(s): %d in standings, %d additional in new_entries"
+        % (len(result), std_count, len(result) - std_count))
+    return result, league_name
 
 
 def fetch_history(entry_id):
@@ -261,9 +332,13 @@ def load_or_freeze_periods(events):
     return derived
 
 
-def load_and_sync_members(standings, current_gw):
+def load_and_sync_members(current_members, current_gw):
     """
     Maintain config/members.json as the persisted source of truth.
+
+    `current_members` is the UNION of standings + new_entries (see
+    fetch_members): the set of managers currently in the league. in_league is
+    derived from that union, not from standings alone.
 
     - Append newly-seen entry IDs (default paid=false, prize_eligible=false).
     - Never remove; mark absent members in_league=false, present ones true.
@@ -277,15 +352,15 @@ def load_and_sync_members(standings, current_gw):
     doc.setdefault("members", [])
 
     by_id = {m["entry_id"]: m for m in doc["members"]}
-    standings_ids = set()
+    current_ids = set()
 
-    for row in standings:
+    for row in current_members:
         eid = row["entry_id"]
-        standings_ids.add(eid)
+        current_ids.add(eid)
         if eid in by_id:
             m = by_id[eid]
             m["in_league"] = True
-            # Refresh display names from the live standings; these are not
+            # Refresh display names from the live data; these are not
             # human-owned fields, unlike paid / prize_eligible.
             if row.get("player_name"):
                 m["player_name"] = row["player_name"]
@@ -307,13 +382,14 @@ def load_and_sync_members(standings, current_gw):
             doc["members"].append(new_member)
             by_id[eid] = new_member
 
-    # Members no longer in the standings: keep them, flag as departed.
+    # Members no longer in the league (in neither standings nor new_entries):
+    # keep them, flag as departed.
     for m in doc["members"]:
         m.setdefault("paid", False)
         m.setdefault("prize_eligible", False)
         m.setdefault("first_seen_gw", current_gw if current_gw else 1)
         m.setdefault("notes", "")
-        if m["entry_id"] not in standings_ids:
+        if m["entry_id"] not in current_ids:
             m["in_league"] = False
 
     # Freeze N the first time the roster is locked.
@@ -519,8 +595,8 @@ def main():
     gw_to_period = load_or_freeze_periods(events)
     period_gws = period_gameweeks(gw_to_period)
 
-    standings, live_league_name = fetch_standings(league_id)
-    members_doc = load_and_sync_members(standings, current_gw)
+    current_members, live_league_name = fetch_members(league_id)
+    members_doc = load_and_sync_members(current_members, current_gw)
     members = members_doc["members"]
 
     # Fetch history for EVERY member, including departed ones.
