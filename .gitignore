@@ -7,3 +7,6 @@ __pycache__/
 
 # Local dev servers / editor cruft
 .DS_Store
+
+# Stray design-doc backup left over from editing (safe to delete)
+j.md
