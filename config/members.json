@@ -104,9 +104,29 @@
     {
       "entry_id": 7029474,
       "player_name": "Cathal Ryan",
-      "entry_name": "Change Name",
+      "entry_name": "Look me in Ndiaye",
       "paid": true,
       "prize_eligible": true,
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 7454103,
+      "player_name": "Stephen Traynor",
+      "entry_name": "uh ah get out",
+      "paid": false,
+      "prize_eligible": false,
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 3910497,
+      "player_name": "Jack Harbison",
+      "entry_name": "Change Name",
+      "paid": false,
+      "prize_eligible": false,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
