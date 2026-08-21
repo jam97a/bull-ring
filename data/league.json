@@ -1,20 +1,20 @@
 {
-  "last_updated": "2026-08-21T09:21:17.471510+00:00",
+  "last_updated": "2026-08-21T12:18:55.059037+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
     "season": "2026/27"
   },
   "current_gw": null,
-  "players": 16,
+  "players": 17,
   "roster_locked_at": null,
   "prizes": {
     "currency": "EUR",
     "buy_in": 50,
     "monthly_per_player": 3,
     "monthly_periods": 9,
-    "monthly": 48,
-    "overall": 368
+    "monthly": 51,
+    "overall": 391
   },
   "gameweeks": [
     {
@@ -419,6 +419,14 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
@@ -509,7 +517,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -542,7 +550,7 @@
       "winner": null,
       "complete": false,
       "remaining_gws": 5,
-      "prize": 48,
+      "prize": 51,
       "is_current": false
     },
     {
@@ -559,6 +567,14 @@
           "entry_id": 7029474,
           "player_name": "Cathal Ryan",
           "entry_name": "Look me in Ndiaye",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -654,7 +670,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -687,7 +703,7 @@
       "winner": null,
       "complete": false,
       "remaining_gws": 4,
-      "prize": 48,
+      "prize": 51,
       "is_current": false
     },
     {
@@ -703,6 +719,14 @@
           "entry_id": 7029474,
           "player_name": "Cathal Ryan",
           "entry_name": "Look me in Ndiaye",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -798,7 +822,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -831,7 +855,7 @@
       "winner": null,
       "complete": false,
       "remaining_gws": 3,
-      "prize": 48,
+      "prize": 51,
       "is_current": false
     },
     {
@@ -850,6 +874,14 @@
           "entry_id": 7029474,
           "player_name": "Cathal Ryan",
           "entry_name": "Look me in Ndiaye",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -945,7 +977,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -978,7 +1010,7 @@
       "winner": null,
       "complete": false,
       "remaining_gws": 6,
-      "prize": 48,
+      "prize": 51,
       "is_current": false
     },
     {
@@ -996,6 +1028,14 @@
           "entry_id": 7029474,
           "player_name": "Cathal Ryan",
           "entry_name": "Look me in Ndiaye",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1091,7 +1131,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1124,7 +1164,7 @@
       "winner": null,
       "complete": false,
       "remaining_gws": 5,
-      "prize": 48,
+      "prize": 51,
       "is_current": false
     },
     {
@@ -1141,6 +1181,14 @@
           "entry_id": 7029474,
           "player_name": "Cathal Ryan",
           "entry_name": "Look me in Ndiaye",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1236,7 +1284,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1269,7 +1317,7 @@
       "winner": null,
       "complete": false,
       "remaining_gws": 4,
-      "prize": 48,
+      "prize": 51,
       "is_current": false
     },
     {
@@ -1290,6 +1338,14 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
@@ -1380,7 +1436,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1413,7 +1469,7 @@
       "winner": null,
       "complete": false,
       "remaining_gws": 3,
-      "prize": 48,
+      "prize": 51,
       "is_current": false
     },
     {
@@ -1434,6 +1490,14 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
@@ -1524,7 +1588,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1557,7 +1621,7 @@
       "winner": null,
       "complete": false,
       "remaining_gws": 3,
-      "prize": 48,
+      "prize": 51,
       "is_current": false
     },
     {
@@ -1580,6 +1644,14 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
@@ -1670,7 +1742,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1703,7 +1775,7 @@
       "winner": null,
       "complete": false,
       "remaining_gws": 5,
-      "prize": 48,
+      "prize": 51,
       "is_current": false
     }
   ],
@@ -1712,6 +1784,17 @@
       "entry_id": 7029474,
       "player_name": "Cathal Ryan",
       "entry_name": "Look me in Ndiaye",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 0,
+      "hits_total": 0,
+      "gws_played": 0,
+      "by_gw": {}
+    },
+    {
+      "entry_id": 8053938,
+      "player_name": "Conor Fahy",
+      "entry_name": "WHOOP WHOOP",
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1843,7 +1926,7 @@
     {
       "entry_id": 7454103,
       "player_name": "Stephen Traynor",
-      "entry_name": "uh ah get out",
+      "entry_name": "Pending Moderation",
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1896,6 +1979,15 @@
       "in_league": true
     },
     {
+      "entry_id": 8053938,
+      "player_name": "Conor Fahy",
+      "entry_name": "WHOOP WHOOP",
+      "periods_won": 0,
+      "money_won": 0.0,
+      "net_position": -50.0,
+      "in_league": true
+    },
+    {
       "entry_id": 678888,
       "player_name": "Conor Finnerty",
       "entry_name": "thefinnertakesitall",
@@ -1997,7 +2089,7 @@
     {
       "entry_id": 7454103,
       "player_name": "Stephen Traynor",
-      "entry_name": "uh ah get out",
+      "entry_name": "Pending Moderation",
       "periods_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
@@ -2032,7 +2124,7 @@
     }
   ],
   "overall_prize": {
-    "amount": 368,
+    "amount": 391,
     "pending": true,
     "winner": null
   }
