@@ -47,20 +47,28 @@ never hardcoded in the script.
 {
   "currency": "EUR",
   "buy_in": 50,
-  "monthly_per_player": 3,
   "monthly_periods": 9,
-  "tiebreak_chain": ["head_to_head", "highest_single_gw", "fewest_transfers", "split"],
-  "overall_uses_same_tiebreak": true
+  "monthly_1st": 2.50,
+  "monthly_2nd": 1.25,
+  "overall_1st": 16.25,
+  "tiebreak_chain": ["head_to_head", "highest_single_gw", "fewest_transfers", "split"]
 }
 ```
 
-Prizes scale with `N`, the **member count** (frozen at the GW1 deadline):
+Each period pays **two** monthly prizes — a 1st and a 2nd — plus one overall
+prize at the end of the season. The three figures above are **per-player
+shares** of the €50 buy-in. Prizes scale with `N`, the **member count** (frozen
+at the GW1 deadline):
 
-- Monthly prize = `monthly_per_player * N`
-- Overall prize = `(buy_in - monthly_per_player * monthly_periods) * N`
+- Monthly 1st = `monthly_1st * N`   (at N=20: €50)
+- Monthly 2nd = `monthly_2nd * N`   (at N=20: €25)
+- Overall = `overall_1st * N`       (at N=20: €325)
 
-If `buy_in - monthly_per_player * monthly_periods` is negative, the config
-cannot produce a valid pot and the script **fails at startup** — fix the numbers.
+**Invariant:** the per-player shares must sum to exactly the buy-in —
+`(monthly_1st + monthly_2nd) * monthly_periods + overall_1st == buy_in`
+(`(2.50 + 1.25) × 9 + 16.25 = 50.00`). The script asserts this at startup and
+**fails loudly** if a future edit breaks it. There is no third monthly place
+and no second overall prize.
 
 `tiebreak_chain` is applied in order, stopping at the first step that separates
 tied managers:

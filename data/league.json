@@ -1,20 +1,23 @@
 {
-  "last_updated": "2026-08-21T09:21:17.471510+00:00",
+  "last_updated": "2026-08-21T14:29:34.662744+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
     "season": "2026/27"
   },
   "current_gw": null,
-  "players": 16,
+  "players": 20,
   "roster_locked_at": null,
   "prizes": {
     "currency": "EUR",
     "buy_in": 50,
-    "monthly_per_player": 3,
     "monthly_periods": 9,
-    "monthly": 48,
-    "overall": 368
+    "monthly_1st_per_player": 2.5,
+    "monthly_2nd_per_player": 1.25,
+    "overall_per_player": 16.25,
+    "monthly_1st": 50.0,
+    "monthly_2nd": 25.0,
+    "overall": 325.0
   },
   "gameweeks": [
     {
@@ -419,9 +422,25 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -475,6 +494,14 @@
           "in_league": true
         },
         {
+          "entry_id": 1744802,
+          "player_name": "Liam Daly",
+          "entry_name": "LifeGivesYouLammens",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -509,7 +536,15 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "Ted's Team",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -539,10 +574,12 @@
           "in_league": true
         }
       ],
-      "winner": null,
+      "first": null,
+      "second": null,
       "complete": false,
       "remaining_gws": 5,
-      "prize": 48,
+      "prize_1st": 50.0,
+      "prize_2nd": 25.0,
       "is_current": false
     },
     {
@@ -564,9 +601,25 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -620,6 +673,14 @@
           "in_league": true
         },
         {
+          "entry_id": 1744802,
+          "player_name": "Liam Daly",
+          "entry_name": "LifeGivesYouLammens",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -654,7 +715,15 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "Ted's Team",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -684,10 +753,12 @@
           "in_league": true
         }
       ],
-      "winner": null,
+      "first": null,
+      "second": null,
       "complete": false,
       "remaining_gws": 4,
-      "prize": 48,
+      "prize_1st": 50.0,
+      "prize_2nd": 25.0,
       "is_current": false
     },
     {
@@ -708,9 +779,25 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -764,6 +851,14 @@
           "in_league": true
         },
         {
+          "entry_id": 1744802,
+          "player_name": "Liam Daly",
+          "entry_name": "LifeGivesYouLammens",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -798,7 +893,15 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "Ted's Team",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -828,10 +931,12 @@
           "in_league": true
         }
       ],
-      "winner": null,
+      "first": null,
+      "second": null,
       "complete": false,
       "remaining_gws": 3,
-      "prize": 48,
+      "prize_1st": 50.0,
+      "prize_2nd": 25.0,
       "is_current": false
     },
     {
@@ -855,9 +960,25 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -911,6 +1032,14 @@
           "in_league": true
         },
         {
+          "entry_id": 1744802,
+          "player_name": "Liam Daly",
+          "entry_name": "LifeGivesYouLammens",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -945,7 +1074,15 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "Ted's Team",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -975,10 +1112,12 @@
           "in_league": true
         }
       ],
-      "winner": null,
+      "first": null,
+      "second": null,
       "complete": false,
       "remaining_gws": 6,
-      "prize": 48,
+      "prize_1st": 50.0,
+      "prize_2nd": 25.0,
       "is_current": false
     },
     {
@@ -1001,9 +1140,25 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1057,6 +1212,14 @@
           "in_league": true
         },
         {
+          "entry_id": 1744802,
+          "player_name": "Liam Daly",
+          "entry_name": "LifeGivesYouLammens",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -1091,7 +1254,15 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "Ted's Team",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1121,10 +1292,12 @@
           "in_league": true
         }
       ],
-      "winner": null,
+      "first": null,
+      "second": null,
       "complete": false,
       "remaining_gws": 5,
-      "prize": 48,
+      "prize_1st": 50.0,
+      "prize_2nd": 25.0,
       "is_current": false
     },
     {
@@ -1146,9 +1319,25 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1202,6 +1391,14 @@
           "in_league": true
         },
         {
+          "entry_id": 1744802,
+          "player_name": "Liam Daly",
+          "entry_name": "LifeGivesYouLammens",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -1236,7 +1433,15 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "Ted's Team",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1266,10 +1471,12 @@
           "in_league": true
         }
       ],
-      "winner": null,
+      "first": null,
+      "second": null,
       "complete": false,
       "remaining_gws": 4,
-      "prize": 48,
+      "prize_1st": 50.0,
+      "prize_2nd": 25.0,
       "is_current": false
     },
     {
@@ -1290,9 +1497,25 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1346,6 +1569,14 @@
           "in_league": true
         },
         {
+          "entry_id": 1744802,
+          "player_name": "Liam Daly",
+          "entry_name": "LifeGivesYouLammens",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -1380,7 +1611,15 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "Ted's Team",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1410,10 +1649,12 @@
           "in_league": true
         }
       ],
-      "winner": null,
+      "first": null,
+      "second": null,
       "complete": false,
       "remaining_gws": 3,
-      "prize": 48,
+      "prize_1st": 50.0,
+      "prize_2nd": 25.0,
       "is_current": false
     },
     {
@@ -1434,9 +1675,25 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1490,6 +1747,14 @@
           "in_league": true
         },
         {
+          "entry_id": 1744802,
+          "player_name": "Liam Daly",
+          "entry_name": "LifeGivesYouLammens",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -1524,7 +1789,15 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "Ted's Team",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1554,10 +1827,12 @@
           "in_league": true
         }
       ],
-      "winner": null,
+      "first": null,
+      "second": null,
       "complete": false,
       "remaining_gws": 3,
-      "prize": 48,
+      "prize_1st": 50.0,
+      "prize_2nd": 25.0,
       "is_current": false
     },
     {
@@ -1580,9 +1855,25 @@
           "in_league": true
         },
         {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1636,6 +1927,14 @@
           "in_league": true
         },
         {
+          "entry_id": 1744802,
+          "player_name": "Liam Daly",
+          "entry_name": "LifeGivesYouLammens",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -1670,7 +1969,15 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
+          "entry_name": "Pending Moderation",
+          "net": 0,
+          "gws_played": 0,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "Ted's Team",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1700,10 +2007,12 @@
           "in_league": true
         }
       ],
-      "winner": null,
+      "first": null,
+      "second": null,
       "complete": false,
       "remaining_gws": 5,
-      "prize": 48,
+      "prize_1st": 50.0,
+      "prize_2nd": 25.0,
       "is_current": false
     }
   ],
@@ -1720,9 +2029,31 @@
       "by_gw": {}
     },
     {
+      "entry_id": 8053938,
+      "player_name": "Conor Fahy",
+      "entry_name": "WHOOP WHOOP",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 0,
+      "hits_total": 0,
+      "gws_played": 0,
+      "by_gw": {}
+    },
+    {
       "entry_id": 678888,
       "player_name": "Conor Finnerty",
       "entry_name": "thefinnertakesitall",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 0,
+      "hits_total": 0,
+      "gws_played": 0,
+      "by_gw": {}
+    },
+    {
+      "entry_id": 8234720,
+      "player_name": "Emmet Ring",
+      "entry_name": "Ringo's Dingos",
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1797,6 +2128,17 @@
       "by_gw": {}
     },
     {
+      "entry_id": 1744802,
+      "player_name": "Liam Daly",
+      "entry_name": "LifeGivesYouLammens",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 0,
+      "hits_total": 0,
+      "gws_played": 0,
+      "by_gw": {}
+    },
+    {
       "entry_id": 6232820,
       "player_name": "Oliver McConkey",
       "entry_name": "Saka Spudz n Rice",
@@ -1843,7 +2185,18 @@
     {
       "entry_id": 7454103,
       "player_name": "Stephen Traynor",
-      "entry_name": "uh ah get out",
+      "entry_name": "Pending Moderation",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 0,
+      "hits_total": 0,
+      "gws_played": 0,
+      "by_gw": {}
+    },
+    {
+      "entry_id": 6396566,
+      "player_name": "Ted Regan",
+      "entry_name": "Ted's Team",
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 0,
@@ -1890,7 +2243,16 @@
       "entry_id": 7029474,
       "player_name": "Cathal Ryan",
       "entry_name": "Look me in Ndiaye",
-      "periods_won": 0,
+      "prizes_won": 0,
+      "money_won": 0.0,
+      "net_position": -50.0,
+      "in_league": true
+    },
+    {
+      "entry_id": 8053938,
+      "player_name": "Conor Fahy",
+      "entry_name": "WHOOP WHOOP",
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1899,7 +2261,16 @@
       "entry_id": 678888,
       "player_name": "Conor Finnerty",
       "entry_name": "thefinnertakesitall",
-      "periods_won": 0,
+      "prizes_won": 0,
+      "money_won": 0.0,
+      "net_position": -50.0,
+      "in_league": true
+    },
+    {
+      "entry_id": 8234720,
+      "player_name": "Emmet Ring",
+      "entry_name": "Ringo's Dingos",
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1908,7 +2279,7 @@
       "entry_id": 688197,
       "player_name": "Jack Farrell",
       "entry_name": "Ballon D'orgu",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1917,7 +2288,7 @@
       "entry_id": 3910497,
       "player_name": "Jack Harbison",
       "entry_name": "Change Name",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1926,7 +2297,7 @@
       "entry_id": 2717535,
       "player_name": "Jack Polion",
       "entry_name": "Yoro Wizard Harry",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1935,7 +2306,7 @@
       "entry_id": 3839020,
       "player_name": "Jack Traynor",
       "entry_name": "Crystal Parish",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1944,7 +2315,7 @@
       "entry_id": 6678491,
       "player_name": "James Adamson",
       "entry_name": "aint too xabi",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1953,7 +2324,16 @@
       "entry_id": 3043159,
       "player_name": "Kevin Byrne",
       "entry_name": "Life gives u Lammens",
-      "periods_won": 0,
+      "prizes_won": 0,
+      "money_won": 0.0,
+      "net_position": -50.0,
+      "in_league": true
+    },
+    {
+      "entry_id": 1744802,
+      "player_name": "Liam Daly",
+      "entry_name": "LifeGivesYouLammens",
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1962,7 +2342,7 @@
       "entry_id": 6232820,
       "player_name": "Oliver McConkey",
       "entry_name": "Saka Spudz n Rice",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1971,7 +2351,7 @@
       "entry_id": 855990,
       "player_name": "Paul Adamson",
       "entry_name": "Paulzo Delfouneso",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1980,7 +2360,7 @@
       "entry_id": 7702079,
       "player_name": "Sean Lynch",
       "entry_name": "YourWirtzNightmare",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1989,7 +2369,7 @@
       "entry_id": 5557770,
       "player_name": "Simon Bell",
       "entry_name": "Simo's11",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -1997,8 +2377,17 @@
     {
       "entry_id": 7454103,
       "player_name": "Stephen Traynor",
-      "entry_name": "uh ah get out",
-      "periods_won": 0,
+      "entry_name": "Pending Moderation",
+      "prizes_won": 0,
+      "money_won": 0.0,
+      "net_position": -50.0,
+      "in_league": true
+    },
+    {
+      "entry_id": 6396566,
+      "player_name": "Ted Regan",
+      "entry_name": "Ted's Team",
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -2007,7 +2396,7 @@
       "entry_id": 6872283,
       "player_name": "andrew mcclean",
       "entry_name": "McClean Sheet",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -2016,7 +2405,7 @@
       "entry_id": 1006440,
       "player_name": "jack hosford",
       "entry_name": "Gabriel Magalhõss",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
@@ -2025,14 +2414,14 @@
       "entry_id": 5089901,
       "player_name": "kevin mangan",
       "entry_name": "Mangos Giants",
-      "periods_won": 0,
+      "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
       "in_league": true
     }
   ],
   "overall_prize": {
-    "amount": 368,
+    "amount": 325.0,
     "pending": true,
     "winner": null
   }

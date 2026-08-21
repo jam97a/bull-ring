@@ -1,9 +1,10 @@
 {
   "currency": "EUR",
   "buy_in": 50,
-  "monthly_per_player": 3,
   "monthly_periods": 9,
+  "monthly_1st": 2.50,
+  "monthly_2nd": 1.25,
+  "overall_1st": 16.25,
   "tiebreak_chain": ["head_to_head", "highest_single_gw",
-                     "fewest_transfers", "split"],
-  "overall_uses_same_tiebreak": true
+                     "fewest_transfers", "split"]
 }

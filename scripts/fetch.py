@@ -461,20 +461,24 @@ def build_member_gw(current):
 
 
 def validate_prizes(prizes):
-    require("buy_in" in prizes and "monthly_per_player" in prizes,
-            "config/prizes.json must define buy_in and monthly_per_player")
+    for key in ("buy_in", "monthly_1st", "monthly_2nd", "overall_1st"):
+        require(key in prizes, "config/prizes.json must define %s" % key)
     buy_in = prizes["buy_in"]
-    monthly = prizes["monthly_per_player"]
+    m1 = prizes["monthly_1st"]
+    m2 = prizes["monthly_2nd"]
+    o1 = prizes["overall_1st"]
     periods = prizes.get("monthly_periods", 9)
     require(isinstance(periods, int) and periods > 0,
             "monthly_periods must be a positive integer")
-    overall_per_player = buy_in - monthly * periods
-    if overall_per_player < 0:
-        die("invalid prize config: buy_in (%s) - monthly_per_player (%s) * "
-            "monthly_periods (%s) = %s, which is negative. Config that cannot "
-            "produce a valid overall pot is a bug — fix config/prizes.json."
-            % (buy_in, monthly, periods, overall_per_player))
-    return buy_in, monthly, periods, overall_per_player
+    # Invariant: the per-player shares must sum to EXACTLY the buy-in. This is
+    # the thing most likely to break silently in a future edit, so fail loud.
+    total = round((m1 + m2) * periods + o1, 2)
+    if total != round(buy_in, 2):
+        die("invalid prize config: (monthly_1st %s + monthly_2nd %s) * "
+            "monthly_periods %s + overall_1st %s = %s, which is not the buy-in "
+            "%s. The per-player prize shares must sum to exactly the buy-in — "
+            "fix config/prizes.json." % (m1, m2, periods, o1, total, buy_in))
+    return buy_in, m1, m2, o1, periods
 
 
 def period_gameweeks(gw_to_period):
@@ -487,84 +491,137 @@ def period_gameweeks(gw_to_period):
     return out
 
 
-def resolve_tie(tied_ids, gws_in_period, member_gw, tiebreak_chain):
+_TIEBREAK_STEPS = ("head_to_head", "highest_single_gw", "fewest_transfers")
+
+
+def _h2h_wins(m, group, gws, member_gw):
+    """Head-to-head gameweek wins of m against the rest of a net-tied group."""
+    wins = 0
+    for o in group:
+        if o == m:
+            continue
+        for gw in gws:
+            a = member_gw.get(m, {}).get(gw)
+            b = member_gw.get(o, {}).get(gw)
+            if a is not None and b is not None and a["net"] > b["net"]:
+                wins += 1
+    return wins
+
+
+def rank_field(ids, gws, member_gw, tiebreak_chain):
     """
-    Resolve a tie on net points using the configured chain. Returns
-    (winner_ids, resolved_by, detail). winner_ids has one element unless the
-    chain falls through to 'split'.
+    Rank the whole field for a period into ordered tiers, applying the
+    tiebreak chain to separate managers level on net points. Returns
+    (tiers, nets) where tiers is a list of {"ids": [...], "sep": step} ordered
+    best-first; `sep` names the step that separates a tier from the one below
+    it ("net_points", a chain step, or None for the last tier). A tier with
+    more than one id is a genuinely unresolvable tie — the chain could not
+    separate them, so they share the rank rather than being split arbitrarily.
     """
-    tied = list(tied_ids)
+    nets = {}
+    highest = {}
+    transfers = {}
+    for i in ids:
+        played = [gw for gw in gws if gw in member_gw.get(i, {})]
+        nets[i] = sum(member_gw[i][gw]["net"] for gw in played)
+        highest[i] = max((member_gw[i][gw]["net"] for gw in played), default=None)
+        transfers[i] = sum(member_gw[i][gw]["transfers"] for gw in played)
 
-    for step in tiebreak_chain:
-        if step == "head_to_head":
-            h2h = {}
-            for m in tied:
-                wins = 0
-                for o in tied:
-                    if o == m:
-                        continue
-                    for gw in gws_in_period:
-                        a = member_gw.get(m, {}).get(gw)
-                        b = member_gw.get(o, {}).get(gw)
-                        if a is not None and b is not None and a["net"] > b["net"]:
-                            wins += 1
-                h2h[m] = wins
-            best = max(h2h.values())
-            winners = [m for m in tied if h2h[m] == best]
-            if len(winners) == 1:
-                return winners, "head_to_head", {"h2h_wins": h2h}
-            tied = winners
+    key_steps = [s for s in tiebreak_chain if s in _TIEBREAK_STEPS]
+    groups = {}
+    for i in ids:
+        groups.setdefault(nets[i], []).append(i)
+    net_values = sorted(groups, reverse=True)
 
-        elif step == "highest_single_gw":
-            highest = {}
-            for m in tied:
-                vals = [member_gw[m][gw]["net"] for gw in gws_in_period
-                        if gw in member_gw.get(m, {})]
-                highest[m] = max(vals) if vals else None
-            candidates = [v for v in highest.values() if v is not None]
-            if not candidates:
-                continue  # none of the tied managers has played — can't separate
-            best = max(candidates)
-            winners = [m for m in tied if highest[m] == best]
-            if len(winners) == 1:
-                return winners, "highest_single_gw", {"highest_single_gw": highest}
-            tied = winners
-
-        elif step == "fewest_transfers":
-            transfers = {}
-            for m in tied:
-                transfers[m] = sum(member_gw[m][gw]["transfers"]
-                                   for gw in gws_in_period
-                                   if gw in member_gw.get(m, {}))
-            fewest = min(transfers.values())
-            winners = [m for m in tied if transfers[m] == fewest]
-            if len(winners) == 1:
-                return winners, "fewest_transfers", {"transfers": transfers}
-            tied = winners
-
-        elif step == "split":
-            return list(tied), "split", {"split_between": list(tied)}
-
+    tiers = []
+    for gi, nv in enumerate(net_values):
+        group = groups[nv]
+        if len(group) == 1:
+            subtiers = [[group[0]]]
+            keys = {group[0]: ()}
         else:
-            warn("unknown tiebreak step %r in config/prizes.json — skipping" % step)
+            h2h = {m: _h2h_wins(m, group, gws, member_gw) for m in group}
 
-    # Chain exhausted without a 'split' entry: split among whoever remains.
-    return list(tied), "split", {"split_between": list(tied)}
+            def key(m):
+                parts = []
+                for step in key_steps:
+                    if step == "head_to_head":
+                        parts.append(-h2h[m])
+                    elif step == "highest_single_gw":
+                        parts.append(-(highest[m] if highest[m] is not None else -10 ** 9))
+                    elif step == "fewest_transfers":
+                        parts.append(transfers[m])
+                return tuple(parts)
+
+            keys = {m: key(m) for m in group}
+            ordered = sorted(group, key=lambda m: keys[m])
+            subtiers = []
+            for m in ordered:
+                if subtiers and keys[m] == keys[subtiers[-1][0]]:
+                    subtiers[-1].append(m)
+                else:
+                    subtiers.append([m])
+
+        for si, tier_ids in enumerate(subtiers):
+            sep = None
+            if si + 1 < len(subtiers):
+                ka = keys[tier_ids[0]]
+                kb = keys[subtiers[si + 1][0]]
+                for idx in range(len(ka)):
+                    if ka[idx] != kb[idx]:
+                        sep = key_steps[idx]
+                        break
+            elif gi < len(net_values) - 1:
+                sep = "net_points"
+            tiers.append({"ids": tier_ids, "sep": sep})
+
+    return tiers, nets
 
 
-def rank_period(period, gws, members, member_gw, tiebreak_chain, prize_amount):
+def assign_placings(tiers, first_total, second_total):
     """
-    Build the standings for one period plus the resolved winner(s).
-    Everyone in the roster can win. resolved_by is 'net_points' when there is
-    no tie.
+    Read 1st and 2nd off the ranked tiers. A tier occupying several positions
+    (an unresolvable tie) pools the prizes for those positions and splits them
+    equally. Returns (first, second); `second` is None when a tie for 1st has
+    already consumed the second position.
+    """
+    pos_amount = {1: first_total, 2: second_total}
+    first = second = None
+    pos = 1
+    for tier in tiers:
+        k = len(tier["ids"])
+        span = range(pos, pos + k)
+        total = sum(pos_amount.get(p, 0) for p in span)
+        placing = {
+            "entry_ids": list(tier["ids"]),
+            "amount_each": round(total / k, 2),
+            "resolved_by": "unresolved" if k > 1 else tier["sep"],
+        }
+        if pos == 1:
+            first = placing
+            if k >= 2:      # tie for 1st also occupies 2nd
+                break
+        elif pos == 2:
+            second = placing
+            break
+        pos += k
+        if pos > 2:
+            break
+    return first, second
+
+
+def rank_period(period, gws, members, member_gw, tiebreak_chain,
+                first_total, second_total):
+    """
+    Build the standings for one period plus the resolved 1st and 2nd placings.
+    Everyone in the roster can place. There are no placings until at least one
+    member has played a gameweek in the period.
     """
     standings = []
-    totals = {}
     for m in members:
         eid = m["entry_id"]
         played = [gw for gw in gws if gw in member_gw.get(eid, {})]
         net = sum(member_gw[eid][gw]["net"] for gw in played)
-        totals[eid] = net
         standings.append({
             "entry_id": eid,
             "player_name": m["player_name"],
@@ -575,37 +632,19 @@ def rank_period(period, gws, members, member_gw, tiebreak_chain, prize_amount):
         })
     standings.sort(key=lambda r: (-r["net"], r["player_name"]))
 
-    # There is no winner until at least one member has actually played a
-    # gameweek in the period — before that everyone is tied at 0 and no
-    # tiebreak can (or should) apply.
-    any_played = any(r["gws_played"] > 0 for r in standings)
-    winner = None
-    if standings and any_played:
-        top_net = standings[0]["net"]
-        tied = [r["entry_id"] for r in standings if r["net"] == top_net]
-        if len(tied) == 1:
-            winner = {
-                "entry_ids": tied,
-                "amount_each": prize_amount,
-                "resolved_by": "net_points",
-                "detail": {"net_points": top_net},
-            }
-        else:
-            winner_ids, resolved_by, detail = resolve_tie(
-                tied, gws, member_gw, tiebreak_chain)
-            winner = {
-                "entry_ids": winner_ids,
-                "amount_each": round(prize_amount / len(winner_ids), 2),
-                "resolved_by": resolved_by,
-                "detail": detail,
-            }
+    first = second = None
+    if standings and any(r["gws_played"] > 0 for r in standings):
+        tiers, _ = rank_field([m["entry_id"] for m in members], gws,
+                              member_gw, tiebreak_chain)
+        first, second = assign_placings(tiers, first_total, second_total)
 
     return {
         "period": period,
         "name": PERIOD_NAMES.get(period, "Period %d" % period),
         "gameweeks": gws,
         "standings": standings,
-        "winner": winner,
+        "first": first,
+        "second": second,
     }
 
 
@@ -619,7 +658,7 @@ def main():
     require("league_id" in league_cfg, "config/league.json must define league_id")
     league_id = league_cfg["league_id"]
 
-    buy_in, monthly_per_player, monthly_periods, overall_per_player = \
+    buy_in, monthly_1st_pp, monthly_2nd_pp, overall_pp, monthly_periods = \
         validate_prizes(prizes)
     currency = prizes.get("currency", "EUR")
     tiebreak_chain = prizes.get(
@@ -670,11 +709,13 @@ def main():
         time.sleep(REQUEST_SLEEP)
 
     # N is the member count. Everyone in the roster is in the pot; the roster
-    # lock (above) is what keeps this from growing mid-season.
+    # lock (above) is what keeps this from growing mid-season. Every prize is
+    # per-player-share * N, so the figures stay consistent at any count.
     players = len(members)
 
-    monthly_prize = monthly_per_player * players
-    overall_prize = overall_per_player * players
+    monthly_1st_prize = round(monthly_1st_pp * players, 2)
+    monthly_2nd_prize = round(monthly_2nd_pp * players, 2)
+    overall_prize = round(overall_pp * players, 2)
 
     # Per-gameweek league average net (relative colour-coding basis).
     gw_meta = []
@@ -698,30 +739,38 @@ def main():
     prior_results = load_json(RESULTS_OUT, required=False) or {"periods": {}}
     prior_results.setdefault("periods", {})
 
+    def _placing_ids(p):
+        return sorted((p or {}).get("entry_ids", [])) if p else []
+
     periods_out = []
     for period in sorted(period_gws):
         gws = period_gws[period]
         complete = len(gws) > 0 and all(gw in finished_gws for gw in gws)
         remaining = sum(1 for gw in gws if gw not in finished_gws)
         computed = rank_period(period, gws, members, member_gw,
-                               tiebreak_chain, monthly_prize)
+                               tiebreak_chain, monthly_1st_prize, monthly_2nd_prize)
 
-        winner = computed["winner"]
+        first = computed["first"]
+        second = computed["second"]
         pkey = str(period)
         if complete:
             if pkey in prior_results["periods"]:
                 recorded = prior_results["periods"][pkey]
-                # Immutable: keep the recorded winner; warn if we would differ.
-                rec_ids = sorted(recorded.get("winner", {}).get("entry_ids", []))
-                new_ids = sorted((winner or {}).get("entry_ids", []))
-                if rec_ids != new_ids:
-                    warn("period %d already recorded with winner(s) %s but a "
-                         "recompute gives %s — KEEPING the recorded result."
-                         % (period, rec_ids, new_ids))
-                winner = recorded.get("winner")
+                # Immutable: keep the recorded placings; warn if we would differ.
+                if (_placing_ids(recorded.get("first")) != _placing_ids(first) or
+                        _placing_ids(recorded.get("second")) != _placing_ids(second)):
+                    warn("period %d already recorded (1st %s, 2nd %s) but a "
+                         "recompute gives (1st %s, 2nd %s) — KEEPING the recorded "
+                         "result." % (
+                             period, _placing_ids(recorded.get("first")),
+                             _placing_ids(recorded.get("second")),
+                             _placing_ids(first), _placing_ids(second)))
+                first = recorded.get("first")
+                second = recorded.get("second")
             else:
                 prior_results["periods"][pkey] = {
-                    "winner": winner,
+                    "first": first,
+                    "second": second,
                     "recorded_at": datetime.now(timezone.utc).isoformat(),
                 }
                 log("Recorded immutable result for period %d" % period)
@@ -729,10 +778,12 @@ def main():
         computed.update({
             "complete": complete,
             "remaining_gws": remaining,
-            "prize": monthly_prize,
+            "prize_1st": monthly_1st_prize,
+            "prize_2nd": monthly_2nd_prize,
             "is_current": current_ev is not None and gw_to_period.get(
                 str(current_gw)) == period,
-            "winner": winner,
+            "first": first,
+            "second": second,
         })
         periods_out.append(computed)
 
@@ -770,15 +821,19 @@ def main():
         })
     members_out.sort(key=lambda r: (-r["total_net"], r["player_name"]))
 
-    # --- Prize table.
+    # --- Prize table. "won" sums monthly 1sts, monthly 2nds (and the overall
+    # once the season finishes); "prizes_won" counts placings.
     money_won = {m["entry_id"]: 0.0 for m in members}
-    periods_won = {m["entry_id"]: 0 for m in members}
+    prizes_won = {m["entry_id"]: 0 for m in members}
     for p in periods_out:
-        w = p["winner"]
-        if p["complete"] and w:
-            for eid in w["entry_ids"]:
-                money_won[eid] = money_won.get(eid, 0) + w["amount_each"]
-                periods_won[eid] = periods_won.get(eid, 0) + 1
+        if not p["complete"]:
+            continue
+        for placing in (p["first"], p["second"]):
+            if not placing:
+                continue
+            for eid in placing["entry_ids"]:
+                money_won[eid] = money_won.get(eid, 0) + placing["amount_each"]
+                prizes_won[eid] = prizes_won.get(eid, 0) + 1
 
     prize_table = []
     for m in members_out:
@@ -788,7 +843,7 @@ def main():
             "entry_id": eid,
             "player_name": m["player_name"],
             "entry_name": m["entry_name"],
-            "periods_won": periods_won.get(eid, 0),
+            "prizes_won": prizes_won.get(eid, 0),
             "money_won": won,
             "net_position": round(won - buy_in, 2),
             "in_league": m["in_league"],
@@ -810,9 +865,12 @@ def main():
         "prizes": {
             "currency": currency,
             "buy_in": buy_in,
-            "monthly_per_player": monthly_per_player,
             "monthly_periods": monthly_periods,
-            "monthly": monthly_prize,
+            "monthly_1st_per_player": monthly_1st_pp,
+            "monthly_2nd_per_player": monthly_2nd_pp,
+            "overall_per_player": overall_pp,
+            "monthly_1st": monthly_1st_prize,
+            "monthly_2nd": monthly_2nd_prize,
             "overall": overall_prize,
         },
         "gameweeks": gw_meta,

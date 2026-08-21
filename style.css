@@ -177,6 +177,16 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   text-transform: uppercase;
   color: var(--sombra);
 }
+/* Footnote under the MONTHLY PRIZE label — the 2nd-place amount. */
+.hero .fig-sub {
+  margin-top: 2px;
+  font-family: var(--font-archivo);
+  font-variation-settings: var(--vf-label);
+  font-size: var(--fs-12);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--sombra);
+}
 
 /* ---------------------------------------------------------------- Tab bar */
 
@@ -325,6 +335,7 @@ th.col-name, td.col-name {
 
 tr.leader td, tr.leader th { background: color-mix(in srgb, var(--oro) 12%, var(--surface)); }
 tr.leader .name-main { color: var(--oro); font-weight: 700; }
+tr.runner td, tr.runner th { background: color-mix(in srgb, var(--oro) 5%, var(--surface)); }
 .win-amt { color: var(--oro); font-weight: 700; }
 
 .mark {
@@ -403,7 +414,17 @@ tr.leader .name-main { color: var(--oro); font-weight: 700; }
 .wcard .wc-line { margin-top: var(--sp-1); font-size: var(--fs-14); color: var(--sombra); }
 .wcard .wc-line .net { color: var(--bone); }
 .wcard .wc-amt { color: var(--oro); font-weight: 700; }
-.wcard .wc-why { margin-top: var(--sp-1); font-size: var(--fs-12); color: var(--sombra); }
+.wcard .wc-line .pl-rank {
+  font-family: var(--font-archivo);
+  font-variation-settings: var(--vf-label);
+  font-size: var(--fs-12);
+  letter-spacing: var(--track-caps);
+  color: var(--oro);
+  margin-right: var(--sp-1);
+}
+.wcard .wc-line.second .pl-rank { color: var(--sombra); }
+.wcard .wc-line .pl-team { color: var(--bone); }
+.wcard .wc-line .pl-why { color: var(--sombra); }
 .live-badge {
   font-family: var(--font-archivo);
   font-variation-settings: var(--vf-label);

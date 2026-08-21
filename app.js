@@ -31,7 +31,7 @@
   }
   function money(n) {
     var v = Math.round((Number(n) || 0) * 100) / 100;
-    return currencySymbol() + v;
+    return currencySymbol() + (v % 1 === 0 ? String(v) : v.toFixed(2));
   }
 
   function firstNameInitial(name) {
@@ -171,15 +171,35 @@
     return n + " gameweek" + (n === 1 ? "" : "s");
   }
   function tiebreakText(w) {
-    if (!w || w.resolved_by === "net_points") return "";
-    var names = (w.entry_ids || []).map(nameFor).join(" & ");
+    if (!w || !w.resolved_by || w.resolved_by === "net_points") return "";
     switch (w.resolved_by) {
-      case "head_to_head": return "Tied on net points — settled on head-to-head gameweek wins.";
-      case "highest_single_gw": return "Tied — settled on the highest single gameweek.";
-      case "fewest_transfers": return "Tied — settled on fewest transfers.";
-      case "split": return "Level after every tiebreak — prize split between " + names + ".";
-      default: return "Settled by " + w.resolved_by + ".";
+      case "head_to_head": return "settled on head-to-head";
+      case "highest_single_gw": return "settled on highest single gameweek";
+      case "fewest_transfers": return "settled on fewest transfers";
+      case "unresolved":
+      case "split": return "tied — split after every tiebreak";
+      default: return "settled by " + w.resolved_by;
     }
+  }
+  function netOf(placing, standings) {
+    if (!placing) return 0;
+    var ids = placing.entry_ids || [];
+    var row = (standings || []).find(function (r) { return ids.indexOf(r.entry_id) !== -1; });
+    return row ? row.net : 0;
+  }
+  function placingLine(rank, cls, placing, standings, opts) {
+    opts = opts || {};
+    var ids = placing ? placing.entry_ids : [];
+    var teams = ids.length ? ids.map(teamFor).join(" & ") : (opts.team || "—");
+    var net = placing ? netOf(placing, standings) : (opts.net || 0);
+    var split = ids.length > 1;
+    var why = placing ? tiebreakText(placing) : "";
+    var amt = opts.amount != null ? opts.amount : (placing ? placing.amount_each : 0);
+    return '<div class="wc-line ' + cls + '"><span class="pl-rank">' + rank + "</span> " +
+      (opts.showTeam ? '<span class="pl-team">' + esc(teams) + "</span> · " : "") +
+      '<span class="net">' + net + "</span> net · " +
+      '<span class="wc-amt">' + money(amt) + (split ? " ea" : "") + "</span>" +
+      (why ? ' <span class="pl-why">· ' + esc(why) + "</span>" : "") + "</div>";
   }
 
   function periodTable(p) {
@@ -189,10 +209,12 @@
       '<th scope="col" class="rank">#</th><th scope="col" class="col-name">Manager</th>' +
       '<th scope="col">Net</th><th scope="col">GW</th></tr></thead>';
     var tb = el("tbody");
-    var winners = (p.winner && p.winner.entry_ids) || [];
+    var firsts = (p.first && p.first.entry_ids) || [];
+    var seconds = (p.second && p.second.entry_ids) || [];
     (p.standings || []).forEach(function (r, i) {
       var tr = el("tr");
-      if (winners.indexOf(r.entry_id) !== -1) tr.className = "leader";
+      if (firsts.indexOf(r.entry_id) !== -1) tr.className = "leader";
+      else if (seconds.indexOf(r.entry_id) !== -1) tr.className = "runner";
       tr.innerHTML =
         '<td class="rank">' + (i + 1) + "</td>" +
         '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) +
@@ -207,7 +229,8 @@
   }
 
   function liveCard(p) {
-    var leadRow = (p.standings || [])[0];
+    var st = p.standings || [];
+    var lead = st[0], runner = st[1];
     var card = el("div", "wcard live");
     var remain = p.remaining_gws;
     var badge = "LIVE — " + (remain > 0 ? remain + " GAMEWEEK" + (remain === 1 ? "" : "S") + " LEFT" : "FINAL SCORES SETTLING");
@@ -215,30 +238,24 @@
       '<div class="bull-gold" aria-hidden="true"></div>' +
       '<div class="wc-body">' +
       '<div class="wc-period">' + esc(p.name) + ' · <span class="live-badge">' + esc(badge) + "</span></div>" +
-      '<div class="wc-team">' + esc(leadRow ? leadRow.entry_name : "—") + "</div>" +
-      '<div class="wc-line">Leading on <span class="net">' + (leadRow ? leadRow.net : 0) +
-      "</span> net · <span class=\"wc-amt\">" + money(p.prize) + "</span> up for grabs</div>" +
+      '<div class="wc-team">' + esc(lead ? lead.entry_name : "—") + "</div>" +
+      placingLine("1st", "", null, st, { net: lead ? lead.net : 0, amount: p.prize_1st }) +
+      (runner ? placingLine("2nd", "second", null, st, { showTeam: true, team: runner.entry_name, net: runner.net, amount: p.prize_2nd }) : "") +
       "</div>";
     return card;
   }
 
   function winnerCard(p) {
-    var w = p.winner;
-    var ids = (w && w.entry_ids) || [];
+    var f = p.first;
     var card = el("div", "wcard");
-    var teams = ids.map(teamFor).join(" & ");
-    var netRow = (p.standings || []).find(function (r) { return ids.indexOf(r.entry_id) !== -1; });
-    var net = netRow ? netRow.net : 0;
-    var split = ids.length > 1;
-    var why = tiebreakText(w);
+    var fteams = (f ? f.entry_ids : []).map(teamFor).join(" & ");
     card.innerHTML =
       '<div class="bull-gold" aria-hidden="true"></div>' +
       '<div class="wc-body">' +
       '<div class="wc-period">' + esc(p.name) + " · " + esc(gwLabel(p)) + "</div>" +
-      '<div class="wc-team">' + esc(teams || "No winner") + "</div>" +
-      '<div class="wc-line"><span class="net">' + net + '</span> net · <span class="wc-amt">' +
-      (w ? money(w.amount_each) : money(0)) + (split ? " each" : "") + "</span></div>" +
-      (why ? '<div class="wc-why">' + esc(why) + "</div>" : "") +
+      '<div class="wc-team">' + esc(fteams || "No winner") + "</div>" +
+      placingLine("1st", "", f, p.standings, {}) +
+      (p.second ? placingLine("2nd", "second", p.second, p.standings, { showTeam: true }) : "") +
       "</div>";
     return card;
   }
@@ -308,7 +325,7 @@
       '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) +
       "</span>" + markerHTML(r) +
       '<span class="team">' + esc(r.entry_name) + "</span></th>" +
-      '<td class="muted col-won">' + r.periods_won + "</td>" +
+      '<td class="muted col-won">' + (r.prizes_won || 0) + "</td>" +
       '<td class="' + (r.money_won > 0 ? "money" : "muted") + '">' + money(r.money_won) + "</td>" +
       netCell;
     return tr;
@@ -514,16 +531,21 @@
     var pz = DATA.prizes || {};
     var N = DATA.players || 0;
     var buyIn = pz.buy_in != null ? pz.buy_in : 50;
-    var per = pz.monthly_per_player != null ? pz.monthly_per_player : 3;
-    var periods = pz.monthly_periods != null ? pz.monthly_periods : 9;
-    var overallPer = buyIn - per * periods;
+    var m1pp = pz.monthly_1st_per_player != null ? pz.monthly_1st_per_player : 2.5;
+    var m2pp = pz.monthly_2nd_per_player != null ? pz.monthly_2nd_per_player : 1.25;
+    var opp = pz.overall_per_player != null ? pz.overall_per_player : 16.25;
+    var m1 = pz.monthly_1st != null ? pz.monthly_1st : m1pp * N;
+    var m2 = pz.monthly_2nd != null ? pz.monthly_2nd : m2pp * N;
+    var overall = pz.overall != null ? pz.overall : opp * N;
 
     var wrap = el("div", "rules");
     wrap.innerHTML =
       "<h2>The buy-in</h2>" +
       "<p>" + money(buyIn) + " each. <b>" + N + "</b> playing, so the pot is <b>" + money(buyIn * N) + "</b>.</p>" +
       "<h2>How the money splits</h2>" +
-      "<p>" + money(per) + " of everyone's " + money(buyIn) + " goes to each of the nine monthly prizes. The remaining " + money(overallPer) + " goes to the overall winner. Each month is worth <b>" + money(pz.monthly != null ? pz.monthly : per * N) + "</b>, the season <b>" + money(pz.overall != null ? pz.overall : overallPer * N) + "</b>.</p>" +
+      "<p>Of everyone's " + money(buyIn) + ": " + money(m1pp) + " goes to each month's winner and " + money(m2pp) +
+      " to the runner-up, across the nine months; the remaining " + money(opp) + " goes to the overall winner.</p>" +
+      "<p>So each month pays <b>" + money(m1) + "</b> for 1st and <b>" + money(m2) + "</b> for 2nd, and the season pays <b>" + money(overall) + "</b> to the overall winner. There is no third monthly place and no second overall prize.</p>" +
       "<h2>The nine months</h2>" +
       "<p>August and September count as one period. Then October, November, December, January, February, March, April, May.</p>";
 
@@ -578,9 +600,10 @@
     return "Updated " + days + " day" + (days === 1 ? "" : "s") + " ago";
   }
 
-  function figCell(prefix, target, kind, label) {
+  function figCell(prefix, target, kind, label, sub) {
     return '<div class="fig-cell"><div class="fig ' + kind + '" data-target="' + target +
-      '" data-prefix="' + prefix + '">' + prefix + '0</div><div class="fig-label">' + esc(label) + "</div></div>";
+      '" data-prefix="' + prefix + '">' + prefix + '0</div><div class="fig-label">' + esc(label) + "</div>" +
+      (sub ? '<div class="fig-sub">' + esc(sub) + "</div>" : "") + "</div>";
   }
   function renderHeader() {
     $("#season").textContent = (DATA.league && DATA.league.season) || "";
@@ -589,9 +612,9 @@
     var sym = currencySymbol();
     var pot = (pz.buy_in != null ? pz.buy_in : 50) * N;
     $("#hero").innerHTML =
-      figCell(sym, Math.round(pz.monthly || 0), "money", "Monthly prize") +
-      figCell(sym, Math.round(pz.overall || 0), "money", "Overall prize") +
-      figCell(sym, Math.round(pot), "money", "Pot") +
+      figCell(sym, pz.monthly_1st || 0, "money", "Monthly prize", "2nd " + money(pz.monthly_2nd || 0)) +
+      figCell(sym, pz.overall || 0, "money", "Overall prize") +
+      figCell(sym, pot, "money", "Pot") +
       figCell("", N, "count", "Playing");
     $("#last-updated").textContent = relTime(DATA.last_updated);
     animateCounts();

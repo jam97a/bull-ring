@@ -115,7 +115,7 @@
     {
       "entry_id": 7454103,
       "player_name": "Stephen Traynor",
-      "entry_name": "uh ah get out",
+      "entry_name": "Pending Moderation",
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -124,6 +124,38 @@
       "entry_id": 3910497,
       "player_name": "Jack Harbison",
       "entry_name": "Change Name",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 8234720,
+      "player_name": "Emmet Ring",
+      "entry_name": "Ringo's Dingos",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 6396566,
+      "player_name": "Ted Regan",
+      "entry_name": "Ted's Team",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 1744802,
+      "player_name": "Liam Daly",
+      "entry_name": "LifeGivesYouLammens",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 8053938,
+      "player_name": "Conor Fahy",
+      "entry_name": "WHOOP WHOOP",
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
