@@ -531,6 +531,42 @@ table.grid thead th.corner { left: 0; top: 0; z-index: 3; background: var(--surf
 .cell .chip { color: var(--oro); font-family: var(--font-body); font-weight: 700; font-size: var(--fs-12); vertical-align: super; }
 .cell.blank { color: var(--sombra); }
 
+/* ---------------------------------------------------------------- Records */
+
+.record {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  background: var(--surface);
+  border: var(--line-thin);
+  border-radius: var(--radius);
+  padding: var(--sp-3) var(--gap);
+  margin-bottom: var(--sp-2);
+}
+.record .rec-body { flex: 1; min-width: 0; }
+.record .rec-title {
+  font-family: var(--font-archivo);
+  font-variation-settings: var(--vf-label);
+  font-size: var(--fs-14);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  color: var(--bone);
+}
+.record .rec-note { color: var(--sombra); }
+.record .rec-who { margin-top: var(--sp-1); font-size: var(--fs-14); color: var(--sombra); }
+.record .rec-value {
+  flex: 0 0 auto;
+  font-family: var(--font-archivo);
+  font-variation-settings: var(--vf-display);
+  font-size: var(--fs-32);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--bone);
+  line-height: 1;
+}
+.record .rec-value.rec-bad { color: var(--sangre); }
+.record .rec-value.rec-muted { color: var(--sombra); }
+
 /* ---------------------------------------------------------------- Rules */
 
 .rules { max-width: var(--maxw); }

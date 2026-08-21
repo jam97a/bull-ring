@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var VIEWS = ["overall", "monthly", "prizes", "grid", "rules"];
+  var VIEWS = ["overall", "monthly", "prizes", "grid", "records", "rules"];
   var CHIP_LETTER = { wildcard: "W", bboost: "B", "3xc": "T", freehit: "F", manager: "M" };
   var CHIP_NAME = {
     wildcard: "Wildcard", bboost: "Bench Boost", "3xc": "Triple Captain",
@@ -430,6 +430,77 @@
     updateFades();
   }
 
+  /* ---------------------------------------------------------------- Records */
+
+  function renderRecords() {
+    var main = $("#main");
+    main.innerHTML = "";
+    var members = DATA.members || [];
+    var cells = [];
+    members.forEach(function (m) {
+      if (!m.by_gw) return;
+      Object.keys(m.by_gw).forEach(function (gw) {
+        var c = m.by_gw[gw];
+        cells.push({ m: m, gw: +gw, net: c.net, hit: c.hit || 0, transfers: c.transfers || 0, bench: c.bench || 0 });
+      });
+    });
+    if (!cells.length) { main.appendChild(noScoresNotice()); return; }
+
+    main.appendChild(el("h2", "view-title", "The record books"));
+
+    function who(c) { return firstNameInitial(c.m.player_name) + " · GW" + c.gw; }
+    function whoSeason(t) { return firstNameInitial(t.m.player_name); }
+
+    // Best single-gameweek cell for a metric (dir 1 = max, -1 = min).
+    function single(metric, dir, positiveOnly) {
+      var pool = positiveOnly ? cells.filter(function (c) { return metric(c) > 0; }) : cells;
+      if (!pool.length) return null;
+      var v = pool.reduce(function (a, b) { return (dir > 0 ? metric(b) > a : metric(b) < a) ? metric(b) : a; }, metric(pool[0]));
+      return { val: v, holders: pool.filter(function (c) { return metric(c) === v; }).map(who) };
+    }
+    // Biggest season total for a metric.
+    function season(metric) {
+      var totals = members.map(function (m) {
+        var s = 0;
+        if (m.by_gw) Object.keys(m.by_gw).forEach(function (gw) { s += metric(m.by_gw[gw]) || 0; });
+        return { m: m, v: s };
+      });
+      var v = totals.reduce(function (a, b) { return b.v > a ? b.v : a; }, 0);
+      return { val: v, holders: totals.filter(function (t) { return t.v === v; }).map(whoSeason) };
+    }
+
+    // Records on low integers (a −8 hit, a 32-point bench) are often shared by
+    // many; show a couple of holders then a count so the card stays clean.
+    function capHolders(list) {
+      if (list.length <= 2) return list.map(esc).join("  &  ");
+      return esc(list[0]) + "  &  " + (list.length - 1) + " others";
+    }
+
+    var recs = [];
+    var big = single(function (c) { return c.net; }, 1);
+    if (big) recs.push({ t: "Biggest week", w: big.holders, v: big.val });
+    var worst = single(function (c) { return c.net; }, -1);
+    if (worst) recs.push({ t: "Worst week", w: worst.holders, v: worst.val, cls: "rec-muted" });
+    var hit = single(function (c) { return c.hit; }, 1, true);
+    if (hit) recs.push({ t: "Biggest hit", w: hit.holders, v: "−" + hit.val, cls: "rec-bad" });
+    var bench = single(function (c) { return c.bench; }, 1, true);
+    if (bench) recs.push({ t: "Bench horror", w: bench.holders, v: bench.val, cls: "rec-muted" });
+    var sh = season(function (c) { return c.hit; });
+    if (sh.val > 0) recs.push({ t: "Most hits taken", w: sh.holders, v: "−" + sh.val, cls: "rec-bad", note: "all season" });
+    var sb = season(function (c) { return c.bench; });
+    if (sb.val > 0) recs.push({ t: "Most left on the bench", w: sb.holders, v: sb.val, cls: "rec-muted", note: "all season" });
+
+    recs.forEach(function (r) {
+      var card = el("div", "record");
+      card.innerHTML =
+        '<div class="rec-body"><div class="rec-title">' + esc(r.t) +
+        (r.note ? ' <span class="rec-note">' + esc(r.note) + "</span>" : "") + "</div>" +
+        '<div class="rec-who">' + capHolders(r.w) + "</div></div>" +
+        '<div class="rec-value ' + (r.cls || "") + '">' + esc(r.v) + "</div>";
+      main.appendChild(card);
+    });
+  }
+
   /* ---------------------------------------------------------------- Rules */
 
   function gwRange(p) {
@@ -492,7 +563,7 @@
 
   /* ---------------------------------------------------------------- Chrome */
 
-  var RENDER = { overall: renderOverall, monthly: renderMonthly, prizes: renderPrizes, grid: renderGrid, rules: renderRules };
+  var RENDER = { overall: renderOverall, monthly: renderMonthly, prizes: renderPrizes, grid: renderGrid, records: renderRecords, rules: renderRules };
 
   function relTime(iso) {
     if (!iso) return "No update yet";

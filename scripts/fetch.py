@@ -753,6 +753,7 @@ def main():
                 "points": g["points"],
                 "hit": g["hit"],
                 "transfers": g["transfers"],
+                "bench": g["bench"],
                 "chip": member_chips.get(eid, {}).get(gw),
                 "provisional": gw not in finished_gws,
             }
