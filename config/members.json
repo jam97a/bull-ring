@@ -127,6 +127,36 @@
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
+    },
+    {
+      "entry_id": 7454103,
+      "player_name": "Stephen Traynor",
+      "entry_name": "uh ah get out",
+      "paid": false,
+      "prize_eligible": false,
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 3910497,
+      "player_name": "Jack Harbison",
+      "entry_name": "Change Name",
+      "paid": false,
+      "prize_eligible": false,
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 855990,
+      "player_name": "Paul Adamson",
+      "entry_name": "Paulzo Delfouneso",
+      "paid": false,
+      "prize_eligible": false,
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
     }
   ]
 }
