@@ -123,7 +123,7 @@
     {
       "entry_id": 3910497,
       "player_name": "Jack Harbison",
-      "entry_name": "Change Name",
+      "entry_name": "Hard4Haaland",
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -160,5 +160,6 @@
       "first_seen_gw": 1,
       "notes": ""
     }
-  ]
+  ],
+  "roster_locked_at": "2026-08-21T17:30:00Z"
 }
