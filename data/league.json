@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-21T00:29:16.531966+00:00",
+  "last_updated": "2026-08-21T06:21:28.391638+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -445,6 +445,15 @@
           "in_league": true
         },
         {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": false,
+          "in_league": true
+        },
+        {
           "entry_id": 5557770,
           "player_name": "Simon Bell",
           "entry_name": "Simo's11",
@@ -579,6 +588,15 @@
           "in_league": true
         },
         {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": false,
+          "in_league": true
+        },
+        {
           "entry_id": 5557770,
           "player_name": "Simon Bell",
           "entry_name": "Simo's11",
@@ -709,6 +727,15 @@
           "net": 0,
           "gws_played": 0,
           "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": false,
           "in_league": true
         },
         {
@@ -848,6 +875,15 @@
           "in_league": true
         },
         {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": false,
+          "in_league": true
+        },
+        {
           "entry_id": 5557770,
           "player_name": "Simon Bell",
           "entry_name": "Simo's11",
@@ -980,6 +1016,15 @@
           "net": 0,
           "gws_played": 0,
           "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": false,
           "in_league": true
         },
         {
@@ -1117,6 +1162,15 @@
           "in_league": true
         },
         {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": false,
+          "in_league": true
+        },
+        {
           "entry_id": 5557770,
           "player_name": "Simon Bell",
           "entry_name": "Simo's11",
@@ -1247,6 +1301,15 @@
           "net": 0,
           "gws_played": 0,
           "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": false,
           "in_league": true
         },
         {
@@ -1383,6 +1446,15 @@
           "in_league": true
         },
         {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": false,
+          "in_league": true
+        },
+        {
           "entry_id": 5557770,
           "player_name": "Simon Bell",
           "entry_name": "Simo's11",
@@ -1515,6 +1587,15 @@
           "net": 0,
           "gws_played": 0,
           "prize_eligible": true,
+          "in_league": true
+        },
+        {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 0,
+          "gws_played": 0,
+          "prize_eligible": false,
           "in_league": true
         },
         {
@@ -1676,6 +1757,19 @@
       "by_gw": {}
     },
     {
+      "entry_id": 855990,
+      "player_name": "Paul Adamson",
+      "entry_name": "Paulzo Delfouneso",
+      "paid": false,
+      "prize_eligible": false,
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 0,
+      "hits_total": 0,
+      "gws_played": 0,
+      "by_gw": {}
+    },
+    {
       "entry_id": 5557770,
       "player_name": "Simon Bell",
       "entry_name": "Simo's11",
@@ -1829,6 +1923,17 @@
       "prize_eligible": true,
       "in_league": true,
       "paid": true
+    },
+    {
+      "entry_id": 855990,
+      "player_name": "Paul Adamson",
+      "entry_name": "Paulzo Delfouneso",
+      "periods_won": 0,
+      "money_won": 0.0,
+      "net_position": null,
+      "prize_eligible": false,
+      "in_league": true,
+      "paid": false
     },
     {
       "entry_id": 5557770,
