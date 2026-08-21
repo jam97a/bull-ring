@@ -14,6 +14,7 @@
   var DATA = null;
   var currentView = "overall";
   var HEAT = { ember: Infinity, gwAvg: {} };
+  var ABBREV = {};   // entry_id -> unique short name (e.g. "Conor Fi.")
 
   function $(s, r) { return (r || document).querySelector(s); }
   function el(tag, cls, text) {
@@ -39,10 +40,42 @@
     if (parts.length < 2) return parts[0] || "";
     return parts[0] + " " + parts[parts.length - 1].charAt(0).toUpperCase() + ".";
   }
+  // Build a unique short name per member: first name + just enough of the last
+  // name to break ties on the initial (Conor Finnerty -> "Conor Fi.", Conor
+  // Fahy -> "Conor Fa."). Grouped case-insensitively so the Jacks all resolve.
+  function buildAbbrevs() {
+    ABBREV = {};
+    var info = (DATA.members || []).map(function (m) {
+      var parts = String(m.player_name || "").trim().split(/\s+/);
+      return { id: m.entry_id, first: parts[0] || "", last: parts.length > 1 ? parts[parts.length - 1] : "" };
+    });
+    var groups = {};
+    info.forEach(function (x) { var k = x.first.toLowerCase(); (groups[k] = groups[k] || []).push(x); });
+    info.forEach(function (x) {
+      if (!x.last) { ABBREV[x.id] = x.first; return; }
+      var group = groups[x.first.toLowerCase()];
+      var len = 1;
+      while (group.length > 1 && len < x.last.length) {
+        var mine = x.last.slice(0, len).toLowerCase();
+        var clash = group.some(function (o) {
+          return o.id !== x.id && o.last && o.last.slice(0, len).toLowerCase() === mine;
+        });
+        if (!clash) break;
+        len++;
+      }
+      var lp = x.last.slice(0, len);
+      ABBREV[x.id] = x.first + " " + lp.charAt(0).toUpperCase() + lp.slice(1) + ".";
+    });
+  }
+  function abbrev(id) {
+    if (ABBREV[id]) return ABBREV[id];
+    var m = memberFor(id);
+    return m ? firstNameInitial(m.player_name) : ("#" + id);
+  }
   function chipLetter(chip) { return CHIP_LETTER[chip] || chip.charAt(0).toUpperCase(); }
 
   function memberFor(id) { return (DATA.members || []).find(function (x) { return x.entry_id === id; }); }
-  function nameFor(id) { var m = memberFor(id); return m ? firstNameInitial(m.player_name) : ("#" + id); }
+  function nameFor(id) { return abbrev(id); }
   function teamFor(id) { var m = memberFor(id); return m ? m.entry_name : ("#" + id); }
 
   function markerHTML(m) {
@@ -153,7 +186,7 @@
       if (scores && i === 0 && played) tr.className = "leader";
       tr.innerHTML =
         '<td class="rank">' + (i + 1) + "</td>" +
-        '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(m.player_name)) +
+        '<th scope="row" class="col-name"><span class="name-main">' + esc(abbrev(m.entry_id)) +
         "</span>" + (move ? " " + moveSpan(move[m.entry_id]) : "") + markerHTML(m) +
         '<span class="team">' + esc(m.entry_name) + "</span></th>" +
         "<td>" + (played ? "<b>" + m.total_net + "</b>" : '<span class="muted">—</span>') + "</td>" +
@@ -217,7 +250,7 @@
       else if (seconds.indexOf(r.entry_id) !== -1) tr.className = "runner";
       tr.innerHTML =
         '<td class="rank">' + (i + 1) + "</td>" +
-        '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) +
+        '<th scope="row" class="col-name"><span class="name-main">' + esc(abbrev(r.entry_id)) +
         "</span>" + markerHTML(r) +
         '<span class="team">' + esc(r.entry_name) + "</span></th>" +
         "<td><b>" + r.net + "</b></td>" +
@@ -322,7 +355,7 @@
           ? '<span class="net-pos">+' + money(net) + "</span>"
           : '<span class="net-neg">−' + money(Math.abs(net)) + "</span>") + "</td>";
     tr.innerHTML =
-      '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) +
+      '<th scope="row" class="col-name"><span class="name-main">' + esc(abbrev(r.entry_id)) +
       "</span>" + markerHTML(r) +
       '<span class="team">' + esc(r.entry_name) + "</span></th>" +
       '<td class="muted col-won">' + (r.prizes_won || 0) + "</td>" +
@@ -414,7 +447,7 @@
     members.forEach(function (m) {
       var tr = el("tr");
       var rown = el("th", "rowname"); rown.setAttribute("scope", "row");
-      rown.innerHTML = esc(firstNameInitial(m.player_name)) + markerHTML(m);
+      rown.innerHTML = esc(abbrev(m.entry_id)) + markerHTML(m);
       tr.appendChild(rown);
       gws.forEach(function (g) {
         var c = m.by_gw ? m.by_gw[g.id] : null;
@@ -465,8 +498,8 @@
 
     main.appendChild(el("h2", "view-title", "The record books"));
 
-    function who(c) { return firstNameInitial(c.m.player_name) + " · GW" + c.gw; }
-    function whoSeason(t) { return firstNameInitial(t.m.player_name); }
+    function who(c) { return abbrev(c.m.entry_id) + " · GW" + c.gw; }
+    function whoSeason(t) { return abbrev(t.m.entry_id); }
 
     // Best single-gameweek cell for a metric (dir 1 = max, -1 = min).
     function single(metric, dir, positiveOnly) {
@@ -668,7 +701,7 @@
     wireTabs();
     fetch("data/league.json", { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("The update job hasn't produced a data file yet."); return r.json(); })
-      .then(function (data) { DATA = data; prepHeat(); renderHeader(); render(); })
+      .then(function (data) { DATA = data; prepHeat(); buildAbbrevs(); renderHeader(); render(); })
       .catch(function (e) { fail(e.message); });
   }
   document.addEventListener("DOMContentLoaded", boot);
