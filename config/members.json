@@ -1,12 +1,9 @@
 {
-  "roster_locked": false,
   "members": [
     {
       "entry_id": 5557770,
       "player_name": "Simon Bell",
       "entry_name": "Simo's11",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -15,8 +12,6 @@
       "entry_id": 2717535,
       "player_name": "Jack Polion",
       "entry_name": "Yoro Wizard Harry",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -25,8 +20,6 @@
       "entry_id": 6232820,
       "player_name": "Oliver McConkey",
       "entry_name": "Saka Spudz n Rice",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -35,8 +28,6 @@
       "entry_id": 678888,
       "player_name": "Conor Finnerty",
       "entry_name": "thefinnertakesitall",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -45,8 +36,6 @@
       "entry_id": 1006440,
       "player_name": "jack hosford",
       "entry_name": "Gabriel Magalhõss",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -55,8 +44,6 @@
       "entry_id": 3839020,
       "player_name": "Jack Traynor",
       "entry_name": "Crystal Parish",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -65,8 +52,6 @@
       "entry_id": 5089901,
       "player_name": "kevin mangan",
       "entry_name": "Mangos Giants",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -75,8 +60,6 @@
       "entry_id": 3043159,
       "player_name": "Kevin Byrne",
       "entry_name": "Life gives u Lammens",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -85,8 +68,6 @@
       "entry_id": 6678491,
       "player_name": "James Adamson",
       "entry_name": "aint too xabi",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -95,8 +76,6 @@
       "entry_id": 6872283,
       "player_name": "andrew mcclean",
       "entry_name": "McClean Sheet",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -104,9 +83,47 @@
     {
       "entry_id": 7029474,
       "player_name": "Cathal Ryan",
+      "entry_name": "Look me in Ndiaye",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 7702079,
+      "player_name": "Sean Lynch",
+      "entry_name": "YourWirtzNightmare",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 688197,
+      "player_name": "Jack Farrell",
+      "entry_name": "Ballon D'orgu",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 855990,
+      "player_name": "Paul Adamson",
+      "entry_name": "Paulzo Delfouneso",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 7454103,
+      "player_name": "Stephen Traynor",
+      "entry_name": "uh ah get out",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "notes": ""
+    },
+    {
+      "entry_id": 3910497,
+      "player_name": "Jack Harbison",
       "entry_name": "Change Name",
-      "paid": true,
-      "prize_eligible": true,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""

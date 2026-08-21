@@ -64,7 +64,7 @@
 
 * { box-sizing: border-box; }
 
-html { font-size: var(--fs-16); -webkit-text-size-adjust: 100%; }
+html { font-size: var(--fs-16); -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 
 body {
   position: relative;
@@ -117,7 +117,9 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 
 /* ---------------------------------------------------------------- Masthead */
 
-.masthead { position: relative; z-index: 1; background: transparent; }
+/* position:relative + overflow:hidden clips the bleeding bull to the header
+   instead of letting it widen the whole document. */
+.masthead { position: relative; z-index: 1; background: transparent; overflow: hidden; }
 
 .band {
   background: var(--oxblood);
@@ -160,7 +162,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   font-family: var(--font-archivo);
   font-variation-settings: var(--vf-display);
   font-variant-numeric: tabular-nums;
-  font-size: var(--fs-32);
+  font-size: clamp(var(--fs-32), 9vw, var(--fs-56));
   letter-spacing: -0.02em;
   line-height: 1.05;
 }
@@ -185,15 +187,16 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   z-index: 30;
   background: var(--pitch);
   border-bottom: var(--line-thin);
+  padding: 0 var(--sp-2);   /* even, symmetric outer gutters both ends */
 }
 .tab {
+  position: relative;
   flex: 1 1 0;
   min-width: 0;
   min-height: var(--tabbar-h);
   padding: 0 var(--sp-1);
   background: none;
   border: none;
-  border-bottom: 2px solid transparent;
   font-family: var(--font-body);
   font-size: var(--fs-14);
   font-weight: 700;
@@ -205,8 +208,20 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   color: var(--sombra);
   cursor: pointer;
 }
-.tab.tab-info { font-size: var(--fs-20); }
-.tab[aria-selected="true"] { color: var(--bone); border-bottom: var(--rule-live); }
+.tab.tab-info { flex: 0 0 auto; padding: 0 var(--sp-3); font-size: var(--fs-20); }
+.tab[aria-selected="true"] { color: var(--bone); }
+/* Active indicator: a short line directly under the label, inside the bar —
+   works whether the bar is docked top (desktop) or bottom (mobile). */
+.tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--sp-2);
+  width: 26px;
+  height: 2px;
+  background: var(--sangre);
+}
 .tab:focus-visible { outline: var(--outline); outline-offset: -2px; }
 
 /* ---------------------------------------------------------------- Layout */
@@ -223,7 +238,6 @@ main { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; p
   .hero { grid-template-columns: repeat(4, 1fr); }
   .hero .fig-cell, .hero .fig-cell:nth-child(odd) { border-top: none; border-left: var(--line-thin); }
   .hero .fig-cell:first-child { border-left: none; }
-  .hero .fig { font-size: var(--fs-56); }
 }
 @media (max-width: 599px) {
   .tabbar {
@@ -231,8 +245,8 @@ main { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; p
     border-bottom: none; border-top: var(--line-thin);
     padding-bottom: env(safe-area-inset-bottom);
   }
-  main { padding-bottom: calc(var(--tabbar-h) + var(--sp-6)); }
-  .colophon { padding-bottom: calc(var(--tabbar-h) + var(--gap)); }
+  main { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom) + var(--sp-4)); }
+  .colophon { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom) + var(--gap)); }
   .bg-bull { width: 220px; height: 220px; top: -50px; right: -74px; }
 }
 
@@ -249,7 +263,7 @@ main { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; p
 }
 .view-title:first-child { margin-top: 0; }
 
-.state { font-size: var(--fs-16); color: var(--bone); padding: var(--sp-6) var(--sp-2); }
+.state { font-size: var(--fs-16); color: var(--bone); padding: var(--sp-3) var(--sp-2) var(--sp-5); }
 .state .lead {
   font-family: var(--font-archivo);
   font-variation-settings: var(--vf-display);
@@ -421,33 +435,22 @@ tr.leader .name-main { color: var(--oro); font-weight: 700; }
 .why { font-size: var(--fs-12); color: var(--sombra); padding: var(--sp-2) 0 var(--sp-3); }
 .why b { color: var(--bone); }
 
-/* ---------------------------------------------------------------- Money (sol y sombra) */
+/* ---------------------------------------------------------------- Money */
 
-.band-label {
-  font-family: var(--font-archivo);
-  font-variation-settings: var(--vf-label);
-  font-size: var(--fs-12);
-  text-transform: uppercase;
-  letter-spacing: var(--track-caps);
-  color: var(--sombra);
-  padding: var(--sp-3) 0 var(--sp-1);
-}
-.band-label.sol { color: var(--oro); }
-
-tr.sol td, tr.sol th { background: var(--surface); }
-tr.sol .money { color: var(--oro); font-weight: 700; }
-tr.sombra td, tr.sombra th { background: var(--pitch); color: var(--sombra); }
-tr.sombra .money { color: var(--bone); }
+.money { color: var(--oro); font-weight: 700; }
 .net-pos { color: var(--oro); }
 .net-neg { color: var(--sombra); }
 
-.breakeven {
-  height: 0;
-  border-top: var(--rule-live);
+/* Break-even divider: one thin sangre line inside the single table, at the
+   point net position crosses €0. Drawn in once, left to right. */
+tbody tr.breakeven-row td { padding: 0; border: none; background: none; }
+.be-line {
+  display: block;
+  height: 2px;
+  background: var(--sangre);
   transform: scaleX(0);
   transform-origin: left center;
   animation: draw-rule var(--dur-rule) ease-out forwards;
-  margin: var(--sp-1) 0;
 }
 
 .pending-overall {
@@ -473,6 +476,24 @@ tr.sombra .money { color: var(--bone); }
 .legend .ramp { display: inline-flex; align-items: center; gap: 2px; }
 .legend .sw { display: inline-block; width: var(--fs-12); height: var(--fs-12); border-radius: 1px; vertical-align: middle; }
 .legend .g { color: var(--oro); font-weight: 700; }
+
+.grid-wrap { position: relative; }
+/* Edge fades that appear only when there is more to swipe. The left fade is
+   offset past the frozen name column so it never covers the names. */
+.grid-wrap::before, .grid-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 28px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-fade) ease;
+  z-index: 4;
+}
+.grid-wrap::before { left: var(--namecol); background: linear-gradient(to right, var(--pitch), transparent); }
+.grid-wrap::after { right: 0; background: linear-gradient(to left, var(--pitch), transparent); }
+.grid-wrap.more-left::before { opacity: 1; }
+.grid-wrap.more-right::after { opacity: 1; }
 
 .grid-scroll { overflow: auto; -webkit-overflow-scrolling: touch; border: var(--line-thin); border-radius: var(--radius); }
 table.grid { border-collapse: separate; border-spacing: 0; background: var(--surface); border-radius: 0; }
@@ -539,7 +560,8 @@ table.grid thead th.corner { left: 0; top: 0; z-index: 3; background: var(--surf
 
 @media (prefers-reduced-motion: reduce) {
   .fade { animation: none; }
-  .breakeven { animation: none; transform: none; }
+  .be-line { animation: none; transform: none; }
   .live-badge { animation: none; }
+  .grid-wrap::before, .grid-wrap::after { transition: none; }
   tbody td, tbody th { transition: none; }
 }

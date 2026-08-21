@@ -46,10 +46,9 @@
   function teamFor(id) { var m = memberFor(id); return m ? m.entry_name : ("#" + id); }
 
   function markerHTML(m) {
-    var out = "";
-    if (m.prize_eligible === false) out += '<span class="mark" title="Not in the prize money">no prize</span>';
-    if (m.in_league === false) out += '<span class="mark left" title="Left the mini-league; scores still count">left</span>';
-    return out;
+    // Roster status only — everyone is a paid, prize-eligible entrant.
+    if (m.in_league === false) return '<span class="mark left" title="Left the mini-league; scores still count">left</span>';
+    return "";
   }
   function hasScores() { return (DATA.gameweeks || []).some(function (g) { return g.played_count > 0; }); }
   function mutedLine(t) { var p = el("p", "why"); p.textContent = t; return p; }
@@ -103,9 +102,27 @@
     return '<span class="move flat" title="No change">–</span>';
   }
 
+  function nextDeadlineText() {
+    var gws = DATA.gameweeks || [];
+    var next = null;
+    for (var i = 0; i < gws.length; i++) {
+      if (!gws[i].finished && gws[i].deadline_time) { next = gws[i]; break; }
+    }
+    if (!next) return "";
+    var dt = new Date(next.deadline_time);
+    if (isNaN(dt.getTime())) return "";
+    var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dt.getDay()];
+    var ordinal = next.id === 1 ? "First" : "Next";
+    // Within a week, the weekday alone is unambiguous; otherwise add the date.
+    var soon = (dt.getTime() - Date.now()) < 7 * 864e5;
+    var when = soon ? day
+      : day + " " + dt.getDate() + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][dt.getMonth()];
+    return ordinal + " gameweek deadline is " + when + ".";
+  }
   function noScoresNotice() {
     var d = el("p", "state");
-    d.innerHTML = '<span class="lead">No scores yet.</span>First gameweek deadline is Friday.';
+    var tail = nextDeadlineText();
+    d.innerHTML = '<span class="lead">No scores yet.</span>' + esc(tail);
     return d;
   }
 
@@ -291,7 +308,7 @@
       '<th scope="row" class="col-name"><span class="name-main">' + esc(firstNameInitial(r.player_name)) +
       "</span>" + markerHTML(r) +
       '<span class="team">' + esc(r.entry_name) + "</span></th>" +
-      '<td class="muted">' + r.periods_won + "</td>" +
+      '<td class="muted col-won">' + r.periods_won + "</td>" +
       '<td class="' + (r.money_won > 0 ? "money" : "muted") + '">' + money(r.money_won) + "</td>" +
       netCell;
     return tr;
@@ -304,15 +321,30 @@
     if (!rows.length) { main.appendChild(noScoresNotice()); return; }
     main.appendChild(el("h2", "view-title", "The money"));
 
-    // One table, every member, sorted by money won. The ± buy-in column shows
-    // who is up or down without splitting the table.
+    // One table, every member, sorted by money won (== net position order).
+    // A single break-even line is drawn where net position crosses €0 — but
+    // only once someone is actually above it, otherwise it separates nothing.
+    var sorted = rows.slice().sort(function (a, b) { return b.net_position - a.net_position; });
+    var anyUp = sorted.some(function (r) { return r.net_position > 0; });
+    var anyDown = sorted.some(function (r) { return r.net_position < 0; });
+    var showBreakeven = anyUp && anyDown;
+
     var table = el("table");
     table.innerHTML = "<thead><tr>" +
       '<th scope="col" class="col-name">Manager</th>' +
-      '<th scope="col">Won</th><th scope="col">Money</th><th scope="col">± buy-in</th>' +
+      '<th scope="col" class="col-won">Won</th><th scope="col">Money</th><th scope="col">± buy-in</th>' +
       "</tr></thead>";
     var tb = el("tbody");
-    rows.forEach(function (r) { tb.appendChild(moneyRow(r)); });
+    var drawn = false;
+    sorted.forEach(function (r) {
+      if (showBreakeven && !drawn && r.net_position < 0) {
+        var brk = el("tr", "breakeven-row");
+        brk.innerHTML = '<td colspan="4"><span class="be-line"></span></td>';
+        tb.appendChild(brk);
+        drawn = true;
+      }
+      tb.appendChild(moneyRow(r));
+    });
     table.appendChild(tb);
     main.appendChild(table);
 
@@ -322,7 +354,7 @@
       box.innerHTML =
         "<div>Overall — end of season</div>" +
         '<div class="amt">' + money(op.amount) + "</div>" +
-        '<div class="sub">' + (op.pending ? "Pending — paid when the season finishes" :
+        '<div class="sub">' + (op.pending ? "Pending — awarded when the season finishes" :
           "Winner: " + esc((op.winner || []).map(nameFor).join(" & "))) + "</div>";
       main.appendChild(box);
     }
@@ -346,6 +378,7 @@
       '<span><span class="g">W B T F</span> chips</span>';
     main.appendChild(legend);
 
+    var wrap = el("div", "grid-wrap");
     var scroll = el("div", "grid-scroll");
     var table = el("table", "grid");
     var thead = el("thead");
@@ -382,8 +415,19 @@
     });
     table.appendChild(tb);
     scroll.appendChild(table);
-    main.appendChild(scroll);
+    wrap.appendChild(scroll);
+    main.appendChild(wrap);
     main.appendChild(mutedLine("* provisional — the gameweek isn't finalised yet."));
+
+    // Edge fades that show only when there's more to swipe. The left fade is
+    // offset past the frozen name column so it never fades the names.
+    function updateFades() {
+      wrap.classList.toggle("more-left", scroll.scrollLeft > 2);
+      wrap.classList.toggle("more-right", scroll.scrollLeft + scroll.clientWidth < scroll.scrollWidth - 2);
+    }
+    scroll.addEventListener("scroll", updateFades, { passive: true });
+    scroll.scrollLeft = scroll.scrollWidth;   // default to the most recent gameweek
+    updateFades();
   }
 
   /* ---------------------------------------------------------------- Rules */
@@ -397,7 +441,7 @@
     var main = $("#main");
     main.innerHTML = "";
     var pz = DATA.prizes || {};
-    var N = DATA.n_eligible || 0;
+    var N = DATA.players || 0;
     var buyIn = pz.buy_in != null ? pz.buy_in : 50;
     var per = pz.monthly_per_player != null ? pz.monthly_per_player : 3;
     var periods = pz.monthly_periods != null ? pz.monthly_periods : 9;
@@ -439,9 +483,9 @@
       "<li>Still level, the prize splits</li></ol>" +
       "<p>The site shows which rule settled a tie and the numbers behind it.</p>" +
       "<h2>Who's in</h2>" +
-      "<p>Roster locked at the GW1 deadline. Unpaid by then means no prize money. Leaving the mini-league mid-season doesn't remove your scores — you paid, your team still scores.</p>" +
+      "<p>Everyone in the league. The roster locks at the GW1 deadline, so the pot is fixed from kick-off — nobody added after that. Leaving the mini-league mid-season doesn't remove your scores; your team still scores.</p>" +
       "<h2>Payment</h2>" +
-      "<p>All " + money(buyIn) + "s to the league admin before the deadline. Eligible once the money's in.</p>";
+      "<p>All " + money(buyIn) + "s to the league admin before the GW1 deadline.</p>";
     wrap.appendChild(rest);
     main.appendChild(wrap);
   }
@@ -469,7 +513,7 @@
   }
   function renderHeader() {
     $("#season").textContent = (DATA.league && DATA.league.season) || "";
-    var N = DATA.n_eligible || 0;
+    var N = DATA.players || 0;
     var pz = DATA.prizes || {};
     var sym = currencySymbol();
     var pot = (pz.buy_in != null ? pz.buy_in : 50) * N;

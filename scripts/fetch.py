@@ -332,23 +332,29 @@ def load_or_freeze_periods(events):
     return derived
 
 
-def load_and_sync_members(current_members, current_gw):
+def load_and_sync_members(current_members, current_gw, locked, lock_moment):
     """
     Maintain config/members.json as the persisted source of truth.
 
     `current_members` is the UNION of standings + new_entries (see
-    fetch_members): the set of managers currently in the league. in_league is
-    derived from that union, not from standings alone.
+    fetch_members): the set of managers currently in the league.
 
-    - Append newly-seen entry IDs (default paid=false, prize_eligible=false).
-    - Never remove; mark absent members in_league=false, present ones true.
-    - Never set or overwrite the human-edited paid / prize_eligible fields.
-    - Freeze locked_player_count the first run roster_locked is observed true.
+    Everyone in the roster is a paid, prize-eligible entrant — there is no
+    paid/eligible state. Prize figures scale with the member count, so the
+    roster locks at the GW1 deadline to keep the announced pot correct:
+
+    - Before the GW1 deadline (`locked` is False): append every newly-seen
+      entry ID; refresh names; mark absent members in_league=false but keep
+      them (their scores still count).
+    - At/after the GW1 deadline (`locked` is True): the roster is frozen. Any
+      entry ID not already in the file is IGNORED — not added, not flagged — so
+      the member count (and therefore the pot) stops growing. Existing members
+      still get name/in_league updates. `roster_locked_at` records when the lock
+      took effect, for audit.
     """
     doc = load_json(MEMBERS_CFG, required=False)
     if doc is None:
-        doc = {"roster_locked": False, "members": []}
-    doc.setdefault("roster_locked", False)
+        doc = {"members": []}
     doc.setdefault("members", [])
 
     by_id = {m["entry_id"]: m for m in doc["members"]}
@@ -360,43 +366,40 @@ def load_and_sync_members(current_members, current_gw):
         if eid in by_id:
             m = by_id[eid]
             m["in_league"] = True
-            # Refresh display names from the live data; these are not
-            # human-owned fields, unlike paid / prize_eligible.
+            # Refresh display names from the live data.
             if row.get("player_name"):
                 m["player_name"] = row["player_name"]
             if row.get("entry_name"):
                 m["entry_name"] = row["entry_name"]
+        elif locked:
+            log("  roster locked — ignoring new entry %s (%s); not counted"
+                % (eid, row.get("player_name")))
         else:
-            log("  new member seen: %s (%s) — appended, paid=false, "
-                "prize_eligible=false" % (row.get("player_name"), eid))
-            new_member = {
+            log("  new member seen: %s (%s) — appended"
+                % (row.get("player_name"), eid))
+            doc["members"].append({
                 "entry_id": eid,
                 "player_name": row.get("player_name", ""),
                 "entry_name": row.get("entry_name", ""),
-                "paid": False,
-                "prize_eligible": False,
                 "in_league": True,
                 "first_seen_gw": current_gw if current_gw else 1,
                 "notes": "",
-            }
-            doc["members"].append(new_member)
-            by_id[eid] = new_member
+            })
+            by_id[eid] = doc["members"][-1]
 
     # Members no longer in the league (in neither standings nor new_entries):
-    # keep them, flag as departed.
+    # keep them, flag as departed. They've paid; their scores still count.
     for m in doc["members"]:
-        m.setdefault("paid", False)
-        m.setdefault("prize_eligible", False)
         m.setdefault("first_seen_gw", current_gw if current_gw else 1)
         m.setdefault("notes", "")
         if m["entry_id"] not in current_ids:
             m["in_league"] = False
 
-    # Freeze N the first time the roster is locked.
-    if doc["roster_locked"] and "locked_player_count" not in doc:
-        locked = sum(1 for m in doc["members"] if m.get("prize_eligible"))
-        doc["locked_player_count"] = locked
-        log("roster_locked is true — froze locked_player_count = %d" % locked)
+    # Record the moment the roster locked, once, for audit.
+    if locked and not doc.get("roster_locked_at"):
+        doc["roster_locked_at"] = lock_moment or datetime.now(timezone.utc).isoformat()
+        log("roster locked at %s — member count frozen at %d"
+            % (doc["roster_locked_at"], len(doc["members"])))
 
     write_json(MEMBERS_CFG, doc)
     return doc
@@ -549,12 +552,11 @@ def resolve_tie(tied_ids, gws_in_period, member_gw, tiebreak_chain):
     return list(tied), "split", {"split_between": list(tied)}
 
 
-def rank_period(period, gws, members, member_gw, eligible_ids,
-                tiebreak_chain, prize_amount):
+def rank_period(period, gws, members, member_gw, tiebreak_chain, prize_amount):
     """
     Build the standings for one period plus the resolved winner(s).
-    Standings include everyone (for display); only prize_eligible members
-    can win. resolved_by is 'net_points' when there is no tie.
+    Everyone in the roster can win. resolved_by is 'net_points' when there is
+    no tie.
     """
     standings = []
     totals = {}
@@ -569,20 +571,18 @@ def rank_period(period, gws, members, member_gw, eligible_ids,
             "entry_name": m["entry_name"],
             "net": net,
             "gws_played": len(played),
-            "prize_eligible": bool(m.get("prize_eligible")),
             "in_league": bool(m.get("in_league", True)),
         })
     standings.sort(key=lambda r: (-r["net"], r["player_name"]))
 
-    # Winner determined among eligible members only. There is no winner until
-    # at least one eligible member has actually played a gameweek in the period
-    # — before that everyone is tied at 0 and no tiebreak can (or should) apply.
-    eligible_standings = [r for r in standings if r["entry_id"] in eligible_ids]
-    any_played = any(r["gws_played"] > 0 for r in eligible_standings)
+    # There is no winner until at least one member has actually played a
+    # gameweek in the period — before that everyone is tied at 0 and no
+    # tiebreak can (or should) apply.
+    any_played = any(r["gws_played"] > 0 for r in standings)
     winner = None
-    if eligible_standings and any_played:
-        top_net = eligible_standings[0]["net"]
-        tied = [r["entry_id"] for r in eligible_standings if r["net"] == top_net]
+    if standings and any_played:
+        top_net = standings[0]["net"]
+        tied = [r["entry_id"] for r in standings if r["net"] == top_net]
         if len(tied) == 1:
             winner = {
                 "entry_ids": tied,
@@ -630,11 +630,27 @@ def main():
     current_ev = next((e for e in events if e["is_current"]), None)
     current_gw = current_ev["id"] if current_ev else None
 
+    # Roster locks at the GW1 deadline so the member count (and the pot) stops
+    # growing once the season is under way.
+    gw1 = next((e for e in events if e["id"] == 1), None)
+    lock_moment = gw1.get("deadline_time") if gw1 else None
+    roster_locked = False
+    if gw1:
+        if gw1.get("finished"):
+            roster_locked = True
+        elif lock_moment:
+            try:
+                deadline = datetime.fromisoformat(lock_moment.replace("Z", "+00:00"))
+                roster_locked = datetime.now(timezone.utc) >= deadline
+            except (ValueError, AttributeError):
+                roster_locked = False
+
     gw_to_period = load_or_freeze_periods(events)
     period_gws = period_gameweeks(gw_to_period)
 
     current_members, live_league_name = fetch_members(league_id)
-    members_doc = load_and_sync_members(current_members, current_gw)
+    members_doc = load_and_sync_members(
+        current_members, current_gw, roster_locked, lock_moment)
     members = members_doc["members"]
 
     # Fetch history for EVERY member, including departed ones.
@@ -653,16 +669,12 @@ def main():
         member_chips[eid] = chip_by_gw
         time.sleep(REQUEST_SLEEP)
 
-    # Frozen N for prizes.
-    eligible_members = [m for m in members if m.get("prize_eligible")]
-    if members_doc.get("roster_locked") and "locked_player_count" in members_doc:
-        n_eligible = members_doc["locked_player_count"]
-    else:
-        n_eligible = len(eligible_members)
-    eligible_ids = {m["entry_id"] for m in eligible_members}
+    # N is the member count. Everyone in the roster is in the pot; the roster
+    # lock (above) is what keeps this from growing mid-season.
+    players = len(members)
 
-    monthly_prize = monthly_per_player * n_eligible
-    overall_prize = overall_per_player * n_eligible
+    monthly_prize = monthly_per_player * players
+    overall_prize = overall_per_player * players
 
     # Per-gameweek league average net (relative colour-coding basis).
     gw_meta = []
@@ -673,6 +685,7 @@ def main():
         gw_meta.append({
             "id": ev["id"],
             "name": ev["name"],
+            "deadline_time": ev.get("deadline_time"),
             "finished": ev["finished"],
             "is_current": ev["is_current"],
             "period": gw_to_period.get(str(ev["id"])),
@@ -690,7 +703,7 @@ def main():
         gws = period_gws[period]
         complete = len(gws) > 0 and all(gw in finished_gws for gw in gws)
         remaining = sum(1 for gw in gws if gw not in finished_gws)
-        computed = rank_period(period, gws, members, member_gw, eligible_ids,
+        computed = rank_period(period, gws, members, member_gw,
                                tiebreak_chain, monthly_prize)
 
         winner = computed["winner"]
@@ -747,8 +760,6 @@ def main():
             "entry_id": eid,
             "player_name": m["player_name"],
             "entry_name": m["entry_name"],
-            "paid": bool(m.get("paid")),
-            "prize_eligible": bool(m.get("prize_eligible")),
             "in_league": bool(m.get("in_league", True)),
             "first_seen_gw": m.get("first_seen_gw"),
             "total_net": total_net,
@@ -778,10 +789,8 @@ def main():
             "entry_name": m["entry_name"],
             "periods_won": periods_won.get(eid, 0),
             "money_won": won,
-            "net_position": round(won - buy_in, 2) if m["prize_eligible"] else None,
-            "prize_eligible": m["prize_eligible"],
+            "net_position": round(won - buy_in, 2),
             "in_league": m["in_league"],
-            "paid": m["paid"],
         })
     prize_table.sort(key=lambda r: (-r["money_won"], r["player_name"]))
 
@@ -795,8 +804,8 @@ def main():
             "season": league_cfg.get("season", ""),
         },
         "current_gw": current_gw,
-        "n_eligible": n_eligible,
-        "roster_locked": bool(members_doc.get("roster_locked")),
+        "players": players,
+        "roster_locked_at": members_doc.get("roster_locked_at"),
         "prizes": {
             "currency": currency,
             "buy_in": buy_in,
@@ -817,8 +826,9 @@ def main():
     }
 
     write_json(LEAGUE_OUT, output)
-    log("Wrote %s (%d member(s), N=%d, current GW=%s)"
-        % (LEAGUE_OUT, len(members_out), n_eligible, current_gw))
+    log("Wrote %s (%d member(s), players=%d, current GW=%s, roster %s)"
+        % (LEAGUE_OUT, len(members_out), players, current_gw,
+           "LOCKED" if roster_locked else "open"))
 
 
 if __name__ == "__main__":

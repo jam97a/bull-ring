@@ -54,7 +54,7 @@ never hardcoded in the script.
 }
 ```
 
-Prizes scale with `N`, the number of **prize-eligible** members:
+Prizes scale with `N`, the **member count** (frozen at the GW1 deadline):
 
 - Monthly prize = `monthly_per_player * N`
 - Overall prize = `(buy_in - monthly_per_player * monthly_periods) * N`
@@ -95,32 +95,29 @@ Edit `gameweek_to_period` (a `{"gameweek": period}` map) to move a boundary.
 If a manager leaves the mini-league they vanish from the FPL standings endpoint —
 along with all their history — so rebuilding from it would erase past winners.
 
+**Everyone in the roster is a paid, prize-eligible entrant** — there is no
+paid/eligible state anywhere. The prize pool is simply member count × buy-in.
+
 The script maintains this file automatically:
 
-- **Appends** any newly-seen entry with `paid: false`, `prize_eligible: false`.
-- **Never removes** anyone. A departed member is kept and flagged `in_league: false`.
-- **Never touches** `paid` or `prize_eligible` — those are yours to set by hand.
+- **Appends** any newly-seen entry (until the roster locks — see below).
+- **Never removes** anyone. A departed member is kept and flagged `in_league: false`;
+  they've paid and their scores still count.
 
-You edit two things:
-
-- `paid` / `prize_eligible` — mark `true` once someone has handed over the buy-in.
-  Only `prize_eligible` members count toward `N` and can win money. Ineligible
-  members still appear in every table and the grid, just marked as not playing
-  for money.
-- `roster_locked` — set to `true` to **freeze N for the rest of the season**. On
-  the next run the script records the current eligible count as
-  `locked_player_count` and uses it for every calculation from then on.
+**The roster locks at the GW1 deadline.** Once the first gameweek's deadline has
+passed, the script stops appending: anyone who appears in the live standings after
+that point is ignored, not added — so the member count (and therefore the announced
+pot) can't grow mid-season. The moment the lock took effect is recorded as
+`roster_locked_at` in this file, for audit. There is nothing to edit by hand.
 
 ```json
 {
-  "roster_locked": false,
+  "roster_locked_at": "2026-08-21T17:30:00Z",
   "members": [
     {
       "entry_id": 123456,
       "player_name": "...",
       "entry_name": "...",
-      "paid": false,
-      "prize_eligible": false,
       "in_league": true,
       "first_seen_gw": 1,
       "notes": ""
@@ -128,6 +125,8 @@ You edit two things:
   ]
 }
 ```
+
+(`roster_locked_at` is absent until the GW1 deadline passes.)
 
 ### `data/results.json` — immutable period results
 
