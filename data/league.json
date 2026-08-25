@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-25T06:21:58.244039+00:00",
+  "last_updated": "2026-08-25T12:19:53.101774+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -27,7 +27,7 @@
       "finished": false,
       "is_current": true,
       "period": 1,
-      "average_net": 53.4,
+      "average_net": 54.2,
       "played_count": 20
     },
     {
@@ -414,6 +414,14 @@
       ],
       "standings": [
         {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "What's on the Mainoo",
+          "net": 75,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
           "entry_id": 1006440,
           "player_name": "jack hosford",
           "entry_name": "Gabriel Magalhõss",
@@ -433,14 +441,6 @@
           "entry_id": 8053938,
           "player_name": "Conor Fahy",
           "entry_name": "WHOOP WHOOP",
-          "net": 62,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 6396566,
-          "player_name": "Ted Regan",
-          "entry_name": "What's on the Mainoo",
           "net": 62,
           "gws_played": 1,
           "in_league": true
@@ -510,6 +510,14 @@
           "in_league": true
         },
         {
+          "entry_id": 6232820,
+          "player_name": "Oliver McConkey",
+          "entry_name": "Saka Spudz n Rice",
+          "net": 50,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
           "entry_name": "Pending Moderation",
@@ -518,10 +526,18 @@
           "in_league": true
         },
         {
-          "entry_id": 6232820,
-          "player_name": "Oliver McConkey",
-          "entry_name": "Saka Spudz n Rice",
-          "net": 49,
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
+          "net": 48,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 688197,
+          "player_name": "Jack Farrell",
+          "entry_name": "Ballon D'orgu",
+          "net": 48,
           "gws_played": 1,
           "in_league": true
         },
@@ -534,26 +550,10 @@
           "in_league": true
         },
         {
-          "entry_id": 688197,
-          "player_name": "Jack Farrell",
-          "entry_name": "Ballon D'orgu",
-          "net": 47,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
           "entry_id": 2717535,
           "player_name": "Jack Polion",
           "entry_name": "Yoro Wizard Harry",
           "net": 47,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 8234720,
-          "player_name": "Emmet Ring",
-          "entry_name": "Ringo's Dingos",
-          "net": 46,
           "gws_played": 1,
           "in_league": true
         },
@@ -576,14 +576,14 @@
       ],
       "first": {
         "entry_ids": [
-          1006440
+          6396566
         ],
         "amount_each": 50.0,
         "resolved_by": "net_points"
       },
       "second": {
         "entry_ids": [
-          1744802
+          1006440
         ],
         "amount_each": 25.0,
         "resolved_by": "net_points"
@@ -2030,6 +2030,27 @@
   ],
   "members": [
     {
+      "entry_id": 6396566,
+      "player_name": "Ted Regan",
+      "entry_name": "What's on the Mainoo",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 75,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 75,
+          "points": 75,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
       "entry_id": 1006440,
       "player_name": "jack hosford",
       "entry_name": "Gabriel Magalhõss",
@@ -2087,27 +2108,6 @@
           "hit": 0,
           "transfers": 0,
           "bench": 8,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 6396566,
-      "player_name": "Ted Regan",
-      "entry_name": "What's on the Mainoo",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 62,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 62,
-          "points": 62,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 16,
           "chip": null,
           "provisional": true
         }
@@ -2282,6 +2282,27 @@
       }
     },
     {
+      "entry_id": 6232820,
+      "player_name": "Oliver McConkey",
+      "entry_name": "Saka Spudz n Rice",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 50,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 50,
+          "points": 50,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
       "entry_id": 7454103,
       "player_name": "Stephen Traynor",
       "entry_name": "Pending Moderation",
@@ -2303,18 +2324,39 @@
       }
     },
     {
-      "entry_id": 6232820,
-      "player_name": "Oliver McConkey",
-      "entry_name": "Saka Spudz n Rice",
+      "entry_id": 8234720,
+      "player_name": "Emmet Ring",
+      "entry_name": "Ringo's Dingos",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 49,
+      "total_net": 48,
       "hits_total": 0,
       "gws_played": 1,
       "by_gw": {
         "1": {
-          "net": 49,
-          "points": 49,
+          "net": 48,
+          "points": 48,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 9,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 688197,
+      "player_name": "Jack Farrell",
+      "entry_name": "Ballon D'orgu",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 48,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 48,
+          "points": 48,
           "hit": 0,
           "transfers": 0,
           "bench": 3,
@@ -2345,27 +2387,6 @@
       }
     },
     {
-      "entry_id": 688197,
-      "player_name": "Jack Farrell",
-      "entry_name": "Ballon D'orgu",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 47,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 47,
-          "points": 47,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
       "entry_id": 2717535,
       "player_name": "Jack Polion",
       "entry_name": "Yoro Wizard Harry",
@@ -2381,27 +2402,6 @@
           "hit": 0,
           "transfers": 0,
           "bench": 10,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 8234720,
-      "player_name": "Emmet Ring",
-      "entry_name": "Ringo's Dingos",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 46,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 46,
-          "points": 46,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 11,
           "chip": null,
           "provisional": true
         }
