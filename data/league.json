@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-24T18:19:57.517002+00:00",
+  "last_updated": "2026-08-25T00:27:42.651169+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -27,7 +27,7 @@
       "finished": false,
       "is_current": true,
       "period": 1,
-      "average_net": 39.4,
+      "average_net": 53.4,
       "played_count": 20
     },
     {
@@ -414,10 +414,10 @@
       ],
       "standings": [
         {
-          "entry_id": 8053938,
-          "player_name": "Conor Fahy",
-          "entry_name": "WHOOP WHOOP",
-          "net": 54,
+          "entry_id": 1006440,
+          "player_name": "jack hosford",
+          "entry_name": "Gabriel Magalhõss",
+          "net": 65,
           "gws_played": 1,
           "in_league": true
         },
@@ -425,31 +425,15 @@
           "entry_id": 1744802,
           "player_name": "Liam Daly",
           "entry_name": "LifeGivesYouLammens",
-          "net": 52,
+          "net": 63,
           "gws_played": 1,
           "in_league": true
         },
         {
-          "entry_id": 1006440,
-          "player_name": "jack hosford",
-          "entry_name": "Gabriel Magalhõss",
-          "net": 52,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 6872283,
-          "player_name": "andrew mcclean",
-          "entry_name": "McClean Sheet",
-          "net": 46,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 855990,
-          "player_name": "Paul Adamson",
-          "entry_name": "Paulzo Delfouneso",
-          "net": 44,
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 62,
           "gws_played": 1,
           "in_league": true
         },
@@ -457,7 +441,119 @@
           "entry_id": 6396566,
           "player_name": "Ted Regan",
           "entry_name": "What's on the Mainoo",
-          "net": 43,
+          "net": 62,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 7029474,
+          "player_name": "Cathal Ryan",
+          "entry_name": "Look me in Ndiaye",
+          "net": 61,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 6678491,
+          "player_name": "James Adamson",
+          "entry_name": "aint too xabi",
+          "net": 60,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 57,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 5557770,
+          "player_name": "Simon Bell",
+          "entry_name": "Simo's11",
+          "net": 56,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 855990,
+          "player_name": "Paul Adamson",
+          "entry_name": "Paulzo Delfouneso",
+          "net": 55,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 5089901,
+          "player_name": "kevin mangan",
+          "entry_name": "Mangos Giants",
+          "net": 55,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 678888,
+          "player_name": "Conor Finnerty",
+          "entry_name": "thefinnertakesitall",
+          "net": 51,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 3839020,
+          "player_name": "Jack Traynor",
+          "entry_name": "Crystal Parish",
+          "net": 51,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 7454103,
+          "player_name": "Stephen Traynor",
+          "entry_name": "Pending Moderation",
+          "net": 50,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 6232820,
+          "player_name": "Oliver McConkey",
+          "entry_name": "Saka Spudz n Rice",
+          "net": 49,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 3910497,
+          "player_name": "Jack Harbison",
+          "entry_name": "Hard4Haaland",
+          "net": 48,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 688197,
+          "player_name": "Jack Farrell",
+          "entry_name": "Ballon D'orgu",
+          "net": 47,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 2717535,
+          "player_name": "Jack Polion",
+          "entry_name": "Yoro Wizard Harry",
+          "net": 47,
+          "gws_played": 1,
+          "in_league": true
+        },
+        {
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
+          "net": 46,
           "gws_played": 1,
           "in_league": true
         },
@@ -470,124 +566,27 @@
           "in_league": true
         },
         {
-          "entry_id": 678888,
-          "player_name": "Conor Finnerty",
-          "entry_name": "thefinnertakesitall",
-          "net": 40,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
           "entry_id": 3043159,
           "player_name": "Kevin Byrne",
           "entry_name": "Life gives u Lammens",
           "net": 40,
           "gws_played": 1,
           "in_league": true
-        },
-        {
-          "entry_id": 6232820,
-          "player_name": "Oliver McConkey",
-          "entry_name": "Saka Spudz n Rice",
-          "net": 38,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 3910497,
-          "player_name": "Jack Harbison",
-          "entry_name": "Hard4Haaland",
-          "net": 37,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 5557770,
-          "player_name": "Simon Bell",
-          "entry_name": "Simo's11",
-          "net": 37,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 688197,
-          "player_name": "Jack Farrell",
-          "entry_name": "Ballon D'orgu",
-          "net": 36,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 2717535,
-          "player_name": "Jack Polion",
-          "entry_name": "Yoro Wizard Harry",
-          "net": 36,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 8234720,
-          "player_name": "Emmet Ring",
-          "entry_name": "Ringo's Dingos",
-          "net": 35,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 3839020,
-          "player_name": "Jack Traynor",
-          "entry_name": "Crystal Parish",
-          "net": 32,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 7029474,
-          "player_name": "Cathal Ryan",
-          "entry_name": "Look me in Ndiaye",
-          "net": 31,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 7454103,
-          "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
-          "net": 31,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 5089901,
-          "player_name": "kevin mangan",
-          "entry_name": "Mangos Giants",
-          "net": 31,
-          "gws_played": 1,
-          "in_league": true
-        },
-        {
-          "entry_id": 6678491,
-          "player_name": "James Adamson",
-          "entry_name": "aint too xabi",
-          "net": 30,
-          "gws_played": 1,
-          "in_league": true
         }
       ],
       "first": {
         "entry_ids": [
-          8053938
+          1006440
         ],
         "amount_each": 50.0,
         "resolved_by": "net_points"
       },
       "second": {
         "entry_ids": [
-          1006440,
           1744802
         ],
-        "amount_each": 12.5,
-        "resolved_by": "unresolved"
+        "amount_each": 25.0,
+        "resolved_by": "net_points"
       },
       "complete": false,
       "remaining_gws": 5,
@@ -2031,21 +2030,21 @@
   ],
   "members": [
     {
-      "entry_id": 8053938,
-      "player_name": "Conor Fahy",
-      "entry_name": "WHOOP WHOOP",
+      "entry_id": 1006440,
+      "player_name": "jack hosford",
+      "entry_name": "Gabriel Magalhõss",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 54,
+      "total_net": 65,
       "hits_total": 0,
       "gws_played": 1,
       "by_gw": {
         "1": {
-          "net": 54,
-          "points": 54,
+          "net": 65,
+          "points": 65,
           "hit": 0,
           "transfers": 0,
-          "bench": 8,
+          "bench": 3,
           "chip": null,
           "provisional": true
         }
@@ -2057,13 +2056,13 @@
       "entry_name": "LifeGivesYouLammens",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 52,
+      "total_net": 63,
       "hits_total": 0,
       "gws_played": 1,
       "by_gw": {
         "1": {
-          "net": 52,
-          "points": 52,
+          "net": 63,
+          "points": 63,
           "hit": 0,
           "transfers": 0,
           "bench": 0,
@@ -2073,18 +2072,81 @@
       }
     },
     {
-      "entry_id": 1006440,
-      "player_name": "jack hosford",
-      "entry_name": "Gabriel Magalhõss",
+      "entry_id": 8053938,
+      "player_name": "Conor Fahy",
+      "entry_name": "WHOOP WHOOP",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 52,
+      "total_net": 62,
       "hits_total": 0,
       "gws_played": 1,
       "by_gw": {
         "1": {
-          "net": 52,
-          "points": 52,
+          "net": 62,
+          "points": 62,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 8,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 6396566,
+      "player_name": "Ted Regan",
+      "entry_name": "What's on the Mainoo",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 62,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 62,
+          "points": 62,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 16,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 7029474,
+      "player_name": "Cathal Ryan",
+      "entry_name": "Look me in Ndiaye",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 61,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 61,
+          "points": 61,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 6678491,
+      "player_name": "James Adamson",
+      "entry_name": "aint too xabi",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 60,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 60,
+          "points": 60,
           "hit": 0,
           "transfers": 0,
           "bench": 3,
@@ -2099,16 +2161,37 @@
       "entry_name": "McClean Sheet",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 46,
+      "total_net": 57,
       "hits_total": 0,
       "gws_played": 1,
       "by_gw": {
         "1": {
-          "net": 46,
-          "points": 46,
+          "net": 57,
+          "points": 57,
           "hit": 0,
           "transfers": 0,
           "bench": 6,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 5557770,
+      "player_name": "Simon Bell",
+      "entry_name": "Simo's11",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 56,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 56,
+          "points": 56,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 7,
           "chip": null,
           "provisional": true
         }
@@ -2120,13 +2203,13 @@
       "entry_name": "Paulzo Delfouneso",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 44,
+      "total_net": 55,
       "hits_total": 0,
       "gws_played": 1,
       "by_gw": {
         "1": {
-          "net": 44,
-          "points": 44,
+          "net": 55,
+          "points": 55,
           "hit": 0,
           "transfers": 0,
           "bench": 11,
@@ -2136,21 +2219,189 @@
       }
     },
     {
-      "entry_id": 6396566,
-      "player_name": "Ted Regan",
-      "entry_name": "What's on the Mainoo",
+      "entry_id": 5089901,
+      "player_name": "kevin mangan",
+      "entry_name": "Mangos Giants",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 43,
+      "total_net": 55,
       "hits_total": 0,
       "gws_played": 1,
       "by_gw": {
         "1": {
-          "net": 43,
-          "points": 43,
+          "net": 55,
+          "points": 55,
           "hit": 0,
           "transfers": 0,
-          "bench": 16,
+          "bench": 6,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 678888,
+      "player_name": "Conor Finnerty",
+      "entry_name": "thefinnertakesitall",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 51,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 51,
+          "points": 51,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 4,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 3839020,
+      "player_name": "Jack Traynor",
+      "entry_name": "Crystal Parish",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 51,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 51,
+          "points": 51,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 4,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 7454103,
+      "player_name": "Stephen Traynor",
+      "entry_name": "Pending Moderation",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 50,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 50,
+          "points": 50,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 14,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 6232820,
+      "player_name": "Oliver McConkey",
+      "entry_name": "Saka Spudz n Rice",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 49,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 49,
+          "points": 49,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 3910497,
+      "player_name": "Jack Harbison",
+      "entry_name": "Hard4Haaland",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 48,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 48,
+          "points": 48,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 5,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 688197,
+      "player_name": "Jack Farrell",
+      "entry_name": "Ballon D'orgu",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 47,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 47,
+          "points": 47,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 4,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 2717535,
+      "player_name": "Jack Polion",
+      "entry_name": "Yoro Wizard Harry",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 47,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 47,
+          "points": 47,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 10,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 8234720,
+      "player_name": "Emmet Ring",
+      "entry_name": "Ringo's Dingos",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 46,
+      "hits_total": 0,
+      "gws_played": 1,
+      "by_gw": {
+        "1": {
+          "net": 46,
+          "points": 46,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 11,
           "chip": null,
           "provisional": true
         }
@@ -2178,27 +2429,6 @@
       }
     },
     {
-      "entry_id": 678888,
-      "player_name": "Conor Finnerty",
-      "entry_name": "thefinnertakesitall",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 40,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 40,
-          "points": 40,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
       "entry_id": 3043159,
       "player_name": "Kevin Byrne",
       "entry_name": "Life gives u Lammens",
@@ -2214,237 +2444,6 @@
           "hit": 0,
           "transfers": 0,
           "bench": 8,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 6232820,
-      "player_name": "Oliver McConkey",
-      "entry_name": "Saka Spudz n Rice",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 38,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 38,
-          "points": 38,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 3910497,
-      "player_name": "Jack Harbison",
-      "entry_name": "Hard4Haaland",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 37,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 37,
-          "points": 37,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 5,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 5557770,
-      "player_name": "Simon Bell",
-      "entry_name": "Simo's11",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 37,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 37,
-          "points": 37,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 7,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 688197,
-      "player_name": "Jack Farrell",
-      "entry_name": "Ballon D'orgu",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 36,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 36,
-          "points": 36,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 2717535,
-      "player_name": "Jack Polion",
-      "entry_name": "Yoro Wizard Harry",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 36,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 36,
-          "points": 36,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 10,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 8234720,
-      "player_name": "Emmet Ring",
-      "entry_name": "Ringo's Dingos",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 35,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 35,
-          "points": 35,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 11,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 3839020,
-      "player_name": "Jack Traynor",
-      "entry_name": "Crystal Parish",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 32,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 32,
-          "points": 32,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 7029474,
-      "player_name": "Cathal Ryan",
-      "entry_name": "Look me in Ndiaye",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 31,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 31,
-          "points": 31,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 7454103,
-      "player_name": "Stephen Traynor",
-      "entry_name": "Pending Moderation",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 31,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 31,
-          "points": 31,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 14,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 5089901,
-      "player_name": "kevin mangan",
-      "entry_name": "Mangos Giants",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 31,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 31,
-          "points": 31,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 6,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 6678491,
-      "player_name": "James Adamson",
-      "entry_name": "aint too xabi",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 30,
-      "hits_total": 0,
-      "gws_played": 1,
-      "by_gw": {
-        "1": {
-          "net": 30,
-          "points": 30,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
           "chip": null,
           "provisional": true
         }
