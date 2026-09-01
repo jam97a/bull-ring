@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-01T02:09:21.888108+00:00",
+  "last_updated": "2026-09-01T10:34:42.718732+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -37,7 +37,7 @@
       "finished": false,
       "is_current": true,
       "period": 1,
-      "average_net": 89.3,
+      "average_net": 89.8,
       "played_count": 20
     },
     {
@@ -465,7 +465,15 @@
           "entry_id": 678888,
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
-          "net": 147,
+          "net": 149,
+          "gws_played": 2,
+          "in_league": true
+        },
+        {
+          "entry_id": 3839020,
+          "player_name": "Jack Traynor",
+          "entry_name": "Crystal Parish",
+          "net": 148,
           "gws_played": 2,
           "in_league": true
         },
@@ -498,14 +506,6 @@
           "player_name": "Conor Fahy",
           "entry_name": "WHOOP WHOOP",
           "net": 143,
-          "gws_played": 2,
-          "in_league": true
-        },
-        {
-          "entry_id": 3839020,
-          "player_name": "Jack Traynor",
-          "entry_name": "Crystal Parish",
-          "net": 142,
           "gws_played": 2,
           "in_league": true
         },
@@ -553,7 +553,7 @@
           "entry_id": 6872283,
           "player_name": "andrew mcclean",
           "entry_name": "McClean Sheet",
-          "net": 123,
+          "net": 125,
           "gws_played": 2,
           "in_league": true
         },
@@ -2215,7 +2215,7 @@
       "entry_name": "thefinnertakesitall",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 147,
+      "total_net": 149,
       "hits_total": 0,
       "gws_played": 2,
       "by_gw": {
@@ -2229,11 +2229,41 @@
           "provisional": false
         },
         "2": {
-          "net": 96,
-          "points": 96,
+          "net": 98,
+          "points": 98,
           "hit": 0,
           "transfers": 0,
-          "bench": 7,
+          "bench": 5,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 3839020,
+      "player_name": "Jack Traynor",
+      "entry_name": "Crystal Parish",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 148,
+      "hits_total": 0,
+      "gws_played": 2,
+      "by_gw": {
+        "1": {
+          "net": 51,
+          "points": 51,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 97,
+          "points": 97,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
           "chip": null,
           "provisional": true
         }
@@ -2354,36 +2384,6 @@
           "hit": 0,
           "transfers": 0,
           "bench": 1,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 3839020,
-      "player_name": "Jack Traynor",
-      "entry_name": "Crystal Parish",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 142,
-      "hits_total": 0,
-      "gws_played": 2,
-      "by_gw": {
-        "1": {
-          "net": 51,
-          "points": 51,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 91,
-          "points": 91,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 8,
           "chip": null,
           "provisional": true
         }
@@ -2545,7 +2545,7 @@
       "entry_name": "McClean Sheet",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 123,
+      "total_net": 125,
       "hits_total": 0,
       "gws_played": 2,
       "by_gw": {
@@ -2559,11 +2559,11 @@
           "provisional": false
         },
         "2": {
-          "net": 66,
-          "points": 66,
+          "net": 68,
+          "points": 68,
           "hit": 0,
           "transfers": 0,
-          "bench": 2,
+          "bench": 0,
           "chip": null,
           "provisional": true
         }
