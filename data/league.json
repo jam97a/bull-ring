@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-01T10:34:42.718732+00:00",
+  "last_updated": "2026-09-01T15:36:43.289652+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -34,7 +34,7 @@
       "id": 2,
       "name": "Gameweek 2",
       "deadline_time": "2026-08-28T17:30:00Z",
-      "finished": false,
+      "finished": true,
       "is_current": true,
       "period": 1,
       "average_net": 89.8,
@@ -568,7 +568,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
+          "entry_name": "uh ah get out",
           "net": 104,
           "gws_played": 2,
           "in_league": true
@@ -589,7 +589,7 @@
         "resolved_by": "net_points"
       },
       "complete": false,
-      "remaining_gws": 4,
+      "remaining_gws": 3,
       "prize_1st": 50.0,
       "prize_2nd": 25.0,
       "is_current": true
@@ -727,7 +727,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
+          "entry_name": "uh ah get out",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -905,7 +905,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
+          "entry_name": "uh ah get out",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1086,7 +1086,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
+          "entry_name": "uh ah get out",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1266,7 +1266,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
+          "entry_name": "uh ah get out",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1445,7 +1445,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
+          "entry_name": "uh ah get out",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1623,7 +1623,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
+          "entry_name": "uh ah get out",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1801,7 +1801,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
+          "entry_name": "uh ah get out",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -1981,7 +1981,7 @@
         {
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
-          "entry_name": "Pending Moderation",
+          "entry_name": "uh ah get out",
           "net": 0,
           "gws_played": 0,
           "in_league": true
@@ -2055,7 +2055,7 @@
           "transfers": 1,
           "bench": 0,
           "chip": "bboost",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2085,7 +2085,7 @@
           "transfers": 0,
           "bench": 6,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2115,7 +2115,7 @@
           "transfers": 0,
           "bench": 25,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2145,7 +2145,7 @@
           "transfers": 0,
           "bench": 7,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2175,7 +2175,7 @@
           "transfers": 0,
           "bench": 0,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2205,7 +2205,7 @@
           "transfers": 1,
           "bench": 7,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2235,7 +2235,7 @@
           "transfers": 0,
           "bench": 5,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2265,7 +2265,7 @@
           "transfers": 0,
           "bench": 2,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2295,7 +2295,7 @@
           "transfers": 0,
           "bench": 10,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2325,7 +2325,7 @@
           "transfers": 1,
           "bench": 4,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2355,7 +2355,7 @@
           "transfers": 0,
           "bench": 4,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2385,7 +2385,7 @@
           "transfers": 0,
           "bench": 1,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2415,7 +2415,7 @@
           "transfers": 1,
           "bench": 3,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2445,7 +2445,7 @@
           "transfers": 1,
           "bench": 20,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2475,7 +2475,7 @@
           "transfers": 0,
           "bench": 4,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2505,7 +2505,7 @@
           "transfers": 0,
           "bench": 3,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2535,7 +2535,7 @@
           "transfers": 0,
           "bench": 7,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2565,7 +2565,7 @@
           "transfers": 0,
           "bench": 0,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2595,14 +2595,14 @@
           "transfers": 1,
           "bench": 13,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
     {
       "entry_id": 7454103,
       "player_name": "Stephen Traynor",
-      "entry_name": "Pending Moderation",
+      "entry_name": "uh ah get out",
       "in_league": true,
       "first_seen_gw": 1,
       "total_net": 104,
@@ -2625,7 +2625,7 @@
           "transfers": 4,
           "bench": 7,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     }
@@ -2769,7 +2769,7 @@
     {
       "entry_id": 7454103,
       "player_name": "Stephen Traynor",
-      "entry_name": "Pending Moderation",
+      "entry_name": "uh ah get out",
       "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,
