@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-07T10:48:15.497705+00:00",
+  "last_updated": "2026-09-07T16:42:16.554230+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -44,7 +44,7 @@
       "id": 3,
       "name": "Gameweek 3",
       "deadline_time": "2026-09-04T17:30:00Z",
-      "finished": false,
+      "finished": true,
       "is_current": true,
       "period": 1,
       "average_net": 52.8,
@@ -589,7 +589,7 @@
         "resolved_by": "net_points"
       },
       "complete": false,
-      "remaining_gws": 3,
+      "remaining_gws": 2,
       "prize_1st": 50.0,
       "prize_2nd": 25.0,
       "is_current": true
@@ -2064,7 +2064,7 @@
           "transfers": 1,
           "bench": 10,
           "chip": "3xc",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2103,7 +2103,7 @@
           "transfers": 2,
           "bench": 15,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2142,7 +2142,7 @@
           "transfers": 2,
           "bench": 6,
           "chip": "3xc",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2181,7 +2181,7 @@
           "transfers": 2,
           "bench": 16,
           "chip": "3xc",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2220,7 +2220,7 @@
           "transfers": 2,
           "bench": 5,
           "chip": "3xc",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2259,7 +2259,7 @@
           "transfers": 1,
           "bench": 6,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2298,7 +2298,7 @@
           "transfers": 2,
           "bench": 12,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2337,7 +2337,7 @@
           "transfers": 0,
           "bench": 10,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2376,7 +2376,7 @@
           "transfers": 1,
           "bench": 5,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2415,7 +2415,7 @@
           "transfers": 0,
           "bench": 11,
           "chip": "freehit",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2454,7 +2454,7 @@
           "transfers": 2,
           "bench": 4,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2493,7 +2493,7 @@
           "transfers": 2,
           "bench": 7,
           "chip": "3xc",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2532,7 +2532,7 @@
           "transfers": 0,
           "bench": 12,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2571,7 +2571,7 @@
           "transfers": 2,
           "bench": 9,
           "chip": "3xc",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2610,7 +2610,7 @@
           "transfers": 0,
           "bench": 16,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2649,7 +2649,7 @@
           "transfers": 2,
           "bench": 6,
           "chip": "3xc",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2688,7 +2688,7 @@
           "transfers": 0,
           "bench": 4,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2727,7 +2727,7 @@
           "transfers": 1,
           "bench": 23,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2766,7 +2766,7 @@
           "transfers": 2,
           "bench": 6,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2805,7 +2805,7 @@
           "transfers": 0,
           "bench": 5,
           "chip": "3xc",
-          "provisional": true
+          "provisional": false
         }
       }
     }
