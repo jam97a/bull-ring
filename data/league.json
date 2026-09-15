@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-15T01:59:23.479224+00:00",
+  "last_updated": "2026-09-15T10:31:37.746230+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -57,7 +57,7 @@
       "finished": false,
       "is_current": true,
       "period": 1,
-      "average_net": 72.8,
+      "average_net": 73.5,
       "played_count": 20
     },
     {
@@ -430,17 +430,17 @@
           "in_league": true
         },
         {
-          "entry_id": 3043159,
-          "player_name": "Kevin Byrne",
-          "entry_name": "Life gives u Lammens",
-          "net": 286,
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "What's on the Mainoo",
+          "net": 287,
           "gws_played": 4,
           "in_league": true
         },
         {
-          "entry_id": 6396566,
-          "player_name": "Ted Regan",
-          "entry_name": "What's on the Mainoo",
+          "entry_id": 3043159,
+          "player_name": "Kevin Byrne",
+          "entry_name": "Life gives u Lammens",
           "net": 286,
           "gws_played": 4,
           "in_league": true
@@ -486,6 +486,14 @@
           "in_league": true
         },
         {
+          "entry_id": 688197,
+          "player_name": "Jack Farrell",
+          "entry_name": "Ballon D'orgu",
+          "net": 275,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
@@ -506,14 +514,6 @@
           "player_name": "Conor Fahy",
           "entry_name": "WHOOP WHOOP",
           "net": 270,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 688197,
-          "player_name": "Jack Farrell",
-          "entry_name": "Ballon D'orgu",
-          "net": 261,
           "gws_played": 4,
           "in_league": true
         },
@@ -2126,6 +2126,54 @@
       }
     },
     {
+      "entry_id": 6396566,
+      "player_name": "Ted Regan",
+      "entry_name": "What's on the Mainoo",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 287,
+      "hits_total": 0,
+      "gws_played": 4,
+      "by_gw": {
+        "1": {
+          "net": 75,
+          "points": 75,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 78,
+          "points": 78,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 7,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 57,
+          "points": 57,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 6,
+          "chip": null,
+          "provisional": false
+        },
+        "4": {
+          "net": 77,
+          "points": 77,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 5,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
       "entry_id": 3043159,
       "player_name": "Kevin Byrne",
       "entry_name": "Life gives u Lammens",
@@ -2169,54 +2217,6 @@
           "transfers": 0,
           "bench": 25,
           "chip": "freehit",
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 6396566,
-      "player_name": "Ted Regan",
-      "entry_name": "What's on the Mainoo",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 286,
-      "hits_total": 0,
-      "gws_played": 4,
-      "by_gw": {
-        "1": {
-          "net": 75,
-          "points": 75,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 78,
-          "points": 78,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 7,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 57,
-          "points": 57,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 6,
-          "chip": null,
-          "provisional": false
-        },
-        "4": {
-          "net": 76,
-          "points": 76,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 6,
-          "chip": null,
           "provisional": true
         }
       }
@@ -2462,6 +2462,54 @@
       }
     },
     {
+      "entry_id": 688197,
+      "player_name": "Jack Farrell",
+      "entry_name": "Ballon D'orgu",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 275,
+      "hits_total": 0,
+      "gws_played": 4,
+      "by_gw": {
+        "1": {
+          "net": 48,
+          "points": 48,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 84,
+          "points": 84,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 7,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 56,
+          "points": 56,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 9,
+          "chip": "3xc",
+          "provisional": false
+        },
+        "4": {
+          "net": 87,
+          "points": 87,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
       "entry_id": 6232820,
       "player_name": "Oliver McConkey",
       "entry_name": "Saka Spudz n Rice",
@@ -2600,54 +2648,6 @@
           "hit": 0,
           "transfers": 2,
           "bench": 8,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 688197,
-      "player_name": "Jack Farrell",
-      "entry_name": "Ballon D'orgu",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 261,
-      "hits_total": 0,
-      "gws_played": 4,
-      "by_gw": {
-        "1": {
-          "net": 48,
-          "points": 48,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 84,
-          "points": 84,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 7,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 56,
-          "points": 56,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 9,
-          "chip": "3xc",
-          "provisional": false
-        },
-        "4": {
-          "net": 73,
-          "points": 73,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 14,
           "chip": null,
           "provisional": true
         }
