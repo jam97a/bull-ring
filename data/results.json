@@ -1,0 +1,21 @@
+{
+  "periods": {
+    "1": {
+      "first": {
+        "entry_ids": [
+          1744802
+        ],
+        "amount_each": 50.0,
+        "resolved_by": "net_points"
+      },
+      "second": {
+        "entry_ids": [
+          2717535
+        ],
+        "amount_each": 25.0,
+        "resolved_by": "net_points"
+      },
+      "recorded_at": "2026-09-21T17:14:20.801550+00:00"
+    }
+  }
+}
