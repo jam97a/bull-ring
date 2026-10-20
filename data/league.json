@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19T21:46:14.762877+00:00",
+  "last_updated": "2026-10-20T02:14:12.877049+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -87,7 +87,7 @@
       "finished": false,
       "is_current": true,
       "period": 2,
-      "average_net": 59.2,
+      "average_net": 60.7,
       "played_count": 20
     },
     {
@@ -624,7 +624,7 @@
           "entry_id": 6678491,
           "player_name": "James Adamson",
           "entry_name": "aint too xabi",
-          "net": 138,
+          "net": 140,
           "gws_played": 2,
           "in_league": true
         },
@@ -648,7 +648,7 @@
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
-          "net": 133,
+          "net": 135,
           "gws_played": 2,
           "in_league": true
         },
@@ -696,7 +696,7 @@
           "entry_id": 688197,
           "player_name": "Jack Farrell",
           "entry_name": "Ballon D'orgu",
-          "net": 113,
+          "net": 115,
           "gws_played": 2,
           "in_league": true
         },
@@ -704,7 +704,7 @@
           "entry_id": 2717535,
           "player_name": "Jack Polion",
           "entry_name": "Yoro Wizard Harry",
-          "net": 113,
+          "net": 115,
           "gws_played": 2,
           "in_league": true
         },
@@ -736,7 +736,15 @@
           "entry_id": 7702079,
           "player_name": "Sean Lynch",
           "entry_name": "YourWirtzNightmare",
-          "net": 97,
+          "net": 102,
+          "gws_played": 2,
+          "in_league": true
+        },
+        {
+          "entry_id": 678888,
+          "player_name": "Conor Finnerty",
+          "entry_name": "thefinnertakesitall",
+          "net": 98,
           "gws_played": 2,
           "in_league": true
         },
@@ -752,14 +760,6 @@
           "entry_id": 7029474,
           "player_name": "Cathal Ryan",
           "entry_name": "Look me in Ndiaye",
-          "net": 82,
-          "gws_played": 2,
-          "in_league": true
-        },
-        {
-          "entry_id": 678888,
-          "player_name": "Conor Finnerty",
-          "entry_name": "thefinnertakesitall",
           "net": 82,
           "gws_played": 2,
           "in_league": true
@@ -2185,7 +2185,7 @@
           "points": 63,
           "hit": 0,
           "transfers": 2,
-          "bench": 8,
+          "bench": 11,
           "chip": null,
           "provisional": true
         }
@@ -2260,7 +2260,7 @@
           "points": 61,
           "hit": 0,
           "transfers": 0,
-          "bench": 13,
+          "bench": 14,
           "chip": "wildcard",
           "provisional": true
         }
@@ -2347,7 +2347,7 @@
       "entry_name": "Yoro Wizard Harry",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 463,
+      "total_net": 465,
       "hits_total": 4,
       "gws_played": 7,
       "by_gw": {
@@ -2406,8 +2406,8 @@
           "provisional": false
         },
         "7": {
-          "net": 52,
-          "points": 56,
+          "net": 54,
+          "points": 58,
           "hit": 4,
           "transfers": 3,
           "bench": 2,
@@ -2422,7 +2422,7 @@
       "entry_name": "Ballon D'orgu",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 454,
+      "total_net": 456,
       "hits_total": 0,
       "gws_played": 7,
       "by_gw": {
@@ -2481,8 +2481,8 @@
           "provisional": false
         },
         "7": {
-          "net": 57,
-          "points": 57,
+          "net": 59,
+          "points": 59,
           "hit": 0,
           "transfers": 2,
           "bench": 0,
@@ -2560,7 +2560,82 @@
           "points": 59,
           "hit": 0,
           "transfers": 0,
+          "bench": 6,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 6232820,
+      "player_name": "Oliver McConkey",
+      "entry_name": "Saka Spudz n Rice",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 446,
+      "hits_total": 0,
+      "gws_played": 7,
+      "by_gw": {
+        "1": {
+          "net": 50,
+          "points": 50,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 86,
+          "points": 86,
+          "hit": 0,
+          "transfers": 0,
           "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 56,
+          "points": 56,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 7,
+          "chip": "3xc",
+          "provisional": false
+        },
+        "4": {
+          "net": 81,
+          "points": 81,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 38,
+          "points": 38,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 71,
+          "points": 71,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
+          "chip": null,
+          "provisional": false
+        },
+        "7": {
+          "net": 64,
+          "points": 64,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 5,
           "chip": null,
           "provisional": true
         }
@@ -2642,81 +2717,6 @@
       }
     },
     {
-      "entry_id": 6232820,
-      "player_name": "Oliver McConkey",
-      "entry_name": "Saka Spudz n Rice",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 444,
-      "hits_total": 0,
-      "gws_played": 7,
-      "by_gw": {
-        "1": {
-          "net": 50,
-          "points": 50,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 2,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 86,
-          "points": 86,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 56,
-          "points": 56,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 7,
-          "chip": "3xc",
-          "provisional": false
-        },
-        "4": {
-          "net": 81,
-          "points": 81,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 2,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
-          "net": 38,
-          "points": 38,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 71,
-          "points": 71,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 2,
-          "chip": null,
-          "provisional": false
-        },
-        "7": {
-          "net": 62,
-          "points": 62,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
       "entry_id": 855990,
       "player_name": "Paul Adamson",
       "entry_name": "Paulzo Delfouneso",
@@ -2785,7 +2785,7 @@
           "points": 56,
           "hit": 0,
           "transfers": 2,
-          "bench": 4,
+          "bench": 7,
           "chip": null,
           "provisional": true
         }
@@ -3010,7 +3010,82 @@
           "points": 62,
           "hit": 0,
           "transfers": 1,
+          "bench": 7,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 678888,
+      "player_name": "Conor Finnerty",
+      "entry_name": "thefinnertakesitall",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 430,
+      "hits_total": 0,
+      "gws_played": 7,
+      "by_gw": {
+        "1": {
+          "net": 51,
+          "points": 51,
+          "hit": 0,
+          "transfers": 0,
           "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 98,
+          "points": 98,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 5,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 66,
+          "points": 66,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 5,
+          "chip": "3xc",
+          "provisional": false
+        },
+        "4": {
+          "net": 67,
+          "points": 67,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 1,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 50,
+          "points": 50,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 0,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 33,
+          "points": 33,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 18,
+          "chip": "freehit",
+          "provisional": false
+        },
+        "7": {
+          "net": 65,
+          "points": 65,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
           "chip": null,
           "provisional": true
         }
@@ -3022,7 +3097,7 @@
       "entry_name": "aint too xabi",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 424,
+      "total_net": 426,
       "hits_total": 0,
       "gws_played": 7,
       "by_gw": {
@@ -3081,11 +3156,11 @@
           "provisional": false
         },
         "7": {
-          "net": 70,
-          "points": 70,
+          "net": 72,
+          "points": 72,
           "hit": 0,
           "transfers": 4,
-          "bench": 4,
+          "bench": 5,
           "chip": "3xc",
           "provisional": true
         }
@@ -3161,81 +3236,6 @@
           "hit": 0,
           "transfers": 0,
           "bench": 20,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 678888,
-      "player_name": "Conor Finnerty",
-      "entry_name": "thefinnertakesitall",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 414,
-      "hits_total": 0,
-      "gws_played": 7,
-      "by_gw": {
-        "1": {
-          "net": 51,
-          "points": 51,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 98,
-          "points": 98,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 5,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 66,
-          "points": 66,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 5,
-          "chip": "3xc",
-          "provisional": false
-        },
-        "4": {
-          "net": 67,
-          "points": 67,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 1,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
-          "net": 50,
-          "points": 50,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 33,
-          "points": 33,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 18,
-          "chip": "freehit",
-          "provisional": false
-        },
-        "7": {
-          "net": 49,
-          "points": 49,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 1,
           "chip": null,
           "provisional": true
         }
@@ -3397,7 +3397,7 @@
       "entry_name": "YourWirtzNightmare",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 378,
+      "total_net": 383,
       "hits_total": 0,
       "gws_played": 7,
       "by_gw": {
@@ -3456,8 +3456,8 @@
           "provisional": false
         },
         "7": {
-          "net": 48,
-          "points": 48,
+          "net": 53,
+          "points": 53,
           "hit": 0,
           "transfers": 0,
           "bench": 13,
