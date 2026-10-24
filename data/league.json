@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-23T20:41:27.116063+00:00",
+  "last_updated": "2026-10-24T02:04:54.641716+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -97,7 +97,7 @@
       "finished": false,
       "is_current": true,
       "period": 2,
-      "average_net": 0.0,
+      "average_net": 0.8,
       "played_count": 20
     },
     {
@@ -608,7 +608,7 @@
           "entry_id": 1744802,
           "player_name": "Liam Daly",
           "entry_name": "LifeGivesYouLammens",
-          "net": 145,
+          "net": 151,
           "gws_played": 3,
           "in_league": true
         },
@@ -656,7 +656,7 @@
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
-          "net": 137,
+          "net": 138,
           "gws_played": 3,
           "in_league": true
         },
@@ -669,10 +669,10 @@
           "in_league": true
         },
         {
-          "entry_id": 8053938,
-          "player_name": "Conor Fahy",
-          "entry_name": "WHOOP WHOOP",
-          "net": 121,
+          "entry_id": 3839020,
+          "player_name": "Jack Traynor",
+          "entry_name": "Crystal Parish",
+          "net": 124,
           "gws_played": 3,
           "in_league": true
         },
@@ -680,15 +680,15 @@
           "entry_id": 6396566,
           "player_name": "Ted Regan",
           "entry_name": "What's on the Mainoo",
-          "net": 121,
+          "net": 122,
           "gws_played": 3,
           "in_league": true
         },
         {
-          "entry_id": 3839020,
-          "player_name": "Jack Traynor",
-          "entry_name": "Crystal Parish",
-          "net": 117,
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 121,
           "gws_played": 3,
           "in_league": true
         },
@@ -2047,7 +2047,7 @@
       "entry_name": "LifeGivesYouLammens",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 505,
+      "total_net": 511,
       "hits_total": 0,
       "gws_played": 8,
       "by_gw": {
@@ -2115,8 +2115,8 @@
           "provisional": false
         },
         "8": {
-          "net": 0,
-          "points": 0,
+          "net": 6,
+          "points": 6,
           "hit": 0,
           "transfers": 0,
           "bench": 0,
@@ -2539,7 +2539,7 @@
           "points": 0,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 2,
           "chip": "wildcard",
           "provisional": true
         }
@@ -2623,7 +2623,7 @@
           "points": 0,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 2,
           "chip": null,
           "provisional": true
         }
@@ -2635,7 +2635,7 @@
       "entry_name": "Saka Spudz n Rice",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 448,
+      "total_net": 449,
       "hits_total": 0,
       "gws_played": 8,
       "by_gw": {
@@ -2703,8 +2703,8 @@
           "provisional": false
         },
         "8": {
-          "net": 0,
-          "points": 0,
+          "net": 1,
+          "points": 1,
           "hit": 0,
           "transfers": 4,
           "bench": 0,
@@ -2719,7 +2719,7 @@
       "entry_name": "What's on the Mainoo",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 445,
+      "total_net": 446,
       "hits_total": 0,
       "gws_played": 8,
       "by_gw": {
@@ -2787,8 +2787,92 @@
           "provisional": false
         },
         "8": {
-          "net": 0,
-          "points": 0,
+          "net": 1,
+          "points": 1,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 3839020,
+      "player_name": "Jack Traynor",
+      "entry_name": "Crystal Parish",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 444,
+      "hits_total": 0,
+      "gws_played": 8,
+      "by_gw": {
+        "1": {
+          "net": 51,
+          "points": 51,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 97,
+          "points": 97,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 52,
+          "points": 52,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 10,
+          "chip": null,
+          "provisional": false
+        },
+        "4": {
+          "net": 71,
+          "points": 71,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 49,
+          "points": 49,
+          "hit": 0,
+          "transfers": 3,
+          "bench": 2,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 46,
+          "points": 46,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 1,
+          "chip": null,
+          "provisional": false
+        },
+        "7": {
+          "net": 71,
+          "points": 71,
+          "hit": 0,
+          "transfers": 3,
+          "bench": 7,
+          "chip": null,
+          "provisional": false
+        },
+        "8": {
+          "net": 7,
+          "points": 7,
           "hit": 0,
           "transfers": 0,
           "bench": 0,
@@ -2875,91 +2959,7 @@
           "points": 0,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 3839020,
-      "player_name": "Jack Traynor",
-      "entry_name": "Crystal Parish",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 437,
-      "hits_total": 0,
-      "gws_played": 8,
-      "by_gw": {
-        "1": {
-          "net": 51,
-          "points": 51,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 97,
-          "points": 97,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 2,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 52,
-          "points": 52,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 10,
-          "chip": null,
-          "provisional": false
-        },
-        "4": {
-          "net": 71,
-          "points": 71,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 2,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
-          "net": 49,
-          "points": 49,
-          "hit": 0,
-          "transfers": 3,
-          "bench": 2,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 46,
-          "points": 46,
-          "hit": 0,
-          "transfers": 0,
           "bench": 1,
-          "chip": null,
-          "provisional": false
-        },
-        "7": {
-          "net": 71,
-          "points": 71,
-          "hit": 0,
-          "transfers": 3,
-          "bench": 7,
-          "chip": null,
-          "provisional": false
-        },
-        "8": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
           "chip": null,
           "provisional": true
         }
@@ -3043,7 +3043,7 @@
           "points": 0,
           "hit": 0,
           "transfers": 1,
-          "bench": 0,
+          "bench": 1,
           "chip": null,
           "provisional": true
         }
@@ -3295,7 +3295,7 @@
           "points": 0,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 1,
           "chip": null,
           "provisional": true
         }
@@ -3463,7 +3463,7 @@
           "points": 0,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 1,
           "chip": null,
           "provisional": true
         }
@@ -3547,7 +3547,7 @@
           "points": 0,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 2,
           "chip": "freehit",
           "provisional": true
         }
@@ -3631,7 +3631,7 @@
           "points": 0,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 2,
           "chip": null,
           "provisional": true
         }
