@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-10-31T02:51:08.003951+00:00",
+  "last_updated": "2026-10-31T16:21:39.436934+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
     "season": "2026/27"
   },
-  "current_gw": 8,
+  "current_gw": 9,
   "players": 20,
   "roster_locked_at": "2026-08-21T17:30:00Z",
   "prizes": {
@@ -95,7 +95,7 @@
       "name": "Gameweek 8",
       "deadline_time": "2026-10-23T17:30:00Z",
       "finished": true,
-      "is_current": true,
+      "is_current": false,
       "period": 2,
       "average_net": 46.5,
       "played_count": 20
@@ -105,10 +105,10 @@
       "name": "Gameweek 9",
       "deadline_time": "2026-10-31T11:00:00Z",
       "finished": false,
-      "is_current": false,
+      "is_current": true,
       "period": 2,
-      "average_net": null,
-      "played_count": 0
+      "average_net": 0.0,
+      "played_count": 20
     },
     {
       "id": 10,
@@ -609,7 +609,7 @@
           "player_name": "Jack Traynor",
           "entry_name": "Crystal Parish",
           "net": 206,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -617,7 +617,7 @@
           "player_name": "James Adamson",
           "entry_name": "aint too xabi",
           "net": 205,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -625,7 +625,7 @@
           "player_name": "Kevin Byrne",
           "entry_name": "Life gives u Lammens",
           "net": 188,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -633,7 +633,7 @@
           "player_name": "Emmet Ring",
           "entry_name": "Ringo's Dingos",
           "net": 187,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -641,7 +641,7 @@
           "player_name": "Liam Daly",
           "entry_name": "LifeGivesYouLammens",
           "net": 187,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -649,7 +649,7 @@
           "player_name": "Simon Bell",
           "entry_name": "Simo's11",
           "net": 176,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -657,7 +657,7 @@
           "player_name": "jack hosford",
           "entry_name": "Gabriel Magalhõss",
           "net": 175,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -665,7 +665,7 @@
           "player_name": "kevin mangan",
           "entry_name": "Mangos Giants",
           "net": 174,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -673,7 +673,7 @@
           "player_name": "Conor Fahy",
           "entry_name": "WHOOP WHOOP",
           "net": 168,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -681,7 +681,7 @@
           "player_name": "Jack Harbison",
           "entry_name": "Hard4Haaland",
           "net": 168,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -689,7 +689,7 @@
           "player_name": "Jack Polion",
           "entry_name": "Yoro Wizard Harry",
           "net": 166,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -697,7 +697,7 @@
           "player_name": "Ted Regan",
           "entry_name": "What's on the Mainoo",
           "net": 166,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -705,7 +705,7 @@
           "player_name": "andrew mcclean",
           "entry_name": "McClean Sheet",
           "net": 166,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -713,7 +713,7 @@
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
           "net": 161,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -721,7 +721,7 @@
           "player_name": "Sean Lynch",
           "entry_name": "YourWirtzNightmare",
           "net": 157,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -729,7 +729,7 @@
           "player_name": "Jack Farrell",
           "entry_name": "Ballon D'orgu",
           "net": 156,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -737,7 +737,7 @@
           "player_name": "Conor Finnerty",
           "entry_name": "thefinnertakesitall",
           "net": 149,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -745,7 +745,7 @@
           "player_name": "Paul Adamson",
           "entry_name": "Paulzo Delfouneso",
           "net": 144,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -753,7 +753,7 @@
           "player_name": "Stephen Traynor",
           "entry_name": "Pending Moderation",
           "net": 132,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         },
         {
@@ -761,7 +761,7 @@
           "player_name": "Cathal Ryan",
           "entry_name": "Look me in Ndiaye",
           "net": 113,
-          "gws_played": 3,
+          "gws_played": 4,
           "in_league": true
         }
       ],
@@ -2049,7 +2049,7 @@
       "first_seen_gw": 1,
       "total_net": 547,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 63,
@@ -2122,6 +2122,15 @@
           "bench": 7,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 3,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2133,7 +2142,7 @@
       "first_seen_gw": 1,
       "total_net": 527,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 48,
@@ -2206,6 +2215,15 @@
           "bench": 1,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2217,7 +2235,7 @@
       "first_seen_gw": 1,
       "total_net": 526,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 51,
@@ -2290,6 +2308,15 @@
           "bench": 6,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": "freehit",
+          "provisional": true
         }
       }
     },
@@ -2301,7 +2328,7 @@
       "first_seen_gw": 1,
       "total_net": 520,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 55,
@@ -2374,6 +2401,15 @@
           "bench": 4,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2385,7 +2421,7 @@
       "first_seen_gw": 1,
       "total_net": 517,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 40,
@@ -2458,6 +2494,15 @@
           "bench": 10,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2469,7 +2514,7 @@
       "first_seen_gw": 1,
       "total_net": 516,
       "hits_total": 4,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 47,
@@ -2542,6 +2587,15 @@
           "bench": 0,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2553,7 +2607,7 @@
       "first_seen_gw": 1,
       "total_net": 501,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 65,
@@ -2626,6 +2680,15 @@
           "bench": 3,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2637,7 +2700,7 @@
       "first_seen_gw": 1,
       "total_net": 498,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 62,
@@ -2710,6 +2773,15 @@
           "bench": 9,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2721,7 +2793,7 @@
       "first_seen_gw": 1,
       "total_net": 497,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 48,
@@ -2794,6 +2866,15 @@
           "bench": 5,
           "chip": "wildcard",
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2805,7 +2886,7 @@
       "first_seen_gw": 1,
       "total_net": 491,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 60,
@@ -2878,6 +2959,15 @@
           "bench": 0,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2889,7 +2979,7 @@
       "first_seen_gw": 1,
       "total_net": 490,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 75,
@@ -2962,6 +3052,15 @@
           "bench": 1,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -2973,7 +3072,7 @@
       "first_seen_gw": 1,
       "total_net": 481,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 51,
@@ -3046,6 +3145,15 @@
           "bench": 0,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 3,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -3057,7 +3165,7 @@
       "first_seen_gw": 1,
       "total_net": 473,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 55,
@@ -3130,6 +3238,15 @@
           "bench": 12,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": "freehit",
+          "provisional": true
         }
       }
     },
@@ -3141,7 +3258,7 @@
       "first_seen_gw": 1,
       "total_net": 473,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 56,
@@ -3214,6 +3331,15 @@
           "bench": 12,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -3225,7 +3351,7 @@
       "first_seen_gw": 1,
       "total_net": 472,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 50,
@@ -3298,6 +3424,15 @@
           "bench": 0,
           "chip": "bboost",
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -3309,7 +3444,7 @@
       "first_seen_gw": 1,
       "total_net": 466,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 48,
@@ -3382,6 +3517,15 @@
           "bench": 0,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -3393,7 +3537,7 @@
       "first_seen_gw": 1,
       "total_net": 457,
       "hits_total": 12,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 57,
@@ -3466,6 +3610,15 @@
           "bench": 2,
           "chip": "freehit",
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -3477,7 +3630,7 @@
       "first_seen_gw": 1,
       "total_net": 438,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 42,
@@ -3550,6 +3703,15 @@
           "bench": 0,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     },
@@ -3561,7 +3723,7 @@
       "first_seen_gw": 1,
       "total_net": 434,
       "hits_total": 0,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 61,
@@ -3634,6 +3796,15 @@
           "bench": 0,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": "freehit",
+          "provisional": true
         }
       }
     },
@@ -3645,7 +3816,7 @@
       "first_seen_gw": 1,
       "total_net": 399,
       "hits_total": 12,
-      "gws_played": 8,
+      "gws_played": 9,
       "by_gw": {
         "1": {
           "net": 50,
@@ -3718,6 +3889,15 @@
           "bench": 0,
           "chip": null,
           "provisional": false
+        },
+        "9": {
+          "net": 0,
+          "points": 0,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": true
         }
       }
     }
