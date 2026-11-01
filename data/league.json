@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-31T20:42:42.246202+00:00",
+  "last_updated": "2026-11-01T02:43:35.523330+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -107,7 +107,7 @@
       "finished": false,
       "is_current": true,
       "period": 2,
-      "average_net": 0.0,
+      "average_net": 37.7,
       "played_count": 20
     },
     {
@@ -608,7 +608,7 @@
           "entry_id": 3839020,
           "player_name": "Jack Traynor",
           "entry_name": "Crystal Parish",
-          "net": 206,
+          "net": 255,
           "gws_played": 4,
           "in_league": true
         },
@@ -616,7 +616,7 @@
           "entry_id": 6678491,
           "player_name": "James Adamson",
           "entry_name": "aint too xabi",
-          "net": 205,
+          "net": 244,
           "gws_played": 4,
           "in_league": true
         },
@@ -624,15 +624,7 @@
           "entry_id": 3043159,
           "player_name": "Kevin Byrne",
           "entry_name": "Life gives u Lammens",
-          "net": 188,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 8234720,
-          "player_name": "Emmet Ring",
-          "entry_name": "Ringo's Dingos",
-          "net": 187,
+          "net": 239,
           "gws_played": 4,
           "in_league": true
         },
@@ -640,23 +632,15 @@
           "entry_id": 1744802,
           "player_name": "Liam Daly",
           "entry_name": "LifeGivesYouLammens",
-          "net": 187,
+          "net": 234,
           "gws_played": 4,
           "in_league": true
         },
         {
-          "entry_id": 5557770,
-          "player_name": "Simon Bell",
-          "entry_name": "Simo's11",
-          "net": 176,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 1006440,
-          "player_name": "jack hosford",
-          "entry_name": "Gabriel Magalhõss",
-          "net": 175,
+          "entry_id": 8234720,
+          "player_name": "Emmet Ring",
+          "entry_name": "Ringo's Dingos",
+          "net": 230,
           "gws_played": 4,
           "in_league": true
         },
@@ -664,79 +648,7 @@
           "entry_id": 5089901,
           "player_name": "kevin mangan",
           "entry_name": "Mangos Giants",
-          "net": 174,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 8053938,
-          "player_name": "Conor Fahy",
-          "entry_name": "WHOOP WHOOP",
-          "net": 168,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 3910497,
-          "player_name": "Jack Harbison",
-          "entry_name": "Hard4Haaland",
-          "net": 168,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 2717535,
-          "player_name": "Jack Polion",
-          "entry_name": "Yoro Wizard Harry",
-          "net": 166,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 6396566,
-          "player_name": "Ted Regan",
-          "entry_name": "What's on the Mainoo",
-          "net": 166,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 6872283,
-          "player_name": "andrew mcclean",
-          "entry_name": "McClean Sheet",
-          "net": 166,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 6232820,
-          "player_name": "Oliver McConkey",
-          "entry_name": "Saka Spudz n Rice",
-          "net": 161,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 7702079,
-          "player_name": "Sean Lynch",
-          "entry_name": "YourWirtzNightmare",
-          "net": 157,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 688197,
-          "player_name": "Jack Farrell",
-          "entry_name": "Ballon D'orgu",
-          "net": 156,
-          "gws_played": 4,
-          "in_league": true
-        },
-        {
-          "entry_id": 678888,
-          "player_name": "Conor Finnerty",
-          "entry_name": "thefinnertakesitall",
-          "net": 149,
+          "net": 217,
           "gws_played": 4,
           "in_league": true
         },
@@ -744,7 +656,95 @@
           "entry_id": 855990,
           "player_name": "Paul Adamson",
           "entry_name": "Paulzo Delfouneso",
-          "net": 144,
+          "net": 215,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 5557770,
+          "player_name": "Simon Bell",
+          "entry_name": "Simo's11",
+          "net": 214,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 678888,
+          "player_name": "Conor Finnerty",
+          "entry_name": "thefinnertakesitall",
+          "net": 204,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 1006440,
+          "player_name": "jack hosford",
+          "entry_name": "Gabriel Magalhõss",
+          "net": 201,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 688197,
+          "player_name": "Jack Farrell",
+          "entry_name": "Ballon D'orgu",
+          "net": 198,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 2717535,
+          "player_name": "Jack Polion",
+          "entry_name": "Yoro Wizard Harry",
+          "net": 196,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "What's on the Mainoo",
+          "net": 196,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 6232820,
+          "player_name": "Oliver McConkey",
+          "entry_name": "Saka Spudz n Rice",
+          "net": 193,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 3910497,
+          "player_name": "Jack Harbison",
+          "entry_name": "Hard4Haaland",
+          "net": 191,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 6872283,
+          "player_name": "andrew mcclean",
+          "entry_name": "McClean Sheet",
+          "net": 190,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 8053938,
+          "player_name": "Conor Fahy",
+          "entry_name": "WHOOP WHOOP",
+          "net": 183,
+          "gws_played": 4,
+          "in_league": true
+        },
+        {
+          "entry_id": 7702079,
+          "player_name": "Sean Lynch",
+          "entry_name": "YourWirtzNightmare",
+          "net": 177,
           "gws_played": 4,
           "in_league": true
         },
@@ -752,7 +752,7 @@
           "entry_id": 7454103,
           "player_name": "Stephen Traynor",
           "entry_name": "Pending Moderation",
-          "net": 132,
+          "net": 164,
           "gws_played": 4,
           "in_league": true
         },
@@ -760,7 +760,7 @@
           "entry_id": 7029474,
           "player_name": "Cathal Ryan",
           "entry_name": "Look me in Ndiaye",
-          "net": 113,
+          "net": 157,
           "gws_played": 4,
           "in_league": true
         }
@@ -2047,7 +2047,7 @@
       "entry_name": "LifeGivesYouLammens",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 547,
+      "total_net": 594,
       "hits_total": 0,
       "gws_played": 9,
       "by_gw": {
@@ -2124,104 +2124,11 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 47,
+          "points": 47,
           "hit": 0,
           "transfers": 3,
-          "bench": 0,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 8234720,
-      "player_name": "Emmet Ring",
-      "entry_name": "Ringo's Dingos",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 527,
-      "hits_total": 0,
-      "gws_played": 9,
-      "by_gw": {
-        "1": {
-          "net": 48,
-          "points": 48,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 9,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 106,
-          "points": 106,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 7,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 53,
-          "points": 53,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 12,
-          "chip": null,
-          "provisional": false
-        },
-        "4": {
-          "net": 74,
-          "points": 74,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 11,
-          "chip": "wildcard",
-          "provisional": false
-        },
-        "5": {
-          "net": 59,
-          "points": 59,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 6,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 73,
-          "points": 73,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 5,
-          "chip": null,
-          "provisional": false
-        },
-        "7": {
-          "net": 71,
-          "points": 71,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "8": {
-          "net": 43,
-          "points": 43,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 1,
-          "chip": null,
-          "provisional": false
-        },
-        "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 0,
+          "bench": 20,
           "chip": null,
           "provisional": true
         }
@@ -2233,7 +2140,7 @@
       "entry_name": "Crystal Parish",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 526,
+      "total_net": 575,
       "hits_total": 0,
       "gws_played": 9,
       "by_gw": {
@@ -2310,104 +2217,104 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 49,
+          "points": 49,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 3,
           "chip": "freehit",
           "provisional": true
         }
       }
     },
     {
-      "entry_id": 5089901,
-      "player_name": "kevin mangan",
-      "entry_name": "Mangos Giants",
+      "entry_id": 8234720,
+      "player_name": "Emmet Ring",
+      "entry_name": "Ringo's Dingos",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 520,
+      "total_net": 570,
       "hits_total": 0,
       "gws_played": 9,
       "by_gw": {
         "1": {
-          "net": 55,
-          "points": 55,
+          "net": 48,
+          "points": 48,
           "hit": 0,
           "transfers": 0,
-          "bench": 6,
+          "bench": 9,
           "chip": null,
           "provisional": false
         },
         "2": {
-          "net": 85,
-          "points": 85,
+          "net": 106,
+          "points": 106,
           "hit": 0,
-          "transfers": 1,
-          "bench": 20,
+          "transfers": 0,
+          "bench": 7,
           "chip": null,
           "provisional": false
         },
         "3": {
-          "net": 49,
-          "points": 49,
+          "net": 53,
+          "points": 53,
           "hit": 0,
-          "transfers": 0,
+          "transfers": 2,
           "bench": 12,
           "chip": null,
           "provisional": false
         },
         "4": {
-          "net": 93,
-          "points": 93,
+          "net": 74,
+          "points": 74,
           "hit": 0,
-          "transfers": 2,
-          "bench": 8,
-          "chip": null,
+          "transfers": 0,
+          "bench": 11,
+          "chip": "wildcard",
           "provisional": false
         },
         "5": {
-          "net": 64,
-          "points": 64,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 69,
-          "points": 69,
+          "net": 59,
+          "points": 59,
           "hit": 0,
           "transfers": 1,
           "bench": 6,
           "chip": null,
           "provisional": false
         },
-        "7": {
+        "6": {
           "net": 73,
           "points": 73,
           "hit": 0,
           "transfers": 0,
-          "bench": 2,
-          "chip": "wildcard",
+          "bench": 5,
+          "chip": null,
+          "provisional": false
+        },
+        "7": {
+          "net": 71,
+          "points": 71,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 3,
+          "chip": null,
           "provisional": false
         },
         "8": {
-          "net": 32,
-          "points": 32,
+          "net": 43,
+          "points": 43,
           "hit": 0,
           "transfers": 0,
-          "bench": 4,
+          "bench": 1,
           "chip": null,
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 43,
+          "points": 43,
           "hit": 0,
-          "transfers": 1,
-          "bench": 0,
+          "transfers": 2,
+          "bench": 3,
           "chip": null,
           "provisional": true
         }
@@ -2419,7 +2326,7 @@
       "entry_name": "Life gives u Lammens",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 517,
+      "total_net": 568,
       "hits_total": 0,
       "gws_played": 9,
       "by_gw": {
@@ -2496,11 +2403,104 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 51,
+          "points": 51,
           "hit": 0,
           "transfers": 2,
-          "bench": 0,
+          "bench": 6,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 5089901,
+      "player_name": "kevin mangan",
+      "entry_name": "Mangos Giants",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 563,
+      "hits_total": 0,
+      "gws_played": 9,
+      "by_gw": {
+        "1": {
+          "net": 55,
+          "points": 55,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 6,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 85,
+          "points": 85,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 20,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 49,
+          "points": 49,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 12,
+          "chip": null,
+          "provisional": false
+        },
+        "4": {
+          "net": 93,
+          "points": 93,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 8,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 64,
+          "points": 64,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 69,
+          "points": 69,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 6,
+          "chip": null,
+          "provisional": false
+        },
+        "7": {
+          "net": 73,
+          "points": 73,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
+          "chip": "wildcard",
+          "provisional": false
+        },
+        "8": {
+          "net": 32,
+          "points": 32,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "9": {
+          "net": 43,
+          "points": 43,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 8,
           "chip": null,
           "provisional": true
         }
@@ -2512,7 +2512,7 @@
       "entry_name": "Yoro Wizard Harry",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 516,
+      "total_net": 546,
       "hits_total": 4,
       "gws_played": 9,
       "by_gw": {
@@ -2589,569 +2589,11 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 0,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 1006440,
-      "player_name": "jack hosford",
-      "entry_name": "Gabriel Magalhõss",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 501,
-      "hits_total": 0,
-      "gws_played": 9,
-      "by_gw": {
-        "1": {
-          "net": 65,
-          "points": 65,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 79,
-          "points": 79,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 43,
-          "points": 43,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 6,
-          "chip": "3xc",
-          "provisional": false
-        },
-        "4": {
-          "net": 98,
-          "points": 98,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 1,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
-          "net": 41,
-          "points": 41,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 26,
-          "chip": "wildcard",
-          "provisional": false
-        },
-        "6": {
-          "net": 38,
-          "points": 38,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 23,
-          "chip": null,
-          "provisional": false
-        },
-        "7": {
-          "net": 71,
-          "points": 71,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 14,
-          "chip": null,
-          "provisional": false
-        },
-        "8": {
-          "net": 66,
-          "points": 66,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 8053938,
-      "player_name": "Conor Fahy",
-      "entry_name": "WHOOP WHOOP",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 498,
-      "hits_total": 0,
-      "gws_played": 9,
-      "by_gw": {
-        "1": {
-          "net": 62,
-          "points": 62,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 8,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 81,
-          "points": 81,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 1,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 50,
-          "points": 50,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 11,
-          "chip": "freehit",
-          "provisional": false
-        },
-        "4": {
-          "net": 77,
-          "points": 77,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 8,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
-          "net": 60,
-          "points": 60,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 61,
-          "points": 61,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 9,
-          "chip": null,
-          "provisional": false
-        },
-        "7": {
-          "net": 60,
-          "points": 60,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 5,
-          "chip": null,
-          "provisional": false
-        },
-        "8": {
-          "net": 47,
-          "points": 47,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 9,
-          "chip": null,
-          "provisional": false
-        },
-        "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 688197,
-      "player_name": "Jack Farrell",
-      "entry_name": "Ballon D'orgu",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 497,
-      "hits_total": 0,
-      "gws_played": 9,
-      "by_gw": {
-        "1": {
-          "net": 48,
-          "points": 48,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 84,
-          "points": 84,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 7,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 56,
-          "points": 56,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 9,
-          "chip": "3xc",
-          "provisional": false
-        },
-        "4": {
-          "net": 87,
-          "points": 87,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
-          "net": 66,
-          "points": 66,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 2,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 56,
-          "points": 56,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "7": {
-          "net": 59,
-          "points": 59,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "8": {
-          "net": 41,
-          "points": 41,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 5,
-          "chip": "wildcard",
-          "provisional": false
-        },
-        "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 0,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 6678491,
-      "player_name": "James Adamson",
-      "entry_name": "aint too xabi",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 491,
-      "hits_total": 0,
-      "gws_played": 9,
-      "by_gw": {
-        "1": {
-          "net": 60,
-          "points": 60,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 84,
-          "points": 84,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 4,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 41,
-          "points": 41,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": false
-        },
-        "4": {
-          "net": 71,
-          "points": 71,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 2,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
           "net": 30,
           "points": 30,
           "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 68,
-          "points": 68,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "7": {
-          "net": 75,
-          "points": 75,
-          "hit": 0,
-          "transfers": 4,
-          "bench": 2,
-          "chip": "3xc",
-          "provisional": false
-        },
-        "8": {
-          "net": 62,
-          "points": 62,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 0,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 6396566,
-      "player_name": "Ted Regan",
-      "entry_name": "What's on the Mainoo",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 490,
-      "hits_total": 0,
-      "gws_played": 9,
-      "by_gw": {
-        "1": {
-          "net": 75,
-          "points": 75,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 78,
-          "points": 78,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 7,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 57,
-          "points": 57,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 6,
-          "chip": null,
-          "provisional": false
-        },
-        "4": {
-          "net": 77,
-          "points": 77,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 5,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
-          "net": 37,
-          "points": 37,
-          "hit": 0,
           "transfers": 1,
           "bench": 4,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 61,
-          "points": 61,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 1,
-          "chip": null,
-          "provisional": false
-        },
-        "7": {
-          "net": 60,
-          "points": 60,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 6,
-          "chip": null,
-          "provisional": false
-        },
-        "8": {
-          "net": 45,
-          "points": 45,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 1,
-          "chip": null,
-          "provisional": false
-        },
-        "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 678888,
-      "player_name": "Conor Finnerty",
-      "entry_name": "thefinnertakesitall",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 481,
-      "hits_total": 0,
-      "gws_played": 9,
-      "by_gw": {
-        "1": {
-          "net": 51,
-          "points": 51,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 4,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 98,
-          "points": 98,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 5,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 66,
-          "points": 66,
-          "hit": 0,
-          "transfers": 2,
-          "bench": 5,
-          "chip": "3xc",
-          "provisional": false
-        },
-        "4": {
-          "net": 67,
-          "points": 67,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 1,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
-          "net": 50,
-          "points": 50,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 33,
-          "points": 33,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 18,
-          "chip": "freehit",
-          "provisional": false
-        },
-        "7": {
-          "net": 65,
-          "points": 65,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 2,
-          "chip": null,
-          "provisional": false
-        },
-        "8": {
-          "net": 51,
-          "points": 51,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 3,
-          "bench": 0,
           "chip": null,
           "provisional": true
         }
@@ -3163,7 +2605,7 @@
       "entry_name": "Paulzo Delfouneso",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 473,
+      "total_net": 544,
       "hits_total": 0,
       "gws_played": 9,
       "by_gw": {
@@ -3240,12 +2682,570 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 71,
+          "points": 71,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 13,
+          "chip": "freehit",
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 688197,
+      "player_name": "Jack Farrell",
+      "entry_name": "Ballon D'orgu",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 539,
+      "hits_total": 0,
+      "gws_played": 9,
+      "by_gw": {
+        "1": {
+          "net": 48,
+          "points": 48,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 84,
+          "points": 84,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 7,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 56,
+          "points": 56,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 9,
+          "chip": "3xc",
+          "provisional": false
+        },
+        "4": {
+          "net": 87,
+          "points": 87,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 0,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 66,
+          "points": 66,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 56,
+          "points": 56,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "7": {
+          "net": 59,
+          "points": 59,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 0,
+          "chip": null,
+          "provisional": false
+        },
+        "8": {
+          "net": 41,
+          "points": 41,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 5,
+          "chip": "wildcard",
+          "provisional": false
+        },
+        "9": {
+          "net": 42,
+          "points": 42,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 19,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 678888,
+      "player_name": "Conor Finnerty",
+      "entry_name": "thefinnertakesitall",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 536,
+      "hits_total": 0,
+      "gws_played": 9,
+      "by_gw": {
+        "1": {
+          "net": 51,
+          "points": 51,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 98,
+          "points": 98,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 5,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 66,
+          "points": 66,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 5,
+          "chip": "3xc",
+          "provisional": false
+        },
+        "4": {
+          "net": 67,
+          "points": 67,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 1,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 50,
+          "points": 50,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 0,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 33,
+          "points": 33,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 18,
+          "chip": "freehit",
+          "provisional": false
+        },
+        "7": {
+          "net": 65,
+          "points": 65,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 2,
+          "chip": null,
+          "provisional": false
+        },
+        "8": {
+          "net": 51,
+          "points": 51,
           "hit": 0,
           "transfers": 0,
           "bench": 0,
+          "chip": null,
+          "provisional": false
+        },
+        "9": {
+          "net": 55,
+          "points": 55,
+          "hit": 0,
+          "transfers": 3,
+          "bench": 1,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 6678491,
+      "player_name": "James Adamson",
+      "entry_name": "aint too xabi",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 530,
+      "hits_total": 0,
+      "gws_played": 9,
+      "by_gw": {
+        "1": {
+          "net": 60,
+          "points": 60,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 84,
+          "points": 84,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 41,
+          "points": 41,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "4": {
+          "net": 71,
+          "points": 71,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 2,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 30,
+          "points": 30,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 68,
+          "points": 68,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": false
+        },
+        "7": {
+          "net": 75,
+          "points": 75,
+          "hit": 0,
+          "transfers": 4,
+          "bench": 2,
+          "chip": "3xc",
+          "provisional": false
+        },
+        "8": {
+          "net": 62,
+          "points": 62,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 0,
+          "chip": null,
+          "provisional": false
+        },
+        "9": {
+          "net": 39,
+          "points": 39,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 7,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 1006440,
+      "player_name": "jack hosford",
+      "entry_name": "Gabriel Magalhõss",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 527,
+      "hits_total": 0,
+      "gws_played": 9,
+      "by_gw": {
+        "1": {
+          "net": 65,
+          "points": 65,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 79,
+          "points": 79,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 43,
+          "points": 43,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 6,
+          "chip": "3xc",
+          "provisional": false
+        },
+        "4": {
+          "net": 98,
+          "points": 98,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 1,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 41,
+          "points": 41,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 26,
+          "chip": "wildcard",
+          "provisional": false
+        },
+        "6": {
+          "net": 38,
+          "points": 38,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 23,
+          "chip": null,
+          "provisional": false
+        },
+        "7": {
+          "net": 71,
+          "points": 71,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 14,
+          "chip": null,
+          "provisional": false
+        },
+        "8": {
+          "net": 66,
+          "points": 66,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "9": {
+          "net": 26,
+          "points": 26,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 12,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 6396566,
+      "player_name": "Ted Regan",
+      "entry_name": "What's on the Mainoo",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 520,
+      "hits_total": 0,
+      "gws_played": 9,
+      "by_gw": {
+        "1": {
+          "net": 75,
+          "points": 75,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 78,
+          "points": 78,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 7,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 57,
+          "points": 57,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 6,
+          "chip": null,
+          "provisional": false
+        },
+        "4": {
+          "net": 77,
+          "points": 77,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 5,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 37,
+          "points": 37,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 4,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 61,
+          "points": 61,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 1,
+          "chip": null,
+          "provisional": false
+        },
+        "7": {
+          "net": 60,
+          "points": 60,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 6,
+          "chip": null,
+          "provisional": false
+        },
+        "8": {
+          "net": 45,
+          "points": 45,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 1,
+          "chip": null,
+          "provisional": false
+        },
+        "9": {
+          "net": 30,
+          "points": 30,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 6,
+          "chip": null,
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 8053938,
+      "player_name": "Conor Fahy",
+      "entry_name": "WHOOP WHOOP",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 513,
+      "hits_total": 0,
+      "gws_played": 9,
+      "by_gw": {
+        "1": {
+          "net": 62,
+          "points": 62,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 8,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 81,
+          "points": 81,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 1,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 50,
+          "points": 50,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 11,
           "chip": "freehit",
+          "provisional": false
+        },
+        "4": {
+          "net": 77,
+          "points": 77,
+          "hit": 0,
+          "transfers": 2,
+          "bench": 8,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 60,
+          "points": 60,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 61,
+          "points": 61,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 9,
+          "chip": null,
+          "provisional": false
+        },
+        "7": {
+          "net": 60,
+          "points": 60,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 5,
+          "chip": null,
+          "provisional": false
+        },
+        "8": {
+          "net": 47,
+          "points": 47,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 9,
+          "chip": null,
+          "provisional": false
+        },
+        "9": {
+          "net": 15,
+          "points": 15,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 13,
+          "chip": null,
           "provisional": true
         }
       }
@@ -3256,7 +3256,7 @@
       "entry_name": "Simo's11",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 473,
+      "total_net": 511,
       "hits_total": 0,
       "gws_played": 9,
       "by_gw": {
@@ -3333,11 +3333,11 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 38,
+          "points": 38,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 3,
           "chip": null,
           "provisional": true
         }
@@ -3349,7 +3349,7 @@
       "entry_name": "Saka Spudz n Rice",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 472,
+      "total_net": 504,
       "hits_total": 0,
       "gws_played": 9,
       "by_gw": {
@@ -3426,11 +3426,11 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 32,
+          "points": 32,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 7,
           "chip": null,
           "provisional": true
         }
@@ -3442,7 +3442,7 @@
       "entry_name": "Hard4Haaland",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 466,
+      "total_net": 489,
       "hits_total": 0,
       "gws_played": 9,
       "by_gw": {
@@ -3519,11 +3519,11 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 23,
+          "points": 23,
           "hit": 0,
           "transfers": 1,
-          "bench": 0,
+          "bench": 3,
           "chip": null,
           "provisional": true
         }
@@ -3535,7 +3535,7 @@
       "entry_name": "McClean Sheet",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 457,
+      "total_net": 481,
       "hits_total": 12,
       "gws_played": 9,
       "by_gw": {
@@ -3612,104 +3612,11 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": true
-        }
-      }
-    },
-    {
-      "entry_id": 7702079,
-      "player_name": "Sean Lynch",
-      "entry_name": "YourWirtzNightmare",
-      "in_league": true,
-      "first_seen_gw": 1,
-      "total_net": 438,
-      "hits_total": 0,
-      "gws_played": 9,
-      "by_gw": {
-        "1": {
-          "net": 42,
-          "points": 42,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 8,
-          "chip": null,
-          "provisional": false
-        },
-        "2": {
-          "net": 91,
-          "points": 91,
+          "net": 24,
+          "points": 24,
           "hit": 0,
           "transfers": 0,
           "bench": 3,
-          "chip": null,
-          "provisional": false
-        },
-        "3": {
-          "net": 54,
-          "points": 54,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 16,
-          "chip": null,
-          "provisional": false
-        },
-        "4": {
-          "net": 52,
-          "points": 52,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 12,
-          "chip": null,
-          "provisional": false
-        },
-        "5": {
-          "net": 42,
-          "points": 42,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 9,
-          "chip": null,
-          "provisional": false
-        },
-        "6": {
-          "net": 49,
-          "points": 49,
-          "hit": 0,
-          "transfers": 1,
-          "bench": 0,
-          "chip": "3xc",
-          "provisional": false
-        },
-        "7": {
-          "net": 53,
-          "points": 53,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 13,
-          "chip": null,
-          "provisional": false
-        },
-        "8": {
-          "net": 55,
-          "points": 55,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
-          "chip": null,
-          "provisional": false
-        },
-        "9": {
-          "net": 0,
-          "points": 0,
-          "hit": 0,
-          "transfers": 0,
-          "bench": 0,
           "chip": null,
           "provisional": true
         }
@@ -3721,7 +3628,7 @@
       "entry_name": "Look me in Ndiaye",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 434,
+      "total_net": 478,
       "hits_total": 0,
       "gws_played": 9,
       "by_gw": {
@@ -3798,12 +3705,105 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 44,
+          "points": 44,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 6,
+          "chip": "freehit",
+          "provisional": true
+        }
+      }
+    },
+    {
+      "entry_id": 7702079,
+      "player_name": "Sean Lynch",
+      "entry_name": "YourWirtzNightmare",
+      "in_league": true,
+      "first_seen_gw": 1,
+      "total_net": 458,
+      "hits_total": 0,
+      "gws_played": 9,
+      "by_gw": {
+        "1": {
+          "net": 42,
+          "points": 42,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 8,
+          "chip": null,
+          "provisional": false
+        },
+        "2": {
+          "net": 91,
+          "points": 91,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 3,
+          "chip": null,
+          "provisional": false
+        },
+        "3": {
+          "net": 54,
+          "points": 54,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 16,
+          "chip": null,
+          "provisional": false
+        },
+        "4": {
+          "net": 52,
+          "points": 52,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 12,
+          "chip": null,
+          "provisional": false
+        },
+        "5": {
+          "net": 42,
+          "points": 42,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 9,
+          "chip": null,
+          "provisional": false
+        },
+        "6": {
+          "net": 49,
+          "points": 49,
+          "hit": 0,
+          "transfers": 1,
+          "bench": 0,
+          "chip": "3xc",
+          "provisional": false
+        },
+        "7": {
+          "net": 53,
+          "points": 53,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 13,
+          "chip": null,
+          "provisional": false
+        },
+        "8": {
+          "net": 55,
+          "points": 55,
           "hit": 0,
           "transfers": 0,
           "bench": 0,
-          "chip": "freehit",
+          "chip": null,
+          "provisional": false
+        },
+        "9": {
+          "net": 20,
+          "points": 20,
+          "hit": 0,
+          "transfers": 0,
+          "bench": 8,
+          "chip": null,
           "provisional": true
         }
       }
@@ -3814,7 +3814,7 @@
       "entry_name": "Pending Moderation",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 399,
+      "total_net": 431,
       "hits_total": 12,
       "gws_played": 9,
       "by_gw": {
@@ -3891,11 +3891,11 @@
           "provisional": false
         },
         "9": {
-          "net": 0,
-          "points": 0,
+          "net": 32,
+          "points": 32,
           "hit": 0,
           "transfers": 0,
-          "bench": 0,
+          "bench": 2,
           "chip": null,
           "provisional": true
         }
