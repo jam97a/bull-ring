@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-03T13:04:01.450385+00:00",
+  "last_updated": "2026-11-03T22:36:36.994582+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -104,7 +104,7 @@
       "id": 9,
       "name": "Gameweek 9",
       "deadline_time": "2026-10-31T11:00:00Z",
-      "finished": false,
+      "finished": true,
       "is_current": true,
       "period": 2,
       "average_net": 52.5,
@@ -779,8 +779,8 @@
         "amount_each": 25.0,
         "resolved_by": "net_points"
       },
-      "complete": false,
-      "remaining_gws": 1,
+      "complete": true,
+      "remaining_gws": 0,
       "prize_1st": 50.0,
       "prize_2nd": 25.0,
       "is_current": true
@@ -2130,7 +2130,7 @@
           "transfers": 3,
           "bench": 26,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2223,7 +2223,7 @@
           "transfers": 2,
           "bench": 3,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2316,7 +2316,7 @@
           "transfers": 0,
           "bench": 13,
           "chip": "freehit",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2409,7 +2409,7 @@
           "transfers": 2,
           "bench": 12,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2502,7 +2502,7 @@
           "transfers": 1,
           "bench": 4,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2595,7 +2595,7 @@
           "transfers": 1,
           "bench": 6,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2688,7 +2688,7 @@
           "transfers": 1,
           "bench": 25,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2781,7 +2781,7 @@
           "transfers": 2,
           "bench": 7,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2874,7 +2874,7 @@
           "transfers": 0,
           "bench": 3,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2967,7 +2967,7 @@
           "transfers": 0,
           "bench": 6,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3060,7 +3060,7 @@
           "transfers": 0,
           "bench": 13,
           "chip": "freehit",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3153,7 +3153,7 @@
           "transfers": 3,
           "bench": 12,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3246,7 +3246,7 @@
           "transfers": 0,
           "bench": 4,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3339,7 +3339,7 @@
           "transfers": 0,
           "bench": 4,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3432,7 +3432,7 @@
           "transfers": 0,
           "bench": 3,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3525,7 +3525,7 @@
           "transfers": 1,
           "bench": 3,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3618,7 +3618,7 @@
           "transfers": 0,
           "bench": 0,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3711,7 +3711,7 @@
           "transfers": 0,
           "bench": 6,
           "chip": "freehit",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3804,7 +3804,7 @@
           "transfers": 0,
           "bench": 8,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3897,12 +3897,21 @@
           "transfers": 0,
           "bench": 0,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     }
   ],
   "prize_table": [
+    {
+      "entry_id": 6678491,
+      "player_name": "James Adamson",
+      "entry_name": "aint too xabi",
+      "prizes_won": 1,
+      "money_won": 50.0,
+      "net_position": 0.0,
+      "in_league": true
+    },
     {
       "entry_id": 1744802,
       "player_name": "Liam Daly",
@@ -3916,6 +3925,15 @@
       "entry_id": 2717535,
       "player_name": "Jack Polion",
       "entry_name": "Yoro Wizard Harry",
+      "prizes_won": 1,
+      "money_won": 25.0,
+      "net_position": -25.0,
+      "in_league": true
+    },
+    {
+      "entry_id": 3839020,
+      "player_name": "Jack Traynor",
+      "entry_name": "Crystal Parish",
       "prizes_won": 1,
       "money_won": 25.0,
       "net_position": -25.0,
@@ -3970,24 +3988,6 @@
       "entry_id": 3910497,
       "player_name": "Jack Harbison",
       "entry_name": "Hard4Haaland",
-      "prizes_won": 0,
-      "money_won": 0.0,
-      "net_position": -50.0,
-      "in_league": true
-    },
-    {
-      "entry_id": 3839020,
-      "player_name": "Jack Traynor",
-      "entry_name": "Crystal Parish",
-      "prizes_won": 0,
-      "money_won": 0.0,
-      "net_position": -50.0,
-      "in_league": true
-    },
-    {
-      "entry_id": 6678491,
-      "player_name": "James Adamson",
-      "entry_name": "aint too xabi",
       "prizes_won": 0,
       "money_won": 0.0,
       "net_position": -50.0,

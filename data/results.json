@@ -16,6 +16,23 @@
         "resolved_by": "net_points"
       },
       "recorded_at": "2026-09-21T17:14:20.801550+00:00"
+    },
+    "2": {
+      "first": {
+        "entry_ids": [
+          6678491
+        ],
+        "amount_each": 50.0,
+        "resolved_by": "net_points"
+      },
+      "second": {
+        "entry_ids": [
+          3839020
+        ],
+        "amount_each": 25.0,
+        "resolved_by": "net_points"
+      },
+      "recorded_at": "2026-11-03T22:36:36.993654+00:00"
     }
   }
 }
