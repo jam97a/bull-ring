@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-24T03:29:44.446554+00:00",
+  "last_updated": "2026-11-24T16:32:22.461533+00:00",
   "league": {
     "id": 1472020,
     "name": "Bull Ring 26/27",
@@ -124,10 +124,10 @@
       "id": 11,
       "name": "Gameweek 11",
       "deadline_time": "2026-11-21T11:00:00Z",
-      "finished": false,
+      "finished": true,
       "is_current": true,
       "period": 3,
-      "average_net": 35.6,
+      "average_net": 36.2,
       "played_count": 20
     },
     {
@@ -875,6 +875,14 @@
           "in_league": true
         },
         {
+          "entry_id": 7454103,
+          "player_name": "Stephen Traynor",
+          "entry_name": "uh ah get out",
+          "net": 89,
+          "gws_played": 2,
+          "in_league": true
+        },
+        {
           "entry_id": 8234720,
           "player_name": "Emmet Ring",
           "entry_name": "Ringo's Dingos",
@@ -886,7 +894,7 @@
           "entry_id": 1006440,
           "player_name": "jack hosford",
           "entry_name": "Gabriel Magalhõss",
-          "net": 85,
+          "net": 86,
           "gws_played": 2,
           "in_league": true
         },
@@ -894,15 +902,15 @@
           "entry_id": 5557770,
           "player_name": "Simon Bell",
           "entry_name": "Simo's11",
-          "net": 84,
+          "net": 85,
           "gws_played": 2,
           "in_league": true
         },
         {
-          "entry_id": 7454103,
-          "player_name": "Stephen Traynor",
-          "entry_name": "uh ah get out",
-          "net": 83,
+          "entry_id": 6396566,
+          "player_name": "Ted Regan",
+          "entry_name": "What's on the Mainoo",
+          "net": 84,
           "gws_played": 2,
           "in_league": true
         },
@@ -911,14 +919,6 @@
           "player_name": "andrew mcclean",
           "entry_name": "McClean Sheet",
           "net": 83,
-          "gws_played": 2,
-          "in_league": true
-        },
-        {
-          "entry_id": 6396566,
-          "player_name": "Ted Regan",
-          "entry_name": "What's on the Mainoo",
-          "net": 82,
           "gws_played": 2,
           "in_league": true
         },
@@ -942,7 +942,7 @@
           "entry_id": 6232820,
           "player_name": "Oliver McConkey",
           "entry_name": "Saka Spudz n Rice",
-          "net": 71,
+          "net": 72,
           "gws_played": 2,
           "in_league": true
         },
@@ -970,7 +970,7 @@
         "resolved_by": "highest_single_gw"
       },
       "complete": false,
-      "remaining_gws": 2,
+      "remaining_gws": 1,
       "prize_1st": 50.0,
       "prize_2nd": 25.0,
       "is_current": true
@@ -2160,7 +2160,7 @@
           "transfers": 0,
           "bench": 10,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2271,7 +2271,7 @@
           "transfers": 0,
           "bench": 12,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2382,7 +2382,7 @@
           "transfers": 4,
           "bench": 5,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2493,7 +2493,7 @@
           "transfers": 1,
           "bench": 4,
           "chip": "3xc",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2604,7 +2604,7 @@
           "transfers": 0,
           "bench": 14,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2715,7 +2715,7 @@
           "transfers": 0,
           "bench": 3,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2826,7 +2826,7 @@
           "transfers": 0,
           "bench": 1,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2937,7 +2937,7 @@
           "transfers": 0,
           "bench": 6,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -2947,7 +2947,7 @@
       "entry_name": "Gabriel Magalhõss",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 632,
+      "total_net": 633,
       "hits_total": 0,
       "gws_played": 11,
       "by_gw": {
@@ -3042,13 +3042,13 @@
           "provisional": false
         },
         "11": {
-          "net": 40,
-          "points": 40,
+          "net": 41,
+          "points": 41,
           "hit": 0,
           "transfers": 0,
-          "bench": 15,
+          "bench": 14,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3159,7 +3159,7 @@
           "transfers": 1,
           "bench": 14,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3169,7 +3169,7 @@
       "entry_name": "What's on the Mainoo",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 617,
+      "total_net": 619,
       "hits_total": 0,
       "gws_played": 11,
       "by_gw": {
@@ -3264,13 +3264,13 @@
           "provisional": false
         },
         "11": {
-          "net": 45,
-          "points": 45,
+          "net": 47,
+          "points": 47,
           "hit": 0,
           "transfers": 0,
-          "bench": 14,
+          "bench": 12,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3280,7 +3280,7 @@
       "entry_name": "Simo's11",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 616,
+      "total_net": 617,
       "hits_total": 0,
       "gws_played": 11,
       "by_gw": {
@@ -3375,13 +3375,13 @@
           "provisional": false
         },
         "11": {
-          "net": 30,
-          "points": 30,
+          "net": 31,
+          "points": 31,
           "hit": 0,
           "transfers": 0,
-          "bench": 12,
+          "bench": 11,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3492,7 +3492,7 @@
           "transfers": 1,
           "bench": 11,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3603,7 +3603,7 @@
           "transfers": 0,
           "bench": 1,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3714,7 +3714,7 @@
           "transfers": 0,
           "bench": 13,
           "chip": "wildcard",
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3724,7 +3724,7 @@
       "entry_name": "Saka Spudz n Rice",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 600,
+      "total_net": 601,
       "hits_total": 0,
       "gws_played": 11,
       "by_gw": {
@@ -3819,13 +3819,13 @@
           "provisional": false
         },
         "11": {
-          "net": 14,
-          "points": 14,
+          "net": 15,
+          "points": 15,
           "hit": 0,
           "transfers": 2,
-          "bench": 1,
+          "bench": 0,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -3936,7 +3936,7 @@
           "transfers": 0,
           "bench": 3,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -4047,7 +4047,7 @@
           "transfers": 0,
           "bench": 1,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -4158,7 +4158,7 @@
           "transfers": 3,
           "bench": 3,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     },
@@ -4168,7 +4168,7 @@
       "entry_name": "uh ah get out",
       "in_league": true,
       "first_seen_gw": 1,
-      "total_net": 519,
+      "total_net": 525,
       "hits_total": 12,
       "gws_played": 11,
       "by_gw": {
@@ -4263,13 +4263,13 @@
           "provisional": false
         },
         "11": {
-          "net": 37,
-          "points": 37,
+          "net": 43,
+          "points": 43,
           "hit": 0,
           "transfers": 2,
-          "bench": 7,
+          "bench": 1,
           "chip": null,
-          "provisional": true
+          "provisional": false
         }
       }
     }
